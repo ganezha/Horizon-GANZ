@@ -1,56 +1,124 @@
 ---
 layout: default
-title: Home
+title: Horizon GANZ
 ---
 
-# Horizon
+<style>
+  body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+  }
+  .page-header {
+    background: linear-gradient(135deg, #1e293b 0%, #312e81 50%, #0f172a 100%) !important;
+    padding: 3rem 1.5rem !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .project-name {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+  }
+  .project-tagline {
+    color: #cbd5e1 !important;
+    opacity: 0.9 !important;
+  }
+  .btn {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    border-radius: 999px !important;
+    color: #f8fafc !important;
+    padding: 0.55rem 1.2rem !important;
+    transition: all 0.2s ease;
+  }
+  .btn:hover {
+    background: rgba(255,255,255,0.16) !important;
+    transform: translateY(-1px);
+  }
+  .main-content {
+    max-width: 820px !important;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem !important;
+  }
+  .main-content h1, .main-content h2, .main-content h3 {
+    color: #f8fafc !important;
+    border-bottom: none !important;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.18);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .digest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 1.25rem;
+  }
+  .digest-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #1e293b;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 16px;
+    padding: 1.25rem;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .digest-card:hover {
+    transform: translateY(-3px);
+    border-color: #818cf8;
+    background: #253349;
+  }
+  .digest-date {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 6px;
+  }
+  .digest-sub {
+    font-size: 0.85rem;
+    color: #94a3b8;
+  }
+  .digest-arrow {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #818cf8;
+  }
+  .site-footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.15) !important;
+    color: #64748b !important;
+  }
+  .site-footer a {
+    color: #94a3b8 !important;
+  }
+</style>
 
-<div id="lang-zh" class="lang-section" markdown="1">
+<div class="hero-badge">📡 AI News Radar</div>
 
-欢迎来到 [Horizon](https://github.com/thysrael/Horizon)，一个 AI 驱动的信息聚合系统。
+## Edisi Berita Harian
 
-## 文档
+Selamat datang di koran AI pribadi kamu. Pilih tanggal di bawah ini untuk membaca rangkuman berita pilihan hari ini:
 
-- [配置指南](configuration) — AI 提供商、信息源、过滤规则与环境变量替换
-- [信息源采集器](scrapers) — Horizon 如何从 GitHub、Hacker News、RSS、Reddit 采集内容
-- [评分系统](scoring) — 基于 AI 的内容分析与 0-10 评分体系
-
-## 每日速递 <a class="rss-icon" href="{{ '/feed-zh.xml' | relative_url }}" aria-label="订阅中文"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg></a>
-
-<ul>
-  {% assign zh_posts = site.posts | where: "lang", "zh" %}
-  {% for post in zh_posts limit:20 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.date | date: "%Y-%m-%d" }}</a>
-    </li>
-  {% else %}
-    <li><em>暂无内容</em></li>
-  {% endfor %}
-</ul>
-
-</div>
-
-<div id="lang-en" class="lang-section" markdown="1">
-
-Welcome to [Horizon](https://github.com/thysrael/Horizon), an AI-driven information aggregation system.
-
-## Documentation
-
-- [Configuration Guide](configuration) — AI providers, information sources, filtering, and environment variable substitution
-- [Source Scrapers](scrapers) — How Horizon collects content from GitHub, Hacker News, RSS, and Reddit
-- [Scoring System](scoring) — AI-based content analysis and the 0-10 scoring scale
-
-## Daily Digest <a class="rss-icon" href="{{ '/feed-en.xml' | relative_url }}" aria-label="Subscribe English"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg></a>
-
-<ul>
+<div class="digest-grid">
   {% assign en_posts = site.posts | where: "lang", "en" %}
-  {% for post in en_posts limit:20 %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.date | date: "%Y-%m-%d" }}</a>
-    </li>
+  {% for post in en_posts limit:30 %}
+    <a class="digest-card" href="{{ post.url | relative_url }}">
+      <div>
+        <div class="digest-date">📅 {{ post.date | date: "%d %b %Y" }}</div>
+        <div class="digest-sub">Rangkuman Harian AI</div>
+      </div>
+      <div class="digest-arrow">Baca sekarang →</div>
+    </a>
   {% else %}
-    <li><em>No posts yet</em></li>
+    <p style="color:#94a3b8;">Belum ada edisi berita. Jalankan workflow di GitHub Actions untuk membuat edisi pertama.</p>
   {% endfor %}
-</ul>
-
 </div>
