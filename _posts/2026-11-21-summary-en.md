@@ -10,12 +10,12 @@ lang: en
 ---
 
 **Technology News**
-1. [Navier–Stokes blow-up claim draws questions about external forcing](#item-tech-news-1) ⭐️ 8.0/10
-2. [Inkling 2 Mini brings a looped transformer to local inference](#item-tech-news-2) ⭐️ 8.0/10
-3. [Hacker News Discusses Lean Checks for Navier–Stokes and Riemann Claims](#item-tech-news-3) ⭐️ 8.0/10
-4. [Levent Alpöge claims a proof of the Generalized Riemann Hypothesis](#item-tech-news-4) ⭐️ 8.0/10
-5. [Preprint Reports a Language Model Editing Its Own Weights Without Gradients](#item-tech-news-5) ⭐️ 7.0/10
-6. [Signal raises concerns about mobile AI agents accessing private chats](#item-tech-news-6) ⭐️ 7.0/10
+1. [Inkling 2 Mini is an open-weight model with a looped Transformer](#item-tech-news-1) ⭐️ 8.0/10
+2. [Navier–Stokes Singularities and the Generalized Riemann Hypothesis Prompt Lean Debate](#item-tech-news-2) ⭐️ 8.0/10
+3. [Alessandro Masullo Claims a Proof of the Generalized Riemann Hypothesis](#item-tech-news-3) ⭐️ 7.0/10
+4. [Nasdaq loses 2026 gains as AI sell-off weighs on Anthropic](#item-tech-news-4) ⭐️ 7.0/10
+5. [ArXiv Paper Reports Gradient-Free Self-Editing of Language Model Weights](#item-tech-news-5) ⭐️ 7.0/10
+6. [Levent Alpöge claims proof of the Generalized Riemann Hypothesis](#item-tech-news-6) ⭐️ 7.0/10
 
 **Financial News**
 1. [U.S. companies issue more shares than they buy back](#item-finance-news-1) ⭐️ 8.0/10
@@ -25,140 +25,136 @@ lang: en
 ## Technology News
 
 <a id="item-tech-news-1"></a>
-### [Navier–Stokes blow-up claim draws questions about external forcing](https://github.com/tristanbuckmaster/navier-stokes/) ⭐️ 8.0/10
+### [Inkling 2 Mini is an open-weight model with a looped Transformer](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
 
-A GitHub repository titled “Finite-time blow-up for the Navier–Stokes equations” was shared on Hacker News. Finite-time blow-up means an initially smooth solution becomes singular in a finite time. The supplied material does not establish whether the claimed result applies without external forcing, whether its assumptions match those of the Millennium Prize problem, or whether the proof has been verified.
+Thinking Machines’ Inkling 2 Mini is described as an open-weight language model that uses a looped Transformer, reusing part of the network across multiple passes. Early users report running it locally on AMD Ryzen and Apple Silicon, but those tests do not establish how it compares with other models across workloads.
 
-hackernews · trotro · Nov 20, 15:34 · [Discussion](https://news.ycombinator.com/item?id=50576232)
+hackernews · jasondavies · Nov 20, 20:12 · [Discussion](https://news.ycombinator.com/item?id=50581260)
 
-**「What finite-time blow-up means」** Finite-time blow-up means a solution becomes singular in finite time rather than staying smooth. Forced equations include an external driving term; the unforced case of the three-dimensional Navier–Stokes Millennium Prize problem asks whether smooth, divergence-free initial data satisfying the problem’s conditions can lead to such a singularity without external forcing. The repository listing identifies a paper and a Lean package, but does not say whether the theorem meets those conditions.
+**「How a looped Transformer works」** A standard Transformer runs each layer once per token, while a looped Transformer reuses some layers before producing the next token. Inkling 2 Mini runs its middle layers three times per token, doing more computation without adding a separate set of weights for each pass.
 
-**「What readers asked」** One commenter described the result as unforced, contrasting it with an earlier example that used a designed external force. Another asked whether a numerical simulation could show the solution approaching a singularity.
+**「Early local tests」** One commenter reported decoding at 27 tokens per second on a Ryzen 395 using llama.cpp with Vulkan; another reported about 10 tokens per second with a Q4 XL build on a 32 GB M1 Pro MacBook. The Mac tester said the model handled a simple Python CSV task but failed to identify a coin, highlighting how much results varied by task in that limited test.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://github.com/tristanbuckmaster/navier-stokes/">GitHub - tristanbuckmaster/navier-stokes · GitHub</a></li>
+<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Introducing Inkling 2 Mini - Thinking Machines Lab</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Navier–Stokes equations`, `#finite-time blow-up`, `#partial differential equations`, `#computational fluid dynamics`
+**Tags**: `#open-weight models`, `#looped transformers`, `#local inference`, `#llama.cpp`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Inkling 2 Mini brings a looped transformer to local inference](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
+### [Navier–Stokes Singularities and the Generalized Riemann Hypothesis Prompt Lean Debate](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
 
-Inkling 2 Mini is described in the Hacker News discussion as an open-weight looped transformer sized for local use. A looped transformer reuses the same layers across multiple passes; a commenter cited benchmarks that put the model near Qwen3.8-27B, but the available material does not establish the test conditions or whether that comparison holds in everyday use.
+A post on unforced Euler and Navier–Stokes singularities and the Generalized Riemann Hypothesis prompted a Hacker News discussion about AI-assisted proofs checked in Lean. The post itself was not included in the supplied material, so it is unclear which results, if any, were proved or what statements Lean checked.
 
-hackernews · jasondavies · Nov 20, 20:12 · [Discussion](https://news.ycombinator.com/item?id=50581260)
+hackernews · archon1410 · Nov 20, 17:21 · [Discussion](https://news.ycombinator.com/item?id=50578358)
 
-**「How looped transformers work」** A looped transformer runs the same block of layers multiple times, adding computation without storing a separate set of weights for each pass. Thinking Machines Lab also highlights NVFP4, a 4-bit numeric format that helps reduce the memory needed to store model weights for local inference.
+**「What Lean verifies」** Lean’s kernel checks that a proof establishes the exact formal statement provided, given the axioms it uses. Agreement between independent kernels reduces concern about a checker bug, but it does not establish that the formal statement captures the intended conjecture; that requires a separate review of the definitions and assumptions.
 
-**「Local deployment」** Users can follow Unsloth’s guide to try Inkling 2 Mini locally on Macs or systems with NVIDIA or AMD hardware. Teams considering it as a replacement for Qwen 3.8-27B should test their own multi-turn and constraint-heavy prompts: Thinking Machines Lab reports that Inkling scored lower on both MultiChallenge and ComplexConstraints v1.1.
+**「What Lean verification establishes」** Before treating a successful Lean check as evidence that a conjecture has been proved, reviewers should compare the formal statement and its assumptions with the original conjecture. Even agreement between independent kernels checks the proof of the statement as written, not whether that statement captures the intended mathematical claim.
 
-**「Community discussion」** One commenter reported decoding at 27 tokens per second on a Ryzen 395 with llama.cpp and Vulkan, and pointed to unmerged pull requests and a patch, so the result is not a stock-build baseline. Another reported about 10 tokens per second with the Q4 XL quantization on a 32 GB M1 Pro MacBook while other apps were running.
+**「What Lean can verify」** One commenter reported that two independent Lean kernels appeared to accept a proof, arguing that this made a kernel bug less likely. Another raised a separate question: even if both kernels accept the proof, does the formal statement actually match the intended conjecture?
 
-<details><summary>References</summary>
-<ul>
-<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Introducing Inkling 2 Mini - Thinking Machines Lab</a></li>
-<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Introducing Inkling 2 Mini - Thinking Machines Lab</a></li>
-<li><a href="https://unsloth.ai/docs/models/inkling-2-mini">Inkling 2 Mini - Run Locally Guide | Unsloth Documentation</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#looped transformers`, `#open-weight models`, `#local inference`, `#llama.cpp`
+**Tags**: `#AI-assisted theorem proving`, `#Lean`, `#Navier–Stokes singularities`, `#Generalized Riemann Hypothesis`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Hacker News Discusses Lean Checks for Navier–Stokes and Riemann Claims](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
+### [Alessandro Masullo Claims a Proof of the Generalized Riemann Hypothesis](https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/) ⭐️ 7.0/10
 
-A Hacker News thread discusses a Terence Tao post on unforced Navier–Stokes singularities and the Generalized Riemann Hypothesis, including reports of proof checks in Lean. The post itself is not included in the available material, and the excerpts do not establish which precise statements were checked or whether either open problem was resolved.
+Alessandro Masullo announced a claimed proof of the Generalized Riemann Hypothesis, a major open problem in number theory. The item also links to a separate proof claim by Levent Alpöge, but provides neither Masullo’s proof nor expert verification of it.
 
-hackernews · archon1410 · Nov 20, 17:21 · [Discussion](https://news.ycombinator.com/item?id=50578358)
+hackernews · jasondavies · Nov 20, 18:33 · [Discussion](https://news.ycombinator.com/item?id=50579568)
 
-**「What Lean checks」** The three-dimensional Navier–Stokes regularity problem asks whether a smooth incompressible flow can develop a singularity in finite time even without external forcing. A Lean kernel checks that a formal proof establishes its stated theorem from its declared assumptions; determining whether that theorem captures the original problem is a separate step.
+**「What the hypothesis says」** The Generalized Riemann Hypothesis extends the Riemann Hypothesis from the zeta function to Dirichlet L-functions, predicting that all their nontrivial zeros have real part 1/2. A proof would give sharper bounds on how primes are distributed in arithmetic progressions, such as the numbers that leave a remainder of 1 when divided by 4.
 
-**「What readers debated」** One commenter reported that two independent Lean kernels accepted a result and argued that this made reliance on a kernel bug less likely. Another, citing Tao’s reference to the Langlands program and arithmetic geometry, asked whether AI can create new mathematical abstractions as well as use existing ones to generate proofs.
+**「What verification would change」** If either claimed proof is verified, results that rely on the Generalized Riemann Hypothesis, such as certain explicit bounds on the number of primes in arithmetic progressions, would no longer depend on that assumption. The announcement itself does not change their conditional status.
+
+**「Community Discussion」** One commenter described Masullo’s draft as 940 pages long and noted that its first numbered subsection appeared empty. Other commenters speculated about a connection to an Anthropic announcement, but the discussion did not establish any role for AI in Masullo’s work.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/">Unforced Euler singularity, unforced Navier - Stokes singularity, and the...</a></li>
+<li><a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200301925E/abstract">Explicit bound for the number of primes in arithmetic ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#formal verification`, `#Lean`, `#AI-assisted mathematics`, `#Navier–Stokes equations`, `#Generalized Riemann Hypothesis`
+**Tags**: `#Generalized Riemann Hypothesis`, `#Analytic Number Theory`, `#Proof Verification`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [Levent Alpöge claims a proof of the Generalized Riemann Hypothesis](https://alpo.ge/remark.pdf) ⭐️ 8.0/10
+### [Nasdaq loses 2026 gains as AI sell-off weighs on Anthropic](https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off) ⭐️ 7.0/10
 
-Levent Alpöge announced in a PDF that he believes he and Anthropic’s Claude proved the Riemann Hypothesis and that their method also proves the Generalized Riemann Hypothesis. He says they formalized the arguments without assumptions, but the supplied material does not independently establish that the proof is correct. Alpöge expects the method could also resolve the Extended Riemann Hypothesis, but does not claim to have proved it.
+An AI stock sell-off wiped out the Nasdaq’s gains for 2026 and weighed on Anthropic shares in their second day of trading after the company’s IPO, The Guardian reported. The available account does not establish what triggered the sell-off.
 
-hackernews · iamronaldo · Nov 20, 14:16 · [Discussion](https://news.ycombinator.com/item?id=50574968)
+hackernews · cdrnsf · Nov 20, 13:29 · [Discussion](https://news.ycombinator.com/item?id=50574383)
 
-**「What the hypothesis says」** The Riemann Hypothesis says that every nontrivial zero of the Riemann zeta function has real part 1/2. In the version at issue here, the Generalized Riemann Hypothesis makes the same claim for all Dirichlet L-functions. Lean can check that a formal proof establishes the theorem as written, but determining whether that formal statement captures the intended mathematical claim is a separate step.
+**「Background」** Anthropic had just gone public, and Yahoo Finance reported that investors had viewed its IPO as a test of demand for AI stocks. The IPO price is the price set for the offering; once public trading begins, the share price can move independently of it.
 
-**「Verification discussion」** One Hacker News commenter reported that the unpacked Lean files occupied 1.3 GB and contained roughly 15 million lines of code. Another cited checks attributed to MIT mathematician Andrew Sutherland as evidence of correctness, though the quoted status said some checks were still in progress.
+**「Reader discussion」** One Hacker News commenter asked whether cheaper AI automation could initially reduce an industry’s contribution to GDP even as it lowers costs. Another questioned whether the sell-off might weaken investor appetite for a potential OpenAI IPO.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Artin_L-function">Artin L - function - Wikipedia</a></li>
-<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">GitHub - CocoSgt/ riemann - hypothesis -lean: Mirror of Levent...</a></li>
-<li><a href="https://math.mit.edu/~drew/grh/">RH Lean proof: verification files - MIT Mathematics</a></li>
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html">Stock market today: Dow and S&amp;P 500 enter correction, Nasdaq sinks...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Generalized Riemann Hypothesis`, `#Lean`, `#formal verification`, `#number theory`
+**Tags**: `#Anthropic IPO`, `#Nasdaq`, `#AI stock valuations`, `#automation economics`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [Preprint Reports a Language Model Editing Its Own Weights Without Gradients](https://arxiv.org/abs/2611.21885) ⭐️ 7.0/10
+### [ArXiv Paper Reports Gradient-Free Self-Editing of Language Model Weights](https://arxiv.org/abs/2611.21885) ⭐️ 7.0/10
 
-An arXiv preprint reportedly describes a language model that proposes edits to its own weights, tests them on practice problems, and keeps only those that improve accuracy, without using gradient updates. The reported gain appears to come from shortening reasoning traces so the model stays within its token limit. The paper’s methods and results are not included in the supplied material, so the size of the gain and whether it extends beyond that constraint remain unverified.
+An arXiv paper reports that a language model edited its own weights without using gradients, keeping edits that improved its accuracy on practice problems. The discussion describes an accuracy gain from shorter reasoning traces that stayed within the token limit; the available account does not establish that the edits improved the model’s reasoning more broadly.
 
 hackernews · lwhsiao · Nov 20, 16:29 · [Discussion](https://news.ycombinator.com/item?id=50577265)
 
-**「Weight edits vs. inference-time changes」** A model’s weights are the numerical parameters learned during training. Prompts and extra reasoning tokens can change how a model answers without changing those parameters; editing the weights can change how it behaves on later requests. The preprint uses “self-rewriting” to distinguish model-directed weight edits from conventional training that updates weights using gradients.
+**「Weight edits versus prompting」** A model’s weights are numerical parameters that shape its outputs. Unlike a prompt, which changes the input without changing those parameters, a weight edit persists across later requests. The paper describes its method as gradient-free: it tests candidate edits on practice problems and keeps those that work rather than using gradients to determine how to update the weights.
 
-**「Community discussion」** One Hacker News commenter questioned the phrase “no training,” arguing that selecting edits based on practice problems still resembles training even without gradient descent. Another compared the token-budget fix with a prior weight-space programming experiment and questioned whether it showed a broader improvement in reasoning.
+**「Implications for evaluation」** The reported accuracy gain does not establish that the model reasons better: a commenter pointed to the paper’s appendix for evidence that the edit addressed failures caused by exceeding the token limit. To distinguish better reasoning from fewer cutoffs, evaluators should report cutoff rates alongside accuracy and check whether the gain persists with a larger token budget.
+
+**「Community Discussion」** One commenter argued that the edits improved the score only by preventing answers from being cut off. Another questioned the paper’s reported “no training” claim, arguing that testing candidate edits on practice problems and keeping those that work can count as training even without gradient descent.
 
 <details><summary>References</summary>
 <ul>
+<li><a href="https://news.ycombinator.com/item?id=50577265">Language Models Can Rewrite Their Own Weights | Hacker News</a></li>
+<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Language Models Can Rewrite Their Own Weights</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50577265">Language Models Can Rewrite Their Own Weights | Hacker News</a></li>
 <li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Language Models Can Rewrite Their Own Weights</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#large language models`, `#weight-space editing`, `#gradient-free optimization`, `#reasoning token budgets`
+**Tags**: `#language models`, `#weight editing`, `#gradient-free optimization`, `#reasoning token budgets`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [Signal raises concerns about mobile AI agents accessing private chats](https://signal.org/blog/protecting-your-privacy/) ⭐️ 7.0/10
+### [Levent Alpöge claims proof of the Generalized Riemann Hypothesis](https://alpo.ge/remark.pdf) ⭐️ 7.0/10
 
-A Signal blog post prompted discussion about limiting mobile AI agents’ access to private chats. The concern extends to both ends of a conversation: an agent on a chat partner’s device could access messages even if the sender does not use one. The available material does not establish what protections Signal introduced or how effective they are.
+In a short announcement, Levent Alpöge says he and Claude found a proof of the Riemann Hypothesis and extended the method to the Generalized Riemann Hypothesis. He says they formalized the arguments without assumptions, but the supplied material does not establish that the proof has been independently verified. He expects the method could also resolve the Extended Riemann Hypothesis, which he does not claim to have proved.
 
-hackernews · dotcoma · Nov 20, 09:42 · [Discussion](https://news.ycombinator.com/item?id=50572348)
+hackernews · iamronaldo · Nov 20, 14:16 · [Discussion](https://news.ycombinator.com/item?id=50574968)
 
-**「Background」** End-to-end encryption protects Signal messages in transit, but it does not stop software on either participant’s phone from capturing messages once they’re displayed. That’s why an AI agent with screen access on a chat partner’s phone can pose a privacy risk even if you don’t use one yourself.
+**「The conjecture and its verification」** The Riemann Hypothesis says that all nontrivial zeros of the Riemann zeta function lie on the line with real part 1/2; the Generalized Riemann Hypothesis extends that claim to Dirichlet L-functions. A Lean formalization lets a proof checker verify the precise statement encoded in the code, but reviewers still need to confirm that the statement matches the intended conjecture and that the proof introduces no unproved assumptions.
 
-**「Community discussion」** One commenter argued that blocking screenshots within individual apps is not a durable substitute for giving users more control over their operating systems. Another reported a usability cost on Windows: they could no longer take screenshots of Signal chats.
+**「Community discussion」** A Hacker News commenter reported that the purported Lean formalization was 1.3 GB and about 15 million lines of code. The comment described the archive’s size, not whether Lean successfully checked the claimed proof.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app">Signal is blocking Gemini and Siri AI from reading your... | The Verge</a></li>
+<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">CocoSgt/ riemann - hypothesis - lean : Mirror of Levent Alpöge &#x27;s Lean ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Signal`, `#mobile AI agents`, `#operating system security`, `#messaging privacy`
+**Tags**: `#Generalized Riemann Hypothesis`, `#Number theory`, `#Lean theorem prover`, `#AI-assisted mathematics`
 
 ---
 
@@ -167,12 +163,12 @@ hackernews · dotcoma · Nov 20, 09:42 · [Discussion](https://news.ycombinator.
 <a id="item-finance-news-1"></a>
 ### [U.S. companies issue more shares than they buy back](https://www.cnbc.com/2026/11/20/equity-issuance-bull-market-problem.html) ⭐️ 8.0/10
 
-U.S. companies have shifted from buying back more shares than they issued in 2024 to issuing more than they buy back, according to Acadian Asset Management, which reported that net issuance equaled 3.1% of the U.S. stock market’s total value as of mid-November 2026.
+U.S. companies shifted from buying back more shares than they issued in 2024 to issuing more than they bought back in 2026, according to Acadian Asset Management. As of mid-November 2026, Acadian measured net issuance at 3.1% of the U.S. stock market’s total value, below the peaks of the tech and pandemic-era bubbles.
 
 rss · CNBC Finance · Nov 20, 14:15
 
-**「Background」** Buybacks reduce the number of shares investors can trade, while new issuance increases it.
+**「Background」** Buybacks reduce the number of shares investors can trade, while net issuance increases that supply.
 
-**Tags**: `#U.S. equities`, `#equity issuance`, `#share buybacks`, `#IPOs`
+**Tags**: `#U.S. equity issuance`, `#share buybacks`, `#AI financing`, `#initial public offerings`
 
 ---
