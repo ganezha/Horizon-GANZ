@@ -148,6 +148,8 @@ class RSSScraper(BaseScraper):
         for ordinal, entry in enumerate(feed.entries, start=1):
             try:
                 published_at = self._parse_date(entry)
+                if published_at is None and source.category == "github-trending":
+                    published_at = self._parse_date(feed.feed)
                 if not published_at or published_at < since:
                     continue
 
