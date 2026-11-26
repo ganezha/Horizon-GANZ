@@ -7,6 +7,10 @@ on:
     - cron: '0 23 * * *'
   workflow_dispatch:      # Allow manual trigger
 
+concurrency:
+  group: horizon-publication
+  cancel-in-progress: false
+
 jobs:
   daily-summary:
     runs-on: ubuntu-latest
@@ -47,6 +51,18 @@ jobs:
 
       - name: Set current date as environment variable
         run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Read published editions
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          path: published
+          persist-credentials: false
+
+      - name: Translate remaining archive editions into Indonesian
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 scripts/indonesian_archive.py
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
