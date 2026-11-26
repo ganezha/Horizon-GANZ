@@ -2,6 +2,7 @@
   "id": "tech-news",
   "name": "Technology News",
   "display_names": {
+    "id": "Berita Teknologi",
     "zh": "科技新闻"
   },
   "match": "match.md",

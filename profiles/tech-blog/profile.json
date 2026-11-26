@@ -2,6 +2,7 @@
   "id": "tech-blog",
   "name": "Technology Blog",
   "display_names": {
+    "id": "Artikel Teknologi",
     "zh": "科技博客"
   },
   "match": "match.md",

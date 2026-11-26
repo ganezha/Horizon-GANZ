@@ -624,3 +624,30 @@ def test_history_search_reuses_one_call_for_both_languages(tmp_path, monkeypatch
         assert artifact.sources[0].url == "https://example.com/preview"
         assert artifact.sources[0].title.startswith("2026-04-01")
         assert artifact.blocks[-1].source_refs == ["tool-1-1"]
+
+
+@pytest.mark.parametrize("accepted", [True, False])
+def test_indonesian_editor_rechecks_revision_before_publication(accepted):
+    from src.ai.enricher import GeneratedArtifact
+
+    item = make_item()
+    draft = GeneratedArtifact(title="Rilis", blocks=[
+        ContentBlock(id=key, title="Rilis", content="Arsitektur baru.", primary=key == "summary")
+        for key in ("summary", "background")
+    ])
+    client = SimpleNamespace(complete=AsyncMock(side_effect=[
+        '{"approved": false, "feedback": "Periksa judul."}',
+        draft.model_copy(update={"title": "Arsitektur baru"}).model_dump_json(),
+        json.dumps({"approved": accepted, "feedback": "Selesai"}),
+    ]))
+    enricher = ContentEnricher(client, PROFILES, ["id"], tools=FakeTools())
+    enricher._plan_and_execute_tools = AsyncMock(return_value=[])
+    enricher._generate_artifact = AsyncMock(return_value=draft)
+    if accepted:
+        asyncio.run(enricher._enrich_item(item))
+        assert item.processing.artifacts["id"].title == "Arsitektur baru"
+        assert item.metadata["horizon_editor_revised"]
+    else:
+        with pytest.raises(ValueError, match="editorial review"):
+            asyncio.run(enricher._enrich_item(item))
+        assert "id" not in item.processing.artifacts

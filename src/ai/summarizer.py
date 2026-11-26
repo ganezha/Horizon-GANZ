@@ -48,6 +48,14 @@ def _pangu(text: str) -> str:
 
 
 LABELS = {
+    "id": {
+        "header": "Horizon GANZ Harian",
+        "source": "Sumber", "background": "Latar belakang",
+        "discussion": "Diskusi", "references": "Referensi", "tags": "Topik",
+        "selected_items": "Dari {total} berita yang terkumpul, {selected} masuk edisi ini.",
+        "empty_analyzed": "Sebanyak {total} berita dikumpulkan.",
+        "empty_body": "Belum ada berita yang siap terbit untuk edisi ini.",
+    },
     "en": {
         "header": "Horizon Daily",
         "source": "Source",

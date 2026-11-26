@@ -348,12 +348,22 @@ class HorizonOrchestrator:
                     dest_path = safe_output_path(posts_dir, post_filename)
 
                     # Add Jekyll front matter
+                    title = f"Edisi Horizon GANZ · {today}" if lang == "id" else f"Horizon Summary: {today} ({lang.upper()})"
+                    team_data = ""
+                    if lang == "id":
+                        team_data = (
+                            f"collected: {len(all_items)}\nunique_items: {len(merged_items)}\n"
+                            f"analyzed: {len(analyzed_items)}\nselected: {len(important_items)}\n"
+                            f"approved: {len(language_items)}\n"
+                            f"revised: {sum(bool(i.metadata.get('horizon_editor_revised')) for i in language_items)}\n"
+                        )
                     front_matter = (
                         "---\n"
                         "layout: default\n"
-                        f"title: \"Horizon Summary: {today} ({lang.upper()})\"\n"
+                        f'title: "{title}"\n'
                         f"date: {today}\n"
                         f"lang: {lang}\n"
+                        f"{team_data}"
                         "---\n\n"
                     )
 

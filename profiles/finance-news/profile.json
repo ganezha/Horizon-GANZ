@@ -2,6 +2,7 @@
   "id": "finance-news",
   "name": "Financial News",
   "display_names": {
+    "id": "Berita Finansial",
     "zh": "财经新闻"
   },
   "match": "match.md",

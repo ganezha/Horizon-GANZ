@@ -18,6 +18,8 @@ GROUNDING_RULES = f"""- Treat the source item as the primary account of what hap
 
 
 def target_language_instruction(language: str) -> str:
+    if language.lower() == "id":
+        return "natural Bahasa Indonesia (language tag `id`), including titles and section headings"
     if language.lower() == "zh":
         return "Simplified Chinese (language tag `zh`)"
     return f"language `{language}`"

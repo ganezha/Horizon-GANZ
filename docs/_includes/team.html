@@ -1,0 +1,15 @@
+{% assign ed = include.edition %}
+<section class="team" data-revised="{{ ed.revised | default: 0 }}"><h2>Tim redaksi AI</h2>
+{% if ed %}<p>Edisi {% include date-id.html date=ed.date %}. Sentuh bot untuk melihat tugasnya.</p>{% endif %}
+{% unless ed.approved %}<p>Statistik per bot tersedia mulai edisi Bahasa Indonesia.</p>{% endunless %}
+{% if ed.approved %}<button class="replay" type="button" hidden>Putar ulang proses</button>{% endif %}
+<div class="nodes">
+{% assign roles = 'Pemantau|Penyaring|Analis|Penulis|Editor|Penerbit' | split: '|' %}
+{% for role in roles %}<details data-role="{{ role }}"><summary><span class="bot" aria-hidden="true"><i></i><i></i></span>{{ role }}</summary><p>{% case role %}
+{% when 'Pemantau' %}Mengumpulkan berita dari sumber yang dipantau.{% if ed.approved %} Terkumpul {{ ed.collected }} berita.{% endif %}
+{% when 'Penyaring' %}Menggabungkan berita ganda dan memilih berita setelah penilaian. {% if ed.approved %}{{ ed.unique_items }} berita unik, {{ ed.selected }} terpilih.{% endif %}
+{% when 'Analis' %}Menilai isi dan relevansi berita.{% if ed.approved %} {{ ed.analyzed }} berita melalui tahap analisis.{% endif %}
+{% when 'Penulis' %}Menyusun draf Bahasa Indonesia dari berita terpilih dan memperbaikinya jika diminta Editor.
+{% when 'Editor' %}Memeriksa klaim terhadap bahan sumber.{% if ed.approved %} {{ ed.approved }} berita lolos, termasuk {{ ed.revised }} setelah revisi.{% endif %}
+{% when 'Penerbit' %}Menyusun hasil pemeriksaan menjadi edisi harian.{% if ed.approved %} {{ ed.approved }} berita terbit.{% endif %}
+{% endcase %}</p></details>{% endfor %}</div></section>
