@@ -1,57 +1,57 @@
 ---
 layout: default
-title: "Horizon Summary: 2026-11-26 (EN)"
+title: "Edisi Horizon GANZ · 26 November 2026"
 date: 2026-11-26
-lang: en
+lang: id
 ---
 
-> From 14 items, 2 important content pieces were selected
-
----
-
-**Technology News**
-1. [The New York Times warns photographers against updating Photoshop over AI features](#item-tech-news-1) ⭐️ 7.0/10
-
-**Financial News**
-1. [Global chip exports overtake oil and gas](#item-finance-news-1) ⭐️ 8.0/10
+> Dari 14 berita yang terkumpul, 2 terpilih untuk edisi ini.
 
 ---
 
-## Technology News
+**Berita Teknologi**
+1. [The New York Times imbau fotografer menunda pembaruan Photoshop karena fitur AI](#item-tech-news-1) ⭐️ 7.0/10
+
+**Berita Finansial**
+1. [Nilai ekspor cip dunia melampaui ekspor minyak dan gas](#item-finance-news-1) ⭐️ 8.0/10
+
+---
+
+## Berita Teknologi
 
 <a id="item-tech-news-1"></a>
-### [The New York Times warns photographers against updating Photoshop over AI features](https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features) ⭐️ 7.0/10
+### [The New York Times imbau fotografer menunda pembaruan Photoshop karena fitur AI](https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features) ⭐️ 7.0/10
 
-The New York Times warned photographers not to update Adobe Photoshop because of its AI features, The Verge reports. The available account does not identify the Photoshop version or the specific features that prompted the warning.
+Menurut The Verge, The New York Times meminta para fotografernya menunda pembaruan Adobe Photoshop karena penggunaan AI. Belum jelas fitur mana yang memicu peringatan tersebut.
 
-hackernews · rmason · Nov 25, 21:18 · [Discussion](https://news.ycombinator.com/item?id=50647673)
+hackernews · rmason · 25 November, 21.18 · [Diskusi](https://news.ycombinator.com/item?id=50647673)
 
-**「What counts as a photo edit」** In photojournalism, cropping and tonal adjustments change how a photograph is presented without inventing scene details; generative edits can introduce details the camera never captured. The Times’ concern, as reported by The Verge, is that some features in Photoshop’s 2027 update use AI in ways photographers may not notice; the available report does not identify those features.
+**「Di mana batas penyuntingan foto?」** Dalam foto jurnalistik, fotografer dapat memangkas bingkai atau menyesuaikan nada terang dan gelap tanpa menambahkan detail baru. Penyuntingan dengan AI generatif bisa menghasilkan detail yang tidak pernah terekam kamera. Menurut The Verge, The New York Times khawatir fotografer dapat memakai AI tanpa menyadarinya saat menggunakan sejumlah fitur dalam pembaruan Photoshop 2027. Laporan itu tidak merinci fitur yang dimaksud.
 
-**「Community discussion」** One commenter who works on creative tools argued that a finished image can make it hard to tell whether AI generated it or merely helped with a routine edit. Another recalled a Times photographer who was willing to crop and balance a portrait but would not retouch a shirt stain.
+**「Diskusi pembaca」** Seorang pembaca yang bekerja di bidang perangkat kreatif mengatakan bahwa dari foto akhir saja, sulit membedakan gambar buatan AI dengan foto yang hanya disunting ringan memakai AI. Pembaca lain mengingat seorang fotografer The New York Times yang bersedia memangkas dan menyeimbangkan tampilan potret, tetapi menolak menghapus noda pada kemeja subjeknya.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features">The New York Times warns photographers not to update ...</a></li>
+<li><a href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features">Laporan The Verge tentang peringatan kepada fotografer</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Adobe Photoshop`, `#generative AI`, `#photojournalism`, `#image provenance`
+**Topik**: `#Adobe Photoshop`, `#AI generatif`, `#foto jurnalistik`, `#asal-usul gambar`
 
 ---
 
-## Financial News
+## Berita Finansial
 
 <a id="item-finance-news-1"></a>
-### [Global chip exports overtake oil and gas](https://www.cnbc.com/2026/11/26/semiconductor-chips-are-the-new-oil-heres-why.html) ⭐️ 8.0/10
+### [Nilai ekspor cip dunia melampaui ekspor minyak dan gas](https://www.cnbc.com/2026/11/26/semiconductor-chips-are-the-new-oil-heres-why.html) ⭐️ 8.0/10
 
-Global semiconductor exports surpassed oil and gas exports for the first time in the first quarter of 2026, according to Deutsche Bank’s analysis of International Trade Centre data. Over the four quarters through March 2026, chip exports totaled about $1.61 trillion, compared with $1.53 trillion for oil and gas.
+Menurut analisis Deutsche Bank atas data International Trade Centre, nilai ekspor semikonduktor dunia untuk pertama kalinya melampaui gabungan ekspor minyak dan gas pada kuartal pertama 2026. Jika dihitung selama empat kuartal hingga Maret 2026, nilai ekspor cip mencapai sekitar 1,61 triliun dolar AS, sedangkan minyak dan gas mencapai 1,53 triliun dolar AS.
 
-rss · CNBC Finance · Nov 26, 17:52
+rss · CNBC Finance · 26 November, 17.52
 
-**「Background」** The buildout of data centers for artificial intelligence has boosted demand for chips.
+**「Latar belakang」** Pembangunan pusat data untuk kecerdasan buatan mendorong permintaan cip.
 
-**Tags**: `#Semiconductors`, `#Global trade`, `#Oil and gas`, `#AI infrastructure`
+**Topik**: `#semikonduktor`, `#perdagangan global`, `#minyak dan gas`, `#infrastruktur AI`
 
 ---
