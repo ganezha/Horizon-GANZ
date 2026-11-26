@@ -27,6 +27,10 @@
       "finance-news": {
         "threshold": 7.0,
         "topic_dedup": true
+      },
+      "repo-trending": {
+        "threshold": 5.0,
+        "topic_dedup": false
       }
     }
   },
@@ -50,7 +54,7 @@
         "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
         "enabled": true,
         "category": "github-trending",
-        "profile": "tech-news"
+        "profile": "repo-trending"
       },
       {
         "name": "CNBC Finance",
@@ -93,6 +97,7 @@
   "digest": {
     "max_items": 15,
     "profile_order": [
+      "repo-trending",
       "tech-news",
       "tech-blog",
       "finance-news"
