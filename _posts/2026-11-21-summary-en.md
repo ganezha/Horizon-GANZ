@@ -1,174 +1,174 @@
 ---
 layout: default
-title: "Horizon Summary: 2026-11-21 (EN)"
+title: "Edisi Horizon GANZ · 2026-11-21"
 date: 2026-11-21
-lang: en
+lang: id
 ---
 
-> From 17 items, 7 important content pieces were selected
-
----
-
-**Technology News**
-1. [Inkling 2 Mini is an open-weight model with a looped Transformer](#item-tech-news-1) ⭐️ 8.0/10
-2. [Navier–Stokes Singularities and the Generalized Riemann Hypothesis Prompt Lean Debate](#item-tech-news-2) ⭐️ 8.0/10
-3. [Alessandro Masullo Claims a Proof of the Generalized Riemann Hypothesis](#item-tech-news-3) ⭐️ 7.0/10
-4. [Nasdaq loses 2026 gains as AI sell-off weighs on Anthropic](#item-tech-news-4) ⭐️ 7.0/10
-5. [ArXiv Paper Reports Gradient-Free Self-Editing of Language Model Weights](#item-tech-news-5) ⭐️ 7.0/10
-6. [Levent Alpöge claims proof of the Generalized Riemann Hypothesis](#item-tech-news-6) ⭐️ 7.0/10
-
-**Financial News**
-1. [U.S. companies issue more shares than they buy back](#item-finance-news-1) ⭐️ 8.0/10
+> Dari 17 butir, 7 konten penting dipilih
 
 ---
 
-## Technology News
+**Berita Teknologi**
+1. [Inkling 2 Mini adalah model berbobot terbuka dengan Transformer berulang](#item-tech-news-1) ⭐️ 8.0/10
+2. [Singularitas Navier–Stokes dan Hipotesis Riemann Umum memicu perdebatan tentang Lean](#item-tech-news-2) ⭐️ 8.0/10
+3. [Alessandro Masullo mengklaim telah membuktikan Hipotesis Riemann Umum](#item-tech-news-3) ⭐️ 7.0/10
+4. [Kenaikan Nasdaq sepanjang 2026 terhapus seiring aksi jual saham AI yang menekan Anthropic](#item-tech-news-4) ⭐️ 7.0/10
+5. [Makalah ArXiv melaporkan bahwa model bahasa dapat menyunting bobotnya sendiri tanpa gradien](#item-tech-news-5) ⭐️ 7.0/10
+6. [Levent Alpöge mengklaim telah membuktikan Hipotesis Riemann Umum](#item-tech-news-6) ⭐️ 7.0/10
+
+**Berita Keuangan**
+1. [Perusahaan AS menerbitkan lebih banyak saham daripada yang mereka beli kembali](#item-finance-news-1) ⭐️ 8.0/10
+
+---
+
+## Berita Teknologi
 
 <a id="item-tech-news-1"></a>
-### [Inkling 2 Mini is an open-weight model with a looped Transformer](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
+### [Inkling 2 Mini adalah model berbobot terbuka dengan Transformer berulang](https://thinkingmachines.ai/news/inkling-2-mini/) ⭐️ 8.0/10
 
-Thinking Machines’ Inkling 2 Mini is described as an open-weight language model that uses a looped Transformer, reusing part of the network across multiple passes. Early users report running it locally on AMD Ryzen and Apple Silicon, but those tests do not establish how it compares with other models across workloads.
+Inkling 2 Mini dari Thinking Machines digambarkan sebagai model bahasa berbobot terbuka yang menggunakan Transformer berulang, dengan memakai kembali sebagian jaringan dalam beberapa lintasan pemrosesan. Pengguna awal melaporkan bahwa mereka menjalankannya secara lokal pada AMD Ryzen dan Apple Silicon, tetapi pengujian tersebut belum menunjukkan bagaimana kinerjanya dibandingkan dengan model lain pada beragam beban kerja.
 
-hackernews · jasondavies · Nov 20, 20:12 · [Discussion](https://news.ycombinator.com/item?id=50581260)
+hackernews · jasondavies · 20 Nov, 20:12 · [Diskusi](https://news.ycombinator.com/item?id=50581260)
 
-**「How a looped Transformer works」** A standard Transformer runs each layer once per token, while a looped Transformer reuses some layers before producing the next token. Inkling 2 Mini runs its middle layers three times per token, doing more computation without adding a separate set of weights for each pass.
+**「Cara kerja Transformer berulang」** Transformer standar menjalankan setiap lapisan sekali per token, sedangkan Transformer berulang menggunakan kembali beberapa lapisan sebelum menghasilkan token berikutnya. Inkling 2 Mini menjalankan lapisan-lapisan tengahnya tiga kali per token, sehingga melakukan lebih banyak komputasi tanpa menambahkan seperangkat bobot tersendiri untuk setiap lintasan.
 
-**「Early local tests」** One commenter reported decoding at 27 tokens per second on a Ryzen 395 using llama.cpp with Vulkan; another reported about 10 tokens per second with a Q4 XL build on a 32 GB M1 Pro MacBook. The Mac tester said the model handled a simple Python CSV task but failed to identify a coin, highlighting how much results varied by task in that limited test.
+**「Uji coba lokal awal」** Seorang komentator melaporkan kecepatan dekode 27 token per detik pada Ryzen 395 dengan llama.cpp dan Vulkan; komentator lain melaporkan sekitar 10 token per detik dengan versi Q4 XL pada MacBook M1 Pro berkapasitas memori 32 GB. Penguji yang menggunakan Mac mengatakan bahwa model itu mampu menangani tugas CSV sederhana dengan Python, tetapi gagal mengenali sekeping koin. Ini menunjukkan betapa beragamnya hasil antar tugas dalam pengujian terbatas tersebut.
 
-<details><summary>References</summary>
+<details><summary>Rujukan</summary>
 <ul>
-<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Introducing Inkling 2 Mini - Thinking Machines Lab</a></li>
+<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Memperkenalkan Inkling 2 Mini - Thinking Machines Lab</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#open-weight models`, `#looped transformers`, `#local inference`, `#llama.cpp`
+**Tag**: `#model berbobot terbuka`, `#transformer berulang`, `#inferensi lokal`, `#llama.cpp`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Navier–Stokes Singularities and the Generalized Riemann Hypothesis Prompt Lean Debate](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
+### [Singularitas Navier–Stokes dan Hipotesis Riemann Umum memicu perdebatan tentang Lean](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/) ⭐️ 8.0/10
 
-A post on unforced Euler and Navier–Stokes singularities and the Generalized Riemann Hypothesis prompted a Hacker News discussion about AI-assisted proofs checked in Lean. The post itself was not included in the supplied material, so it is unclear which results, if any, were proved or what statements Lean checked.
+Sebuah unggahan tentang singularitas pada persamaan Euler dan Navier–Stokes tanpa gaya eksternal serta Hipotesis Riemann Umum memicu diskusi di Hacker News mengenai pembuktian berbantuan AI yang diperiksa dengan Lean. Unggahan itu sendiri tidak disertakan dalam materi yang diberikan, sehingga tidak jelas apakah ada hasil yang dibuktikan dan, jika ada, hasil apa, atau pernyataan apa yang diperiksa oleh Lean.
 
-hackernews · archon1410 · Nov 20, 17:21 · [Discussion](https://news.ycombinator.com/item?id=50578358)
+hackernews · archon1410 · 20 Nov, 17:21 · [Diskusi](https://news.ycombinator.com/item?id=50578358)
 
-**「What Lean verifies」** Lean’s kernel checks that a proof establishes the exact formal statement provided, given the axioms it uses. Agreement between independent kernels reduces concern about a checker bug, but it does not establish that the formal statement captures the intended conjecture; that requires a separate review of the definitions and assumptions.
+**「Apa yang diverifikasi Lean」** Kernel Lean memeriksa apakah suatu bukti benar-benar membuktikan pernyataan formal yang diberikan, dengan menggunakan aksioma yang dipakai dalam bukti tersebut. Kesesuaian hasil dari kernel-kernel independen mengurangi kekhawatiran akan adanya galat pada pemeriksa bukti, tetapi tidak memastikan bahwa pernyataan formal itu mewakili konjektur yang dimaksud. Untuk memastikannya, definisi dan asumsi perlu ditinjau secara terpisah.
 
-**「What Lean verification establishes」** Before treating a successful Lean check as evidence that a conjecture has been proved, reviewers should compare the formal statement and its assumptions with the original conjecture. Even agreement between independent kernels checks the proof of the statement as written, not whether that statement captures the intended mathematical claim.
+**「Apa yang dipastikan oleh verifikasi Lean」** Sebelum menganggap pemeriksaan Lean yang berhasil sebagai bukti bahwa suatu konjektur telah dibuktikan, penelaah perlu membandingkan pernyataan formal beserta asumsi-asumsinya dengan konjektur asli. Sekalipun kernel-kernel independen memberikan hasil yang sama, yang diperiksa adalah bukti atas pernyataan sebagaimana ditulis, bukan apakah pernyataan itu mewakili klaim matematis yang dimaksud.
 
-**「What Lean can verify」** One commenter reported that two independent Lean kernels appeared to accept a proof, arguing that this made a kernel bug less likely. Another raised a separate question: even if both kernels accept the proof, does the formal statement actually match the intended conjecture?
+**「Apa yang dapat diverifikasi Lean」** Seorang komentator melaporkan bahwa dua kernel Lean yang independen tampaknya menerima suatu bukti. Menurutnya, hal ini memperkecil kemungkinan adanya bug pada kernel. Komentator lain mengajukan pertanyaan berbeda: sekalipun kedua kernel menerima bukti tersebut, apakah pernyataan formalnya benar-benar sesuai dengan konjektur yang dimaksud?
 
-**Tags**: `#AI-assisted theorem proving`, `#Lean`, `#Navier–Stokes singularities`, `#Generalized Riemann Hypothesis`
+**Tag**: `#pembuktian teorema berbantuan AI`, `#Lean`, `#singularitas Navier–Stokes`, `#Hipotesis Riemann Tergeneralisasi`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Alessandro Masullo Claims a Proof of the Generalized Riemann Hypothesis](https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/) ⭐️ 7.0/10
+### [Alessandro Masullo Mengklaim Telah Membuktikan Hipotesis Riemann Tergeneralisasi](https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/) ⭐️ 7.0/10
 
-Alessandro Masullo announced a claimed proof of the Generalized Riemann Hypothesis, a major open problem in number theory. The item also links to a separate proof claim by Levent Alpöge, but provides neither Masullo’s proof nor expert verification of it.
+Alessandro Masullo mengumumkan bahwa ia mengklaim telah membuktikan Hipotesis Riemann Tergeneralisasi, salah satu masalah terbuka utama dalam teori bilangan. Berita itu juga menautkan klaim pembuktian lain oleh Levent Alpöge, tetapi tidak menyertakan bukti Masullo maupun verifikasi dari pakar.
 
-hackernews · jasondavies · Nov 20, 18:33 · [Discussion](https://news.ycombinator.com/item?id=50579568)
+hackernews · jasondavies · 20 Nov, 18:33 · [Diskusi](https://news.ycombinator.com/item?id=50579568)
 
-**「What the hypothesis says」** The Generalized Riemann Hypothesis extends the Riemann Hypothesis from the zeta function to Dirichlet L-functions, predicting that all their nontrivial zeros have real part 1/2. A proof would give sharper bounds on how primes are distributed in arithmetic progressions, such as the numbers that leave a remainder of 1 when divided by 4.
+**「Isi hipotesis」** Hipotesis Riemann Tergeneralisasi memperluas Hipotesis Riemann dari fungsi zeta ke fungsi L Dirichlet dan menyatakan bahwa semua nol nontrivial fungsi-fungsi tersebut memiliki bagian real 1/2. Pembuktiannya akan menghasilkan batas yang lebih tajam untuk sebaran bilangan prima dalam barisan aritmetika, misalnya dalam barisan bilangan yang bersisa 1 jika dibagi 4.
 
-**「What verification would change」** If either claimed proof is verified, results that rely on the Generalized Riemann Hypothesis, such as certain explicit bounds on the number of primes in arithmetic progressions, would no longer depend on that assumption. The announcement itself does not change their conditional status.
+**「Apa yang akan berubah jika bukti terverifikasi」** Jika salah satu bukti yang diklaim itu terverifikasi, hasil-hasil yang bergantung pada Hipotesis Riemann Tergeneralisasi, seperti batas eksplisit tertentu untuk jumlah bilangan prima dalam barisan aritmetika, tidak lagi bergantung pada asumsi tersebut. Pengumuman itu sendiri tidak mengubah status hasil-hasil tersebut sebagai hasil bersyarat.
 
-**「Community Discussion」** One commenter described Masullo’s draft as 940 pages long and noted that its first numbered subsection appeared empty. Other commenters speculated about a connection to an Anthropic announcement, but the discussion did not establish any role for AI in Masullo’s work.
+**「Diskusi Komunitas」** Seorang komentator menyebut bahwa draf Masullo setebal 940 halaman dan mencatat bahwa subbagian bernomor pertamanya tampak kosong. Komentator lain berspekulasi tentang kaitannya dengan pengumuman Anthropic, tetapi diskusi itu tidak menunjukkan bahwa AI berperan dalam pekerjaan Masullo.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200301925E/abstract">Explicit bound for the number of primes in arithmetic ...</a></li>
+<li><a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200301925E/abstract">Batas eksplisit untuk jumlah bilangan prima dalam barisan aritmetika ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Generalized Riemann Hypothesis`, `#Analytic Number Theory`, `#Proof Verification`
+**Tag**: `#Hipotesis Riemann Tergeneralisasi`, `#Teori Bilangan Analitik`, `#Verifikasi Bukti`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [Nasdaq loses 2026 gains as AI sell-off weighs on Anthropic](https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off) ⭐️ 7.0/10
+### [Kenaikan Nasdaq sepanjang 2026 terhapus, aksi jual saham AI menekan Anthropic](https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off) ⭐️ 7.0/10
 
-An AI stock sell-off wiped out the Nasdaq’s gains for 2026 and weighed on Anthropic shares in their second day of trading after the company’s IPO, The Guardian reported. The available account does not establish what triggered the sell-off.
+Aksi jual saham AI menghapus kenaikan Nasdaq sepanjang 2026 dan menekan saham Anthropic pada hari kedua perdagangannya setelah IPO, menurut laporan The Guardian. Laporan yang tersedia tidak memastikan apa yang memicu aksi jual tersebut.
 
-hackernews · cdrnsf · Nov 20, 13:29 · [Discussion](https://news.ycombinator.com/item?id=50574383)
+hackernews · cdrnsf · 20 Nov, 13:29 · [Diskusi](https://news.ycombinator.com/item?id=50574383)
 
-**「Background」** Anthropic had just gone public, and Yahoo Finance reported that investors had viewed its IPO as a test of demand for AI stocks. The IPO price is the price set for the offering; once public trading begins, the share price can move independently of it.
+**「Latar belakang」** Anthropic baru saja melantai di bursa, dan Yahoo Finance melaporkan bahwa investor memandang IPO itu sebagai ujian atas minat pasar terhadap saham AI. Harga IPO adalah harga yang ditetapkan untuk penawaran saham; setelah saham mulai diperdagangkan di bursa, harganya dapat bergerak terlepas dari harga penawaran tersebut.
 
-**「Reader discussion」** One Hacker News commenter asked whether cheaper AI automation could initially reduce an industry’s contribution to GDP even as it lowers costs. Another questioned whether the sell-off might weaken investor appetite for a potential OpenAI IPO.
+**「Diskusi pembaca」** Seorang komentator di Hacker News bertanya apakah otomatisasi berbasis AI yang lebih murah pada awalnya dapat mengurangi kontribusi suatu industri terhadap PDB meskipun menekan biaya. Komentator lain mempertanyakan apakah aksi jual itu bisa mengurangi minat investor terhadap kemungkinan IPO OpenAI.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html">Stock market today: Dow and S&amp;P 500 enter correction, Nasdaq sinks...</a></li>
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html">Pasar saham hari ini: Dow dan S&amp;P 500 memasuki fase koreksi, Nasdaq merosot...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Anthropic IPO`, `#Nasdaq`, `#AI stock valuations`, `#automation economics`
+**Tag**: `#IPO Anthropic`, `#Nasdaq`, `#valuasi saham AI`, `#ekonomi otomatisasi`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [ArXiv Paper Reports Gradient-Free Self-Editing of Language Model Weights](https://arxiv.org/abs/2611.21885) ⭐️ 7.0/10
+### [Makalah ArXiv Melaporkan Model Bahasa Mengubah Bobotnya Sendiri Tanpa Gradien](https://arxiv.org/abs/2611.21885) ⭐️ 7.0/10
 
-An arXiv paper reports that a language model edited its own weights without using gradients, keeping edits that improved its accuracy on practice problems. The discussion describes an accuracy gain from shorter reasoning traces that stayed within the token limit; the available account does not establish that the edits improved the model’s reasoning more broadly.
+Sebuah makalah di arXiv melaporkan bahwa sebuah model bahasa mengubah bobotnya sendiri tanpa menggunakan gradien dan mempertahankan perubahan yang meningkatkan akurasinya dalam mengerjakan soal latihan. Diskusi itu menyebut bahwa akurasi meningkat karena jejak penalaran yang lebih pendek tidak melampaui batas token. Informasi yang tersedia tidak menunjukkan bahwa perubahan itu meningkatkan kemampuan penalaran model secara lebih luas.
 
-hackernews · lwhsiao · Nov 20, 16:29 · [Discussion](https://news.ycombinator.com/item?id=50577265)
+hackernews · lwhsiao · 20 Nov, 16:29 · [Diskusi](https://news.ycombinator.com/item?id=50577265)
 
-**「Weight edits versus prompting」** A model’s weights are numerical parameters that shape its outputs. Unlike a prompt, which changes the input without changing those parameters, a weight edit persists across later requests. The paper describes its method as gradient-free: it tests candidate edits on practice problems and keeps those that work rather than using gradients to determine how to update the weights.
+**「Perubahan bobot dibandingkan pemberian prompt」** Bobot model adalah parameter numerik yang memengaruhi keluarannya. Prompt mengubah masukan tanpa mengubah parameter tersebut, sedangkan perubahan bobot tetap berlaku untuk permintaan berikutnya. Makalah itu menjelaskan bahwa metodenya tidak menggunakan gradien: model menguji usulan perubahan pada soal latihan dan mempertahankan perubahan yang berhasil, alih-alih menggunakan gradien untuk menentukan cara memperbarui bobotnya.
 
-**「Implications for evaluation」** The reported accuracy gain does not establish that the model reasons better: a commenter pointed to the paper’s appendix for evidence that the edit addressed failures caused by exceeding the token limit. To distinguish better reasoning from fewer cutoffs, evaluators should report cutoff rates alongside accuracy and check whether the gain persists with a larger token budget.
+**「Implikasi bagi evaluasi」** Kenaikan akurasi yang dilaporkan tidak membuktikan bahwa model bernalar lebih baik. Seorang komentator menunjuk lampiran makalah sebagai bukti bahwa perubahan bobot mengatasi kegagalan akibat terlampauinya batas token. Untuk membedakan peningkatan kemampuan penalaran dari sekadar berkurangnya keluaran yang terpotong, evaluator sebaiknya melaporkan persentase keluaran yang terpotong bersama angka akurasi, lalu memeriksa apakah peningkatan akurasi itu bertahan ketika jatah token diperbesar.
 
-**「Community Discussion」** One commenter argued that the edits improved the score only by preventing answers from being cut off. Another questioned the paper’s reported “no training” claim, arguing that testing candidate edits on practice problems and keeping those that work can count as training even without gradient descent.
+**「Diskusi Komunitas」** Seorang komentator berpendapat bahwa penyuntingan itu meningkatkan skor hanya karena mencegah jawaban terpotong. Komentator lain mempertanyakan klaim “tanpa pelatihan” dalam makalah tersebut. Menurutnya, menguji berbagai usulan perubahan pada soal latihan dan mempertahankan perubahan yang berhasil dapat dianggap sebagai pelatihan meskipun tidak menggunakan penurunan gradien.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://news.ycombinator.com/item?id=50577265">Language Models Can Rewrite Their Own Weights | Hacker News</a></li>
-<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Language Models Can Rewrite Their Own Weights</a></li>
-<li><a href="https://news.ycombinator.com/item?id=50577265">Language Models Can Rewrite Their Own Weights | Hacker News</a></li>
-<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Language Models Can Rewrite Their Own Weights</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50577265">Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri | Hacker News</a></li>
+<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50577265">Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri | Hacker News</a></li>
+<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#language models`, `#weight editing`, `#gradient-free optimization`, `#reasoning token budgets`
+**Tag**: `#model bahasa`, `#penyuntingan bobot`, `#optimisasi tanpa gradien`, `#anggaran token penalaran`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [Levent Alpöge claims proof of the Generalized Riemann Hypothesis](https://alpo.ge/remark.pdf) ⭐️ 7.0/10
+### [Levent Alpöge mengklaim telah membuktikan Hipotesis Riemann yang Digeneralisasi](https://alpo.ge/remark.pdf) ⭐️ 7.0/10
 
-In a short announcement, Levent Alpöge says he and Claude found a proof of the Riemann Hypothesis and extended the method to the Generalized Riemann Hypothesis. He says they formalized the arguments without assumptions, but the supplied material does not establish that the proof has been independently verified. He expects the method could also resolve the Extended Riemann Hypothesis, which he does not claim to have proved.
+Dalam pengumuman singkat, Levent Alpöge mengatakan bahwa ia dan Claude menemukan bukti Hipotesis Riemann dan memperluas metode tersebut untuk membuktikan Hipotesis Riemann yang Digeneralisasi. Ia mengatakan bahwa mereka memformalkan argumen itu tanpa asumsi, tetapi materi yang disertakan tidak menunjukkan bahwa bukti tersebut telah diverifikasi secara independen. Ia memperkirakan metode itu juga dapat membuktikan Hipotesis Riemann yang Diperluas, tetapi tidak mengklaim telah membuktikannya.
 
-hackernews · iamronaldo · Nov 20, 14:16 · [Discussion](https://news.ycombinator.com/item?id=50574968)
+hackernews · iamronaldo · 20 Nov, 14:16 · [Diskusi](https://news.ycombinator.com/item?id=50574968)
 
-**「The conjecture and its verification」** The Riemann Hypothesis says that all nontrivial zeros of the Riemann zeta function lie on the line with real part 1/2; the Generalized Riemann Hypothesis extends that claim to Dirichlet L-functions. A Lean formalization lets a proof checker verify the precise statement encoded in the code, but reviewers still need to confirm that the statement matches the intended conjecture and that the proof introduces no unproved assumptions.
+**「Dugaan dan verifikasinya」** Hipotesis Riemann menyatakan bahwa semua titik nol nontrivial fungsi zeta Riemann terletak pada garis dengan bagian real 1/2; Hipotesis Riemann yang Digeneralisasi memperluas klaim tersebut ke fungsi L Dirichlet. Formalisasi dalam Lean memungkinkan pemeriksa bukti memverifikasi pernyataan persis sebagaimana dituliskan dalam kode, tetapi penelaah tetap perlu memastikan bahwa pernyataan itu sesuai dengan dugaan yang dimaksud dan bahwa buktinya tidak menggunakan asumsi yang belum dibuktikan.
 
-**「Community discussion」** A Hacker News commenter reported that the purported Lean formalization was 1.3 GB and about 15 million lines of code. The comment described the archive’s size, not whether Lean successfully checked the claimed proof.
+**「Diskusi komunitas」** Seorang komentator di Hacker News melaporkan bahwa formalisasi yang diklaim dibuat dalam Lean itu berukuran 1.3 GB dan berisi sekitar 15 juta baris kode. Komentar tersebut hanya menyebut ukuran arsip, bukan apakah Lean berhasil memeriksa bukti yang diklaim itu.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">CocoSgt/ riemann - hypothesis - lean : Mirror of Levent Alpöge &#x27;s Lean ...</a></li>
+<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">CocoSgt/ riemann - hypothesis - lean : Salinan repositori Lean milik Levent Alpöge ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Generalized Riemann Hypothesis`, `#Number theory`, `#Lean theorem prover`, `#AI-assisted mathematics`
+**Tag**: `#Hipotesis Riemann yang Digeneralisasi`, `#teori bilangan`, `#pembukti teorema Lean`, `#matematika berbantuan AI`
 
 ---
 
-## Financial News
+## Berita Keuangan
 
 <a id="item-finance-news-1"></a>
-### [U.S. companies issue more shares than they buy back](https://www.cnbc.com/2026/11/20/equity-issuance-bull-market-problem.html) ⭐️ 8.0/10
+### [Perusahaan AS menerbitkan lebih banyak saham daripada yang mereka beli kembali](https://www.cnbc.com/2026/11/20/equity-issuance-bull-market-problem.html) ⭐️ 8.0/10
 
-U.S. companies shifted from buying back more shares than they issued in 2024 to issuing more than they bought back in 2026, according to Acadian Asset Management. As of mid-November 2026, Acadian measured net issuance at 3.1% of the U.S. stock market’s total value, below the peaks of the tech and pandemic-era bubbles.
+Menurut Acadian Asset Management, pada 2024 perusahaan AS membeli kembali lebih banyak saham daripada yang mereka terbitkan, tetapi pada 2026 mereka justru menerbitkan lebih banyak saham daripada yang mereka beli kembali. Hingga pertengahan November 2026, Acadian mencatat penerbitan bersih saham sebesar 3.1% dari nilai total pasar saham AS, di bawah tingkat tertinggi pada masa gelembung teknologi dan gelembung era pandemi.
 
-rss · CNBC Finance · Nov 20, 14:15
+rss · CNBC Finance · 20 Nov, 14:15
 
-**「Background」** Buybacks reduce the number of shares investors can trade, while net issuance increases that supply.
+**「Latar Belakang」** Pembelian kembali mengurangi jumlah saham yang dapat diperdagangkan investor, sedangkan penerbitan bersih menambahnya.
 
-**Tags**: `#U.S. equity issuance`, `#share buybacks`, `#AI financing`, `#initial public offerings`
+**Tag**: `#penerbitan saham AS`, `#pembelian kembali saham`, `#pendanaan AI`, `#penawaran umum perdana`
 
 ---

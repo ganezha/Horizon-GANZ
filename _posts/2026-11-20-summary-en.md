@@ -1,95 +1,95 @@
 ---
 layout: default
-title: "Horizon Summary: 2026-11-20 (EN)"
+title: "Edisi Horizon GANZ · 2026-11-20"
 date: 2026-11-20
-lang: en
+lang: id
 ---
 
-> From 8 items, 4 important content pieces were selected
-
----
-
-**Technology News**
-1. [Reuters Reports Anthropic’s Nasdaq Debut](#item-tech-news-1) ⭐️ 9.0/10
-2. [PostgreSQL 19 Adds WAIT FOR LSN for Standby Reads](#item-tech-news-2) ⭐️ 9.0/10
-3. [Anthropic reports Claude helped solve two open problems in black-hole physics](#item-tech-news-3) ⭐️ 8.0/10
-4. [OpenJDK java4shell discussion points to a June crash report](#item-tech-news-4) ⭐️ 7.0/10
+> Dari 8 item, 4 konten penting dipilih
 
 ---
 
-## Technology News
+**Berita Teknologi**
+1. [Reuters Laporkan Debut Anthropic di Nasdaq](#item-tech-news-1) ⭐️ 9.0/10
+2. [PostgreSQL 19 Tambahkan WAIT FOR LSN untuk Pembacaan di Server Siaga](#item-tech-news-2) ⭐️ 9.0/10
+3. [Anthropic laporkan Claude membantu memecahkan dua masalah terbuka dalam fisika lubang hitam](#item-tech-news-3) ⭐️ 8.0/10
+4. [Diskusi java4shell di OpenJDK menyoroti laporan crash pada Juni](#item-tech-news-4) ⭐️ 7.0/10
+
+---
+
+## Berita Teknologi
 
 <a id="item-tech-news-1"></a>
-### [Reuters Reports Anthropic’s Nasdaq Debut](https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/) ⭐️ 9.0/10
+### [Reuters Laporkan Debut Anthropic di Nasdaq](https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/) ⭐️ 9.0/10
 
-A Reuters headline reports that AI developer Anthropic made its Nasdaq debut, giving public-market investors a way to trade its shares. The article text was not supplied, so the offering price, valuation, and early trading performance could not be verified.
+Judul berita Reuters melaporkan bahwa pengembang AI Anthropic memulai debutnya di Nasdaq, sehingga investor di pasar publik dapat memperdagangkan sahamnya. Teks artikelnya tidak disertakan, sehingga harga penawaran, valuasi, dan kinerja awal perdagangan tidak dapat diverifikasi.
 
-hackernews · wslh · Nov 19, 17:02 · [Discussion](https://news.ycombinator.com/item?id=50562754)
+hackernews · wslh · Nov 19, 17:02 · [Diskusi](https://news.ycombinator.com/item?id=50562754)
 
-**「How the IPO was priced」** Before Nasdaq trading began, Anthropic set its IPO price at $83 a share, above its initial range of $70 to $78, and increased the offering from 825 million to 980 million shares. The IPO price is what investors allocated shares in the offering paid; the opening price is set separately when the stock begins trading on the exchange.
+**「Cara harga IPO ditetapkan」** Sebelum perdagangan di Nasdaq dimulai, Anthropic menetapkan harga IPO sebesar $83 per saham, di atas kisaran awal $70 hingga $78, dan menambah jumlah saham yang ditawarkan dari 825 juta menjadi 980 juta. Harga IPO adalah harga yang dibayar investor yang mendapat jatah saham dalam penawaran tersebut, sedangkan harga pembukaan ditetapkan secara terpisah saat saham mulai diperdagangkan di bursa.
 
-**「Valuation and career concerns」** Some Hacker News commenters cited an unverified early selloff as a reason to question Anthropic’s valuation and, by extension, OpenAI’s private-market valuation. Others worried that AI could narrow software engineering career prospects, with one longtime programmer saying it was hard to advise junior developers on how to adapt.
+**「Kekhawatiran soal valuasi dan karier」** Sejumlah komentator di Hacker News menyebut aksi jual pada awal perdagangan yang belum terverifikasi sebagai alasan untuk mempertanyakan valuasi Anthropic dan, lebih jauh, valuasi OpenAI di pasar privat. Yang lain khawatir AI dapat mempersempit prospek karier di bidang rekayasa perangkat lunak. Seorang pemrogram berpengalaman mengatakan sulit memberi saran kepada pengembang junior tentang cara beradaptasi.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://www.euronews.com/2026/11/19/anthropic-shares-open-34-above-ipo-price-in-nasdaq-debut-after-record-listing">Anthropic shares open 34% above IPO price in Nasdaq debut</a></li>
-<li><a href="https://www.huffpost.com/entry/anthropic-ipo-wall-street_n_6aff0d09e4b0f8ebfa4a7875">Anthropic Valued At Over $2 Trillion In Nasdaq Debut</a></li>
+<li><a href="https://www.euronews.com/2026/11/19/anthropic-shares-open-34-above-ipo-price-in-nasdaq-debut-after-record-listing">Saham Anthropic dibuka 34% di atas harga IPO saat debut di Nasdaq</a></li>
+<li><a href="https://www.huffpost.com/entry/anthropic-ipo-wall-street_n_6aff0d09e4b0f8ebfa4a7875">Valuasi Anthropic Lampaui $2 Triliun Saat Debut di Nasdaq</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Anthropic`, `#Nasdaq`, `#AI company valuations`, `#software engineering careers`
+**Tag**: `#Anthropic`, `#Nasdaq`, `#valuasi perusahaan AI`, `#karier rekayasa perangkat lunak`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [PostgreSQL 19 Adds WAIT FOR LSN for Standby Reads](https://simonwillison.net/2026/Nov/19/postgresql-19/) ⭐️ 9.0/10
+### [PostgreSQL 19 Tambahkan WAIT FOR LSN untuk Pembacaan di Server Siaga](https://simonwillison.net/2026/Nov/19/postgresql-19/) ⭐️ 9.0/10
 
-PostgreSQL 19 has been released with a new command for applications that write to a primary database and read from standbys. A standby session can use WAIT FOR LSN to pause before querying until the standby has replayed the write-ahead log through a specified log sequence number, so the query can see the application&\#x27;s earlier write. If an optional timeout expires before the standby catches up, the command returns an error.
+PostgreSQL 19 telah dirilis dengan perintah baru untuk aplikasi yang menulis ke basis data utama dan membaca dari server siaga. Sebelum menjalankan kueri, sesi di server siaga dapat menggunakan WAIT FOR LSN untuk menunggu hingga server tersebut menerapkan ulang log tulis di muka sampai ke nomor urut log yang ditentukan. Dengan begitu, kueri dapat melihat hasil penulisan yang sebelumnya dilakukan aplikasi. Jika batas waktu opsional terlampaui sebelum server siaga menyusul, perintah tersebut mengembalikan pesan kesalahan.
 
 rss · Simon Willison · Nov 19, 20:43
 
-**「Why replica reads can lag」** A PostgreSQL standby replays the primary’s write-ahead log \(WAL\), so a read sent to the standby can miss a write that has already committed on the primary. A log sequence number \(LSN\) identifies a position in that log, giving the standby a point to reach before serving the read. MediaWiki uses a similar pattern with MySQL: it saves the primary’s replication position in the user’s session and waits for the replica to catch up before reading from it.
+**「Mengapa pembacaan dari replika bisa tertinggal」** Server siaga PostgreSQL menerapkan ulang log tulis di muka \(WAL\) dari server utama. Karena itu, pembacaan dari server siaga bisa belum melihat hasil penulisan yang transaksinya sudah dikomit di server utama. Nomor urut log \(LSN\) menandai posisi dalam log tersebut dan memberi server siaga titik yang harus dicapai sebelum melayani permintaan baca. MediaWiki menggunakan pola serupa dengan MySQL: posisi replikasi server utama disimpan dalam sesi pengguna, lalu MediaWiki menunggu replika mencapai posisi itu sebelum membaca darinya.
 
-**「Impact」** To get read-your-writes consistency across requests, applications need to save the primary&\#x27;s log position after the write and pass it to the standby session before reading. Applications that set a timeout also need to handle the error when a standby falls too far behind.
+**「Dampak」** Untuk menjaga konsistensi baca-setelah-tulis antarpermintaan, aplikasi perlu menyimpan posisi log server utama setelah menulis, lalu meneruskannya ke sesi di server siaga sebelum membaca. Aplikasi yang menetapkan batas waktu juga perlu menangani kesalahan ketika server siaga tertinggal terlalu jauh.
 
-**Tags**: `#PostgreSQL`, `#database replication`, `#read-your-writes consistency`, `#write-ahead logging`
+**Tag**: `#PostgreSQL`, `#replikasi basis data`, `#konsistensi baca-setelah-tulis`, `#pencatatan log tulis di muka`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Anthropic reports Claude helped solve two open problems in black-hole physics](https://www.anthropic.com/research/claude-black-hole-physics) ⭐️ 8.0/10
+### [Anthropic laporkan Claude membantu memecahkan dua masalah terbuka dalam fisika lubang hitam](https://www.anthropic.com/research/claude-black-hole-physics) ⭐️ 8.0/10
 
-Anthropic reports that Claude helped researchers solve two open problems in theoretical black-hole physics, including deriving an upper bound on black-hole mass for a given central charge. According to Anthropic, neither result directly describes our universe or has practical applications.
+Anthropic melaporkan bahwa Claude membantu para peneliti memecahkan dua masalah terbuka dalam fisika teoretis lubang hitam, termasuk menurunkan batas atas massa lubang hitam untuk nilai muatan sentral tertentu. Menurut Anthropic, kedua hasil tersebut tidak secara langsung menggambarkan alam semesta kita dan tidak memiliki penerapan praktis.
 
-hackernews · cybermango · Nov 19, 17:30 · [Discussion](https://news.ycombinator.com/item?id=50563148)
+hackernews · cybermango · 19 Nov, 17:30 · [Diskusi](https://news.ycombinator.com/item?id=50563148)
 
-**「What central charge means」** In this setting, central charge is a parameter that characterizes the symmetries of a theoretical model, not the electric charge of a black hole. A mass bound at fixed central charge constrains what those models can describe, rather than how massive an observed black hole can be.
+**「Arti muatan sentral」** Dalam konteks ini, muatan sentral adalah parameter yang mencirikan simetri suatu model teoretis, bukan muatan listrik lubang hitam. Batas massa pada nilai muatan sentral yang tetap membatasi apa yang dapat dijelaskan oleh model-model tersebut, bukan seberapa besar massa lubang hitam yang teramati.
 
-**「Community discussion」** Commenters questioned how much human guidance Claude received and argued that publishing the prompting history would help readers assess what the model contributed.
+**「Diskusi komunitas」** Para komentator mempertanyakan seberapa banyak arahan manusia yang diterima Claude dan berpendapat bahwa memublikasikan riwayat prompt akan membantu pembaca menilai kontribusi model tersebut.
 
-**Tags**: `#AI-assisted research`, `#Claude`, `#black-hole physics`, `#quantum gravity`
+**Tag**: `#riset berbantuan AI`, `#Claude`, `#fisika lubang hitam`, `#gravitasi kuantum`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [OpenJDK java4shell discussion points to a June crash report](https://github.com/openjdk/jdk/pull/32781) ⭐️ 7.0/10
+### [Diskusi java4shell di OpenJDK menyoroti laporan crash bulan Juni](https://github.com/openjdk/jdk/pull/32781) ⭐️ 7.0/10
 
-Hacker News commenters tracing the OpenJDK flaw dubbed java4shell pointed to a June 2026 report of a segmentation fault and a September follow-up in which the original reporter linked the crash to Base64. The discussion cites Adoptium support issue \#1480 alongside OpenJDK pull request \#32781. Those references suggest the crash was documented months before the November discussion, but do not establish when its security implications were recognized or which Java versions were affected.
+Para komentator Hacker News yang menelusuri celah OpenJDK berjuluk java4shell menyoroti laporan kesalahan segmentasi dari Juni 2026 dan tindak lanjut pada September, saat pelapor awal mengaitkan crash tersebut dengan Base64. Diskusi itu menyebut tiket dukungan Adoptium \#1480 dan pull request OpenJDK \#32781. Rujukan tersebut menunjukkan bahwa crash itu telah didokumentasikan beberapa bulan sebelum diskusi pada November, tetapi tidak memastikan kapan implikasi keamanannya disadari atau versi Java mana yang terdampak.
 
-hackernews · notmine1337 · Nov 19, 11:47 · [Discussion](https://news.ycombinator.com/item?id=50558906)
+hackernews · notmine1337 · 19 Nov, 11:47 · [Diskusi](https://news.ycombinator.com/item?id=50558906)
 
-**「From crash report to security disclosure」** A crash report can document a bug without establishing that it is exploitable. Hacker News commenters trace the OpenJDK flaw dubbed java4shell to a June crash report in Adoptium’s support tracker and a September follow-up linking the crash to Base64. According to the discussion, the pull request author said in October that Oracle first asked them to hold off on the patch and later took over the work.
+**「Dari laporan crash hingga pengungkapan celah keamanan」** Laporan crash dapat mendokumentasikan bug tanpa membuktikan bahwa bug tersebut bisa dieksploitasi. Para komentator Hacker News menelusuri celah OpenJDK berjuluk java4shell hingga ke laporan crash bulan Juni di pelacak tiket dukungan Adoptium dan tindak lanjut pada September yang mengaitkan crash itu dengan Base64. Menurut diskusi tersebut, pembuat pull request mengatakan pada Oktober bahwa Oracle awalnya meminta agar pengajuan patch ditunda, lalu mengambil alih pengerjaannya.
 
-**「Community discussion」** One commenter quoted the pull request author as saying Oracle asked them on October 1 to hold off on submitting a PR and that by October 28 Oracle had taken over. Commenters also questioned whether later AI-assisted findings were independent, but offered no evidence that the earlier report had influenced them.
+**「Diskusi komunitas」** Seorang komentator mengutip pembuat pull request yang mengatakan bahwa pada 1 Oktober Oracle memintanya menunda pengajuan PR dan bahwa pada 28 Oktober Oracle sudah mengambil alih pengerjaannya. Para komentator juga mempertanyakan apakah temuan berikutnya yang diperoleh dengan bantuan AI benar-benar independen, tetapi tidak memberikan bukti bahwa laporan sebelumnya memengaruhi temuan tersebut.
 
-<details><summary>References</summary>
+<details><summary>Rujukan</summary>
 <ul>
-<li><a href="https://news.ycombinator.com/item?id=50558906">Someone reported java 4 shell bug in September 2026 | Hacker News</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50558906">Seseorang melaporkan bug java 4 shell pada September 2026 | Hacker News</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#OpenJDK`, `#Java security`, `#vulnerability disclosure`, `#AI-assisted bug discovery`
+**Tag**: `#OpenJDK`, `#keamanan Java`, `#pengungkapan kerentanan`, `#penemuan bug berbantuan AI`
 
 ---

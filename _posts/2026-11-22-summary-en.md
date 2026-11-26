@@ -1,78 +1,78 @@
 ---
 layout: default
-title: "Horizon Summary: 2026-11-22 (EN)"
+title: "Edisi Horizon GANZ · 2026-11-22"
 date: 2026-11-22
-lang: en
+lang: id
 ---
 
-> From 7 items, 3 important content pieces were selected
-
----
-
-**Technology News**
-1. [Lean and the Riemann Hypothesis: What Was Verified?](#item-tech-news-1) ⭐️ 8.0/10
-2. [Swapping a USB Ethernet adapter fixed a 75% download slowdown](#item-tech-news-2) ⭐️ 7.0/10
-3. [Muru targets ASGI and WSGI with a Rust server](#item-tech-news-3) ⭐️ 7.0/10
+> Dari 7 item, 3 konten penting dipilih
 
 ---
 
-## Technology News
+**Berita Teknologi**
+1. [Lean dan Hipotesis Riemann: Apa yang Diverifikasi?](#item-tech-news-1) ⭐️ 8.0/10
+2. [Mengganti adaptor Ethernet USB mengatasi penurunan kecepatan unduh sebesar 75%](#item-tech-news-2) ⭐️ 7.0/10
+3. [Muru menyasar ASGI dan WSGI dengan server berbasis Rust](#item-tech-news-3) ⭐️ 7.0/10
+
+---
+
+## Berita Teknologi
 
 <a id="item-tech-news-1"></a>
-### [Lean and the Riemann Hypothesis: What Was Verified?](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/) ⭐️ 8.0/10
+### [Lean dan Hipotesis Riemann: Apa yang Diverifikasi?](https://leanprover-community.github.io/blog/posts/riemann-hypothesis/) ⭐️ 8.0/10
 
-A Lean community blog post titled “Lean verification of the Riemann Hypothesis” prompted discussion about what had been formalized and how the result was checked. The post’s text is not available in the supplied material, and the title and comments alone do not establish which theorem was checked or whether Lean verified a proof.
+Sebuah tulisan di blog komunitas Lean berjudul “Verifikasi Hipotesis Riemann dengan Lean” memicu diskusi tentang apa yang telah diformalkan dan bagaimana hasilnya diperiksa. Teks tulisan itu tidak tersedia dalam materi yang diberikan. Judul dan komentar saja tidak cukup untuk memastikan teorema mana yang diperiksa atau apakah Lean memverifikasi sebuah bukti.
 
-hackernews · g-b-r · Nov 21, 14:36 · [Discussion](https://news.ycombinator.com/item?id=50589618)
+hackernews · g-b-r · 21 Nov, 14:36 · [Diskusi](https://news.ycombinator.com/item?id=50589618)
 
-**「What Lean checks」** A Lean proof checker verifies a proof against a precise formal statement, so checking the proof and confirming that the statement expresses the intended conjecture are separate tasks. The Lean community blog notes that experts in Lean and number theory had already vetted Mathlib’s formal statement, \`RiemannHypothesis\`.
+**「Apa yang diperiksa Lean」** Pemeriksa bukti Lean memverifikasi apakah suatu bukti sesuai dengan pernyataan formal yang dirumuskan secara presisi. Jadi, memeriksa bukti dan memastikan bahwa pernyataan itu benar-benar menyatakan konjektur yang dimaksud adalah dua tugas yang berbeda. Blog komunitas Lean mencatat bahwa para pakar Lean dan teori bilangan telah menelaah pernyataan formal Mathlib, \`RiemannHypothesis\`.
 
-**「Community discussion」** One commenter argued that agreement among separately implemented Lean proof checkers would make a checker bug less likely; another questioned how independent those implementations really are, citing a reported case in which one accepted a bogus refutation of the Collatz conjecture. Commenters also debated how much credit to give Claude versus the human expert who guided the work.
+**「Diskusi komunitas」** Seorang komentator berpendapat bahwa jika beberapa pemeriksa bukti Lean yang diimplementasikan secara terpisah memberikan hasil yang sama, kemungkinan adanya bug pada pemeriksa akan lebih kecil. Komentator lain mempertanyakan seberapa independen implementasi tersebut sebenarnya, dengan mengutip laporan tentang salah satunya yang menerima sanggahan palsu terhadap konjektur Collatz. Para komentator juga memperdebatkan seberapa besar andil Claude dibandingkan dengan andil pakar manusia yang mengarahkan pekerjaan itu.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Lean verification of the Riemann Hypothesis | Lean community blog</a></li>
+<li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Verifikasi Hipotesis Riemann dengan Lean | Blog komunitas Lean</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Lean`, `#formal verification`, `#Riemann Hypothesis`, `#proof-checker kernels`, `#AI-assisted mathematics`
+**Tag**: `#Lean`, `#verifikasi formal`, `#Hipotesis Riemann`, `#kernel pemeriksa bukti`, `#matematika berbantuan AI`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Swapping a USB Ethernet adapter fixed a 75% download slowdown](https://blog.tymscar.com/posts/studiodisplayethernet/) ⭐️ 7.0/10
+### [Mengganti adaptor Ethernet USB mengatasi penurunan kecepatan unduh sebesar 75%](https://blog.tymscar.com/posts/studiodisplayethernet/) ⭐️ 7.0/10
 
-A blog post reports that download speeds fell by 75% when the author’s USB Ethernet adapter was connected through a monitor’s USB hub. Switching to a different adapter reportedly fixed the slowdown, but the account does not establish that the monitor has a widespread defect.
+Sebuah tulisan blog melaporkan bahwa kecepatan unduh turun 75% ketika adaptor Ethernet USB milik penulis dihubungkan melalui hub USB monitor. Menurut laporan itu, mengganti adaptor mengatasi perlambatan tersebut, tetapi pengalaman itu tidak membuktikan bahwa cacat tersebut umum terjadi pada monitor itu.
 
-hackernews · soheilpro · Nov 21, 10:36 · [Discussion](https://news.ycombinator.com/item?id=50587875)
+hackernews · soheilpro · 21 Nov, 10:36 · [Diskusi](https://news.ycombinator.com/item?id=50587875)
 
-**「How USB hubs can affect Ethernet」** When an Ethernet adapter is plugged into the Studio Display XDR’s USB hub, incoming packets pass through the hub on their way to the computer. The adapter buffers those packets while waiting for the host to read them; if the buffer fills, it can drop incoming packets and reduce download throughput.
+**「Bagaimana hub USB dapat memengaruhi Ethernet」** Ketika adaptor Ethernet dicolokkan ke hub USB Studio Display XDR, paket yang masuk melewati hub sebelum sampai ke komputer. Adaptor menyimpan sementara paket-paket itu di buffer sambil menunggu komputer membacanya. Jika buffer penuh, paket yang baru masuk bisa terbuang sehingga laju transfer data unduhan menurun.
 
-**「What to test」** If downloads slow down through a monitor’s USB hub, try the same adapter directly in the computer, then try a different adapter through the hub to help isolate the cause.
+**「Apa yang perlu diuji」** Jika unduhan melambat saat menggunakan hub USB monitor, coba colokkan adaptor yang sama langsung ke komputer. Lalu, coba adaptor lain melalui hub tersebut untuk membantu menentukan penyebabnya.
 
-**「Community discussion」** One commenter explained the slowdown as a chain reaction: extra latency through the hub delayed acknowledgments, the adapter’s buffer filled, and packets were dropped. Another reported a similar problem with a MacBook and a Thunderbolt dock and said enabling flow control helped.
+**「Diskusi komunitas」** Seorang komentator menjelaskan perlambatan itu sebagai reaksi berantai: latensi tambahan saat data melewati hub menunda konfirmasi penerimaan, buffer adaptor terisi penuh, lalu paket terbuang. Komentator lain melaporkan masalah serupa pada MacBook yang terhubung ke dok Thunderbolt dan mengatakan bahwa mengaktifkan kontrol aliran membantu.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://blog.tymscar.com/posts/studiodisplayethernet/">My Monitor Was Cutting My Download Speed by 75%</a></li>
+<li><a href="https://blog.tymscar.com/posts/studiodisplayethernet/">Monitor Saya Memangkas Kecepatan Unduh hingga 75%</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#USB hubs`, `#Ethernet adapters`, `#network throughput`, `#hardware debugging`
+**Tag**: `#hub USB`, `#adaptor Ethernet`, `#laju transfer data jaringan`, `#diagnosis masalah perangkat keras`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Muru targets ASGI and WSGI with a Rust server](https://simonwillison.net/2026/Nov/21/muru/) ⭐️ 7.0/10
+### [Muru menyasar ASGI dan WSGI dengan server berbasis Rust](https://simonwillison.net/2026/Nov/21/muru/) ⭐️ 7.0/10
 
-Graham Dumpleton is developing Muru, an AI-assisted Rust server designed to run both ASGI and WSGI Python web applications in development and production. His public development series covers topics including worker architecture, local HTTPS, canary deployments, and Kubernetes integration. Simon Willison’s write-up describes the project’s goals but does not establish production readiness or provide benchmarks against other servers.
+Graham Dumpleton sedang mengembangkan Muru, server berbasis Rust yang dikembangkan dengan bantuan AI dan dirancang untuk menjalankan aplikasi web Python berbasis ASGI maupun WSGI di lingkungan pengembangan dan produksi. Seri tulisan publiknya tentang pengembangan Muru membahas berbagai topik, termasuk arsitektur worker, HTTPS lokal, penerapan canary, dan integrasi Kubernetes. Tulisan Simon Willison menjelaskan tujuan proyek tersebut, tetapi tidak memastikan kesiapan Muru untuk penggunaan di lingkungan produksi maupun menyajikan hasil uji kinerja yang membandingkannya dengan server lain.
 
-rss · Simon Willison · Nov 21, 23:56
+rss · Simon Willison · 21 Nov, 23:56
 
-**「Background」** WSGI is the traditional synchronous interface between Python web applications and servers, while ASGI also accommodates asynchronous applications. Dumpleton started mod\_wsgi about 20 years earlier to serve WSGI applications through Apache.
+**「Latar Belakang」** WSGI adalah antarmuka sinkron yang secara tradisional digunakan untuk menghubungkan aplikasi web Python dengan server, sedangkan ASGI juga mendukung aplikasi asinkron. Sekitar 20 tahun sebelumnya, Dumpleton memulai proyek mod\_wsgi agar aplikasi WSGI dapat dijalankan melalui Apache.
 
-**Tags**: `#Python web servers`, `#Rust`, `#ASGI`, `#WSGI`
+**Tag**: `#Server web Python`, `#Rust`, `#ASGI`, `#WSGI`
 
 ---

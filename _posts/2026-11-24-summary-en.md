@@ -1,148 +1,148 @@
 ---
 layout: default
-title: "Horizon Summary: 2026-11-24 (EN)"
+title: "Edisi Horizon GANZ · 2026-11-24"
 date: 2026-11-24
-lang: en
+lang: id
 ---
 
-> From 15 items, 6 important content pieces were selected
-
----
-
-**Technology News**
-1. [Nvidia reportedly reinstates Jensen Huang as CEO](#item-tech-news-1) ⭐️ 8.0/10
-2. [Ladybird releases its first alpha for macOS and Linux](#item-tech-news-2) ⭐️ 8.0/10
-3. [Stalwart positions itself as a drop-in Microsoft Exchange replacement](#item-tech-news-3) ⭐️ 7.0/10
-4. [New York Restricts Some Vehicle Subscriptions and Post-Purchase Fees](#item-tech-news-4) ⭐️ 7.0/10
-5. [Z.ai releases GLM-5.4, its first looped transformer](#item-tech-news-5) ⭐️ 7.0/10
-
-**Financial News**
-1. [Nvidia reinstates Jensen Huang as CEO](#item-finance-news-1) ⭐️ 8.0/10
+> Dari 15 item, 6 konten penting dipilih
 
 ---
 
-## Technology News
+**Berita Teknologi**
+1. [Nvidia dikabarkan mengangkat kembali Jensen Huang sebagai CEO](#item-tech-news-1) ⭐️ 8.0/10
+2. [Ladybird merilis versi alfa pertamanya untuk macOS dan Linux](#item-tech-news-2) ⭐️ 8.0/10
+3. [Stalwart memosisikan diri sebagai pengganti Microsoft Exchange yang bisa langsung digunakan](#item-tech-news-3) ⭐️ 7.0/10
+4. [New York membatasi sejumlah layanan berlangganan kendaraan dan biaya pascapembelian](#item-tech-news-4) ⭐️ 7.0/10
+5. [Z.ai merilis GLM-5.4, model transformer berulang pertamanya](#item-tech-news-5) ⭐️ 7.0/10
+
+**Berita Keuangan**
+1. [Nvidia mengangkat kembali Jensen Huang sebagai CEO](#item-finance-news-1) ⭐️ 8.0/10
+
+---
+
+## Berita Teknologi
 
 <a id="item-tech-news-1"></a>
-### [Nvidia reportedly reinstates Jensen Huang as CEO](https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html) ⭐️ 8.0/10
+### [Nvidia dikabarkan mengangkat kembali Jensen Huang sebagai CEO](https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html) ⭐️ 8.0/10
 
-Nvidia’s board reportedly reinstated Jensen Huang as CEO. In a statement quoted on Hacker News, the board said it received input from senior U.S. officials before reaching its decision and concluded that Huang’s return posed no national security risk. The available source excerpt does not establish why Huang was removed or what advice the officials gave.
+Dewan direksi Nvidia dikabarkan mengangkat kembali Jensen Huang sebagai CEO. Dalam pernyataan yang dikutip di Hacker News, dewan mengatakan bahwa mereka menerima masukan dari pejabat senior AS sebelum mengambil keputusan dan menyimpulkan bahwa kembalinya Huang tidak menimbulkan risiko terhadap keamanan nasional. Kutipan sumber yang tersedia tidak menjelaskan mengapa Huang diberhentikan atau saran apa yang diberikan para pejabat tersebut.
 
-hackernews · jaz · Nov 23, 14:00 · [Discussion](https://news.ycombinator.com/item?id=50611576)
+hackernews · jaz · 23 Nov, 14:00 · [Diskusi](https://news.ycombinator.com/item?id=50611576)
 
-**「Before the reinstatement」** Nvidia’s board said it received input from senior U.S. officials before making its decision. NBC News reported that President Donald Trump called the board and argued that the U.S. economy needed Huang.
+**「Sebelum pengangkatan kembali」** Dewan direksi Nvidia mengatakan bahwa mereka menerima masukan dari pejabat senior AS sebelum mengambil keputusan. NBC News melaporkan bahwa Presiden Donald Trump menelepon dewan dan menyampaikan bahwa perekonomian AS membutuhkan Huang.
 
-**「Board independence」** One commenter singled out the board’s acknowledgment of U.S. government input as the most revealing part of the statement. Another drew a parallel with OpenAI’s 2023 leadership reversal, arguing that a board’s formal authority does not always show who has influence over its decisions.
+**「Independensi dewan direksi」** Seorang komentator menilai bahwa pengakuan dewan atas masukan dari pemerintah AS merupakan bagian yang paling mengungkapkan dari pernyataan tersebut. Komentator lain membandingkannya dengan pembalikan keputusan kepemimpinan OpenAI pada 2023 dan berpendapat bahwa kewenangan formal suatu dewan tidak selalu menunjukkan siapa yang memengaruhi keputusannya.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html">Jensen Huang reinstated as Nvidia CEO. Stock skyrockets 31%</a></li>
-<li><a href="https://www.nbcnews.com/tech/tech-news/nvidia-reinstates-jensen-huang-rcna610864">Jensen Huang reinstated as Nvidia CEO after Trump calls board</a></li>
+<li><a href="https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html">Jensen Huang diangkat kembali sebagai CEO Nvidia. Saham melonjak 31%</a></li>
+<li><a href="https://www.nbcnews.com/tech/tech-news/nvidia-reinstates-jensen-huang-rcna610864">Jensen Huang diangkat kembali sebagai CEO Nvidia setelah Trump menelepon dewan direksi</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Nvidia`, `#AI hardware`, `#corporate governance`, `#U.S. national security`
+**Tag**: `#Nvidia`, `#perangkat keras AI`, `#tata kelola perusahaan`, `#keamanan nasional AS`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [Ladybird releases its first alpha for macOS and Linux](https://ladybird.org/posts/alpha/) ⭐️ 8.0/10
+### [Ladybird merilis versi alfa pertamanya untuk macOS dan Linux](https://ladybird.org/posts/alpha/) ⭐️ 8.0/10
 
-Ladybird released its first alpha for macOS and Linux, letting users install the independent browser without compiling it from source. In hands-on testing, Simon Willison ran WebAssembly apps including an FFmpeg video compressor and a Pyodide Python REPL, but Datasette Lite failed because the browser does not yet implement \`navigator.serviceWorker.startMessages\(\)\`. The project warns that some sites will not work and the browser may crash.
+Ladybird merilis versi alfa pertamanya untuk macOS dan Linux, sehingga pengguna dapat memasang peramban independen ini tanpa harus mengompilasinya dari kode sumber. Saat mengujinya langsung, Simon Willison menjalankan sejumlah aplikasi WebAssembly, termasuk aplikasi kompresi video FFmpeg dan REPL Python berbasis Pyodide. Namun, Datasette Lite gagal berjalan karena peramban tersebut belum mengimplementasikan \`navigator.serviceWorker.startMessages\(\)\`. Tim proyek memperingatkan bahwa beberapa situs tidak akan berfungsi dan peramban bisa tiba-tiba berhenti bekerja.
 
-hackernews · janvdberg · Nov 23, 16:13 · [Discussion](https://news.ycombinator.com/item?id=50614249)
+hackernews · janvdberg · 23 Nov, 16:13 · [Diskusi](https://news.ycombinator.com/item?id=50614249)
 
-**「An independent browser engine」** Ladybird grew out of SerenityOS and implements its own HTML parsing, CSS, layout, JavaScript, and WebAssembly rather than using an existing browser engine. It still relies on external libraries such as HarfBuzz for text shaping and Skia for 2D graphics.
+**「Mesin peramban independen」** Ladybird berawal dari SerenityOS dan mengimplementasikan sendiri penguraian HTML, CSS, tata letak, JavaScript, dan WebAssembly, alih-alih menggunakan mesin peramban yang sudah ada. Ladybird masih mengandalkan pustaka eksternal seperti HarfBuzz untuk pembentukan glif teks dan Skia untuk grafis 2D.
 
-**「What testers can do」** Testers can report broken sites from inside the browser and review crash reports before deciding whether to send them.
+**「Yang bisa dilakukan penguji」** Penguji dapat melaporkan situs yang tidak berfungsi langsung dari peramban dan meninjau laporan kegagalan sebelum memutuskan apakah akan mengirimkannya.
 
-**「Early compatibility reports」** One Hacker News commenter reported that Proxmox’s noVNC interface worked and felt snappier than in Firefox, while another said all the sites they tried rendered correctly but scrolling was slightly jerky. These are individual experiences, not broad compatibility or performance measurements.
+**「Laporan awal kompatibilitas」** Seorang komentator di Hacker News melaporkan bahwa antarmuka noVNC Proxmox berfungsi dan terasa lebih responsif daripada di Firefox. Komentator lain mengatakan bahwa semua situs yang dicobanya tampil dengan benar, tetapi pengguliran halaman agak tersendat. Ini adalah pengalaman masing-masing pengguna, bukan hasil pengukuran kompatibilitas atau kinerja secara luas.
 
-**Tags**: `#Ladybird`, `#browser engines`, `#web compatibility`, `#alpha releases`
+**Tag**: `#Ladybird`, `#mesin peramban`, `#kompatibilitas web`, `#rilis alfa`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Stalwart positions itself as a drop-in Microsoft Exchange replacement](https://stalw.art/blog/microsoft-exchange-replacement/) ⭐️ 7.0/10
+### [Stalwart memosisikan diri sebagai pengganti Microsoft Exchange tanpa perlu mengubah konfigurasi](https://stalw.art/blog/microsoft-exchange-replacement/) ⭐️ 7.0/10
 
-Stalwart says its self-hosted mail server can now replace Microsoft Exchange without requiring administrators to change their existing setup. The announcement headline describes it as a “drop-in replacement,” but the supplied material does not identify the required Stalwart version, which Outlook clients are supported, or which Exchange features carry over.
+Stalwart mengatakan bahwa server email yang dihosting sendiri kini dapat menggantikan Microsoft Exchange tanpa mengharuskan administrator mengubah konfigurasi yang sudah ada. Judul pengumumannya menyebut Stalwart sebagai “pengganti yang bisa langsung digunakan”, tetapi materi yang tersedia tidak menyebutkan versi Stalwart yang diperlukan, klien Outlook mana yang didukung, atau fitur Exchange mana yang tetap tersedia.
 
-hackernews · shaunpud · Nov 23, 22:32 · [Discussion](https://news.ycombinator.com/item?id=50620349)
+hackernews · shaunpud · 23 Nov, 22:32 · [Diskusi](https://news.ycombinator.com/item?id=50620349)
 
-**「Exchange client compatibility」** Replacing an Exchange server without switching email clients depends on supporting the protocols those clients use, not just providing mailbox access. Stalwart’s announcement identifies MAPI over HTTP, Exchange Web Services \(EWS\), and Exchange ActiveSync among the protocols added in version 1.2.0.
+**「Kompatibilitas klien Exchange」** Agar server Exchange bisa diganti tanpa mengganti klien email, server pengganti harus mendukung protokol yang digunakan klien tersebut, bukan sekadar menyediakan akses ke kotak surat. Pengumuman Stalwart menyebut MAPI melalui HTTP, Exchange Web Services \(EWS\), dan Exchange ActiveSync sebagai beberapa protokol yang ditambahkan pada versi 1.2.0.
 
-**「What to verify before migrating」** Stalwart lists Microsoft Exchange support, but that does not establish full Outlook compatibility. Before migrating, mail administrators should test their deployed Outlook versions and workflows and, if tamper-resistant retention is required, verify whether their Stalwart plan provides it or a separate archive is needed.
+**「Hal yang perlu diperiksa sebelum migrasi」** Stalwart mencantumkan dukungan untuk Microsoft Exchange, tetapi itu tidak membuktikan kompatibilitas penuh dengan Outlook. Sebelum bermigrasi, administrator email sebaiknya menguji versi Outlook dan alur kerja yang mereka gunakan. Jika retensi arsip yang tahan terhadap manipulasi diperlukan, mereka juga perlu memastikan apakah fitur itu tersedia dalam paket Stalwart mereka atau apakah diperlukan arsip terpisah.
 
-**「Community discussion」** Commenters questioned whether Outlook users could keep the same Exchange workflows, arguing that IMAP access alone does not amount to Exchange integration. Another commenter said Stalwart’s regular plans and open-source editions lack the tamper-resistant archiving they consider necessary for German recordkeeping compliance.
+**「Diskusi komunitas」** Para komentator mempertanyakan apakah pengguna Outlook bisa mempertahankan alur kerja Exchange yang sama. Menurut mereka, akses IMAP saja tidak sama dengan integrasi Exchange. Komentator lain mengatakan bahwa paket reguler dan edisi sumber terbuka Stalwart tidak menyediakan pengarsipan tahan manipulasi yang menurutnya diperlukan untuk mematuhi aturan penyimpanan catatan di Jerman.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://stalw.art/blog/microsoft-exchange-replacement/">Stalwart is now a drop-in replacement for Microsoft Exchange</a></li>
-<li><a href="https://stalw.art/">Stalwart Mail &amp; Collaboration Server</a></li>
+<li><a href="https://stalw.art/blog/microsoft-exchange-replacement/">Stalwart kini bisa langsung menggantikan Microsoft Exchange</a></li>
+<li><a href="https://stalw.art/">Server Email &amp; Kolaborasi Stalwart</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Stalwart`, `#Microsoft Exchange`, `#Outlook compatibility`, `#self-hosted email`, `#email archiving`
+**Tag**: `#Stalwart`, `#Microsoft Exchange`, `#kompatibilitas Outlook`, `#email yang dihosting sendiri`, `#pengarsipan email`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [New York Restricts Some Vehicle Subscriptions and Post-Purchase Fees](https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription) ⭐️ 7.0/10
+### [New York membatasi beberapa jenis langganan kendaraan dan biaya pascapembelian](https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription) ⭐️ 7.0/10
 
-New York Gov. Kathy Hochul signed a law restricting certain vehicle subscriptions and fees charged after purchase. The law is not a blanket ban: reported exemptions include satellite radio, connected services that need a data network to keep working, and software-dependent driver assistance.
+Gubernur New York Kathy Hochul menandatangani undang-undang yang membatasi jenis langganan kendaraan tertentu dan biaya yang dikenakan setelah pembelian. Undang-undang ini tidak melarang semuanya: pengecualian yang dilaporkan mencakup radio satelit, layanan terhubung yang memerlukan jaringan data agar tetap berfungsi, serta fitur bantuan pengemudi yang bergantung pada perangkat lunak.
 
-hackernews · DeepLogin · Nov 24, 02:27 · [Discussion](https://news.ycombinator.com/item?id=50622774)
+hackernews · DeepLogin · 24 Nov, 02:27 · [Diskusi](https://news.ycombinator.com/item?id=50622774)
 
-**「How vehicle subscriptions work」** Buying a car does not always include ongoing access to every feature: manufacturers or dealers can charge recurring fees after the sale. Those fees can cover access to functions already built into the car or pay for ongoing services such as satellite radio and in-car connectivity.
+**「Cara kerja langganan kendaraan」** Membeli mobil tidak selalu berarti pembeli bisa terus menggunakan semua fiturnya. Produsen atau dealer dapat mengenakan biaya berkala setelah mobil terjual. Biaya itu bisa dikenakan untuk mengakses fitur yang sudah tertanam di mobil atau untuk membayar layanan berkelanjutan seperti radio satelit dan konektivitas di dalam mobil.
 
-**「Community discussion」** One commenter cited the Senate bill’s exemptions to argue that SiriusXM and Tesla’s enhanced cruise control appear unaffected. Another questioned whether automakers could use the connected-services exemption to keep charging for features such as heated seats by making them depend on a cellular connection.
+**「Diskusi komunitas」** Seorang komentator mengutip pengecualian dalam rancangan undang-undang Senat untuk mendukung pendapatnya bahwa SiriusXM dan fitur kendali jelajah canggih Tesla tampaknya tidak terdampak. Komentator lain mempertanyakan apakah produsen mobil bisa memanfaatkan pengecualian untuk layanan terhubung agar tetap dapat mengenakan biaya atas fitur seperti pemanas jok dengan membuatnya bergantung pada koneksi seluler.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription">Money in Your Pockets: Governor Hochul Signs Bill Restricting ...</a></li>
+<li><a href="https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription">Uang di Kantong Anda: Gubernur Hochul Menandatangani Rancangan Undang-Undang yang Membatasi ...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#automotive-software`, `#subscription-pricing`, `#connected-vehicles`, `#consumer-protection`
+**Tag**: `#perangkat-lunak-otomotif`, `#harga-langganan`, `#kendaraan-terhubung`, `#perlindungan-konsumen`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [Z.ai releases GLM-5.4, its first looped transformer](https://simonwillison.net/2026/Nov/23/glm-54/) ⭐️ 7.0/10
+### [Z.ai merilis GLM-5.4, transformer berulang pertamanya](https://simonwillison.net/2026/Nov/23/glm-54/) ⭐️ 7.0/10
 
-Z.ai released GLM-5.4, its first looped transformer, for Coding Plan subscribers; it is not currently available through regular API access or as open weights. Simon Willison confirmed that a Coding Plan key works with Z.ai’s existing OpenAI-compatible Responses API. The model repeatedly runs the same group of transformer layers to refine its internal representations, increasing effective depth without adding parameters. Willison’s report does not include coding benchmarks showing whether the change improves performance.
+Z.ai merilis GLM-5.4, transformer berulang pertamanya, untuk pelanggan Coding Plan. Untuk saat ini, model itu tidak tersedia melalui akses API reguler maupun sebagai model dengan bobot terbuka. Simon Willison mengonfirmasi bahwa kunci Coding Plan berfungsi dengan Responses API Z.ai yang sudah tersedia dan kompatibel dengan OpenAI. Model ini menjalankan kelompok lapisan transformer yang sama berulang kali untuk menyempurnakan representasi internalnya, sehingga kedalaman efektifnya bertambah tanpa menambah parameter. Laporan Willison tidak menyertakan tolok ukur pemrograman yang menunjukkan apakah perubahan ini meningkatkan kinerja.
 
-rss · Simon Willison · Nov 23, 23:40
+rss · Simon Willison · 23 Nov, 23:40
 
-**「How transformer loops work」** A standard transformer runs each layer once per forward pass. A looped transformer feeds the output of a group of layers back through those same layers, adding computation at inference time without adding model parameters.
+**「Cara kerja pengulangan pada transformer」** Transformer standar menjalankan setiap lapisan satu kali pada setiap lintasan maju. Transformer berulang memasukkan kembali keluaran sekelompok lapisan ke kelompok lapisan yang sama. Cara ini menambah komputasi saat inferensi tanpa menambah parameter model.
 
-**「API access」** Developers using Z.ai’s regular API can keep their existing OpenAI-compatible Responses API endpoint to try GLM-5.4, but they currently need a Coding Plan subscription and its API key.
+**「Akses API」** Pengembang yang menggunakan API reguler Z.ai dapat tetap memakai endpoint Responses API yang kompatibel dengan OpenAI untuk mencoba GLM-5.4, tetapi saat ini mereka memerlukan langganan Coding Plan beserta kunci API-nya.
 
-**Tags**: `#GLM-5.4`, `#looped transformers`, `#weight sharing`, `#coding models`
+**Tag**: `#GLM-5.4`, `#transformer berulang`, `#berbagi bobot`, `#model pemrograman`
 
 ---
 
-## Financial News
+## Berita Keuangan
 
 <a id="item-finance-news-1"></a>
-### [Nvidia reinstates Jensen Huang as CEO](https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo-market-rally.html) ⭐️ 8.0/10
+### [Nvidia kembali mengangkat Jensen Huang sebagai CEO](https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo-market-rally.html) ⭐️ 8.0/10
 
-U.S. stocks rallied Monday after Nvidia reinstated Jensen Huang as CEO, CNBC reported. The S&amp;P 500 had fallen more than 9% from the Nov. 12 announcement of his departure through Friday’s close.
+Saham AS menguat pada Senin setelah Nvidia kembali mengangkat Jensen Huang sebagai CEO, lapor CNBC. S&amp;P 500 telah turun lebih dari 9% sejak pengumuman pengunduran dirinya pada 12 November hingga penutupan perdagangan Jumat.
 
-rss · CNBC Finance · Nov 23, 18:00
+rss · CNBC Finance · 23 Nov, 18:00
 
-**「Background」** The S&amp;P 500 fell more than 9% from Nvidia’s Nov. 12 announcement that Jensen Huang had resigned as CEO through Friday’s close, extending a sell-off that had begun amid concerns about spending on AI data centers.
+**「Latar belakang」** S&amp;P 500 turun lebih dari 9% sejak Nvidia mengumumkan pada 12 November bahwa Jensen Huang telah mengundurkan diri sebagai CEO hingga penutupan perdagangan Jumat. Penurunan itu memperpanjang aksi jual yang bermula di tengah kekhawatiran atas belanja untuk pusat data AI.
 
-<details><summary>References</summary>
+<details><summary>Referensi</summary>
 <ul>
-<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/">NVIDIA Corporation - NVIDIA Announces CEO Transition</a></li>
+<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/">NVIDIA Corporation - NVIDIA Mengumumkan Pergantian CEO</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Nvidia CEO reinstatement`, `#U.S. equity correction`, `#AI infrastructure spending`, `#Technology sector valuations`
+**Tag**: `#pengangkatan kembali CEO Nvidia`, `#koreksi pasar saham AS`, `#belanja infrastruktur AI`, `#valuasi sektor teknologi`
 
 ---
