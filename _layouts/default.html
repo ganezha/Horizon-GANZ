@@ -1,5 +1,21 @@
 ---
 layout: radar
 ---
-<article {% if page.date %}data-edition{% endif %}><h1>{{ page.title | escape }}</h1>{{ content }}</article>
-{% if page.approved %}{% include team.html edition=page %}{% endif %}
+<!-- "content" adalah isi Markdown asli yang sudah diubah Jekyll menjadi HTML. -->
+<div class="page-head">
+  <a class="back" href="{{ '/' | relative_url }}#/arsip">← Arsip berita</a>
+  {% if page.date %}
+  <p class="eyebrow">Edisi harian</p>
+  <h1>{% include date-id.html date=page.date %}</h1>
+  {% else %}
+  <h1>{{ page.title | escape }}</h1>
+  {% endif %}
+</div>
+<article class="reader" {% if page.date %}data-reader-date="{{ page.date | date: '%Y-%m-%d' }}"{% endif %}>
+  <div class="story">{{ content }}</div>
+</article>
+{% if page.date %}
+<div data-edition-team
+     data-date="{{ page.date | date: '%Y-%m-%d' }}"
+     data-has-stats="{% if page.approved != nil %}yes{% endif %}"></div>
+{% endif %}
