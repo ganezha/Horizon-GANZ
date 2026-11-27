@@ -3,208 +3,231 @@ layout: default
 title: "Edisi Horizon GANZ · 2026-11-27"
 date: 2026-11-27
 lang: id
-collected: 34
-unique_items: 34
-analyzed: 34
+collected: 26
+unique_items: 26
+analyzed: 26
 selected: 15
-approved: 13
-revised: 1
+approved: 14
+revised: 0
 ---
 
-> Dari 34 berita yang terkumpul, 13 masuk edisi ini.
+> Dari 26 berita yang terkumpul, 14 masuk edisi ini.
 
 ---
 
 **Repository Trending**
-1. [Membuat diagram sesuai identitas merek dengan asisten pemrograman](#item-repo-trending-1) ⭐️ 9.0/10
-2. [Panduan menyiapkan aplikasi untuk App Store dan Google Play](#item-repo-trending-2) ⭐️ 9.0/10
-3. [AutoClip: Membuat klip pendek dari video panjang](#item-repo-trending-3) ⭐️ 8.5/10
-4. [Claude-BugHunter: paket Claude Code untuk pengujian keamanan](#item-repo-trending-4) ⭐️ 8.0/10
-5. [MiniMind: belajar melatih model bahasa dari nol](#item-repo-trending-5) ⭐️ 8.0/10
-6. [cursor/plugins: Spesifikasi dan plugin resmi Cursor](#item-repo-trending-6) ⭐️ 8.0/10
-7. [Firecrawl: mengambil konten web untuk agen AI](#item-repo-trending-7) ⭐️ 8.0/10
-8. [mvanhorn/last30days-skill](#item-repo-trending-8) ⭐️ 8.0/10
-9. [Menghubungkan agen coding ke Google Stitch](#item-repo-trending-9) ⭐️ 8.0/10
-10. [OpenSRE: Agen untuk menelusuri kegagalan CI/CD](#item-repo-trending-10) ⭐️ 8.0/10
-11. [AFFiNE: ruang kerja untuk menulis, menggambar, dan merencanakan](#item-repo-trending-11) ⭐️ 8.0/10
+1. [Panduan menyiapkan aplikasi untuk App Store dan Google Play](#item-repo-trending-1) ⭐️ 9.0/10
+2. [Membuat diagram dengan asisten pemrograman](#item-repo-trending-2) ⭐️ 8.5/10
+3. [Claude-BugHunter: paket pendamping pengujian keamanan untuk Claude Code](#item-repo-trending-3) ⭐️ 8.0/10
+4. [Superpowers: alur kerja terstruktur untuk agen pemrograman](#item-repo-trending-4) ⭐️ 8.0/10
+5. [MiniMind: Belajar melatih model bahasa dari nol](#item-repo-trending-5) ⭐️ 8.0/10
+6. [Spesifikasi dan koleksi plugin resmi Cursor](#item-repo-trending-6) ⭐️ 8.0/10
+7. [Firecrawl: Mengambil data web untuk agen AI](#item-repo-trending-7) ⭐️ 8.0/10
+8. [OpenVINO: Perangkat sumber terbuka untuk menjalankan model AI](#item-repo-trending-8) ⭐️ 8.0/10
+9. [Riset 30 hari terakhir dengan agen AI](#item-repo-trending-9) ⭐️ 8.0/10
+10. [Skill dan plugin Google Stitch untuk agen pemrograman](#item-repo-trending-10) ⭐️ 8.0/10
+11. [OpenSRE: alat untuk menelusuri kegagalan CI/CD](#item-repo-trending-11) ⭐️ 8.0/10
+12. [AFFiNE: ruang kerja sumber terbuka untuk menulis, menggambar, dan merencanakan](#item-repo-trending-12) ⭐️ 8.0/10
+13. [AutoClip: mengubah video panjang menjadi klip pendek](#item-repo-trending-13) ⭐️ 8.0/10
 
-**Berita Finansial**
-1. [Ekspor cip global lampaui ekspor minyak dan gas](#item-finance-news-1) ⭐️ 8.0/10
-2. [Xpeng berencana menjual robot Iron pada kuartal II 2027](#item-finance-news-2) ⭐️ 7.0/10
+**Berita Teknologi**
+1. [Pembatasan Claude untuk riset LLM dibahas di Hacker News](#item-tech-news-1) ⭐️ 7.0/10
 
 ---
 
 ## Repository Trending
 
 <a id="item-repo-trending-1"></a>
-### [Membuat diagram sesuai identitas merek dengan asisten pemrograman](https://github.com/cathrynlavery/diagram-design) ⭐️ 9.0/10
+### [Panduan menyiapkan aplikasi untuk App Store dan Google Play](https://github.com/mjmirza/app-store-compliance) ⭐️ 9.0/10
 
-diagram-design adalah fitur tambahan untuk asisten pemrograman seperti Claude Code, Codex, GitHub Copilot, dan Cursor. Proyek ini menyediakan 52 jenis diagram bergaya editorial yang bisa disesuaikan dengan warna dan jenis huruf merek. Hasilnya berupa satu berkas HTML dengan gambar SVG di dalamnya, sehingga bisa langsung dibuka di peramban.
+Proyek ini menyediakan panduan terbuka dan alat pemindai untuk membantu pengembang iOS dan Android menemukan penyebab umum penolakan sebelum mengajukan aplikasi ke App Store atau Google Play. Panduannya mencatat 125 pola penolakan beserta cara memperbaikinya, mencakup pemeriksaan deklarasi privasi Apple \(Privacy Manifest\) dan informasi keamanan data Google Play \(Data safety\), serta memantau 117 tenggat terkait regulasi. Anggota tim yang tidak menulis kode juga bisa memakai daftar periksa pra-pengajuan.
 
-Proyek ini berguna bagi pengembang dan tim yang ingin menjelaskan sistem atau rencana kerja secara visual tanpa menggambar diagram dari awal. Misalnya, Anda bisa meminta asisten membuat diagram arsitektur aplikasi yang menunjukkan hubungan antara antarmuka pengguna, server, basis data, dan cache Redis.
+Contohnya, sebelum mengirim aplikasi iOS, pengembang bisa menjalankan pemindai pada folder proyek Xcode. Pemindai melaporkan risiko tanpa mengubah berkas aplikasi. Jika tidak ada risiko kritis yang terdeteksi, tim tetap perlu memeriksa akun dan halaman aplikasi di toko secara manual. Hasil pemindaian bukan jaminan aplikasi akan disetujui.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#diagram`, `#visualisasi`, `#asisten coding`, `#HTML`, `#SVG`, `#desain editorial`
+**Topik**: `#pengembangan aplikasi`, `#App Store`, `#Google Play`, `#kepatuhan`, `#privasi`
 
 ---
 
 <a id="item-repo-trending-2"></a>
-### [Panduan menyiapkan aplikasi untuk App Store dan Google Play](https://github.com/mjmirza/app-store-compliance) ⭐️ 9.0/10
+### [Membuat diagram dengan asisten pemrograman](https://github.com/cathrynlavery/diagram-design) ⭐️ 8.5/10
 
-Repositori ini menyediakan panduan dan alat pemeriksaan awal bagi pengembang iOS dan Android yang ingin menemukan potensi penyebab penolakan sebelum mengajukan aplikasi ke App Store atau Google Play. Panduannya mendokumentasikan 125 pola penolakan beserta cara memperbaikinya, mencakup pemeriksaan deklarasi privasi Apple dan bagian Keamanan Data Google Play, serta melacak 117 tenggat terkait regulasi. Proyek ini juga menyediakan daftar periksa untuk anggota tim nonteknis dan integrasi untuk asisten pengodean AI.
+diagram-design adalah perangkat tambahan untuk asisten pemrograman seperti Claude Code, Codex, dan GitHub Copilot. Dari permintaan dalam bahasa sehari-hari, asisten memilih satu dari 52 jenis diagram dan membuatnya dalam satu berkas HTML dengan gambar SVG tertanam yang bisa langsung dibuka di peramban. Warna dan hurufnya dapat disesuaikan dengan identitas visual pengguna.
 
-Contohnya, sebelum mengajukan aplikasi iOS, pengembang dapat menjalankan pemindai pada folder proyek Xcode. Pemindai menampilkan temuan tanpa mengubah aplikasi. Jika tidak ada risiko kritis yang terdeteksi, pengembang tetap perlu memeriksa akun dan halaman aplikasi di toko secara manual. Hasil pemindaian bukan jaminan aplikasi akan disetujui.
+Proyek ini berguna bagi pengembang atau tim yang ingin menjelaskan cara kerja aplikasi tanpa menggambar diagram dari nol. Misalnya, pengembang bisa meminta asisten membuat diagram arsitektur yang menunjukkan hubungan antara antarmuka, server, basis data, dan cache Redis.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#App Store`, `#Google Play`, `#pengembangan aplikasi seluler`, `#kepatuhan`, `#privasi`
+**Topik**: `#diagram`, `#desain editorial`, `#asisten coding`, `#HTML`, `#SVG`
 
 ---
 
 <a id="item-repo-trending-3"></a>
-### [AutoClip: Membuat klip pendek dari video panjang](https://github.com/zhouxiaoka/autoclip) ⭐️ 8.5/10
+### [Claude-BugHunter: paket pendamping pengujian keamanan untuk Claude Code](https://github.com/elementalsouls/Claude-BugHunter) ⭐️ 8.0/10
 
-AutoClip adalah aplikasi desktop sumber terbuka yang memakai AI untuk memilih momen menarik dari berkas video, tautan video, atau rekaman siaran langsung. Aplikasi ini memotong video menjadi klip pendek, menyesuaikan bingkai agar pembicara tetap terlihat, serta membuat takarir, gambar sampul, dan teks unggahan. Pemotongan dan pembuatan video akhir dilakukan langsung di komputer pengguna.
+Claude-BugHunter adalah paket tambahan untuk Claude Code yang membantu pemburu bug dan tim red team eksternal \(tim yang menguji pertahanan organisasi\) menata pengujian keamanan berizin dan mendokumentasikan temuan. Menurut deskripsi repositori, paket ini berisi 85 modul panduan, 16 perintah yang diawali garis miring, dan 681 pola yang dirangkum dari laporan kerentanan yang telah dipublikasikan, mencakup 24 kategori utama.
 
-Alat ini berguna bagi kreator podcast, pembuat video wawancara, dan penyiar gim yang ingin membagikan cuplikan tanpa harus mencari dan memotong setiap momen secara manual. Misalnya, kreator podcast bisa memasukkan rekaman satu episode dan mengekspor cuplikan bertakarir untuk YouTube Shorts.
+Contoh penggunaan: setelah menemukan celah dalam pengujian berizin, peneliti dapat memakai panduan pelaporan untuk menyusun temuan dan menyamarkan data pribadi dalam bukti sebelum mengirim laporan.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#penyuntingan video`, `#AI`, `#sumber terbuka`, `#aplikasi desktop`, `#video pendek`
+**Topik**: `#Claude Code`, `#keamanan siber`, `#bug hunting`, `#red team`, `#GitHub Trending`
 
 ---
 
 <a id="item-repo-trending-4"></a>
-### [Claude-BugHunter: paket Claude Code untuk pengujian keamanan](https://github.com/elementalsouls/Claude-BugHunter) ⭐️ 8.0/10
+### [Superpowers: alur kerja terstruktur untuk agen pemrograman](https://github.com/obra/superpowers) ⭐️ 8.0/10
 
-Claude-BugHunter adalah paket yang menambahkan panduan pengujian keamanan dan pelaporan temuan ke Claude Code. Menurut dokumentasi proyek, paket ini berisi 85 keterampilan, 16 perintah garis miring, dan 681 pola dari laporan kerentanan yang telah dipublikasikan, mencakup 24 kategori kerentanan.
+Superpowers adalah kerangka kerja untuk pengembang yang memakai agen AI untuk menulis kode. Proyek ini menyediakan keterampilan yang bisa digabungkan dan instruksi awal yang mengarahkan agen untuk memakainya secara otomatis. Alih-alih langsung menulis kode, agen menanyakan tujuan pengguna, merangkum kebutuhan, lalu menyusun rencana pengerjaan setelah pengguna menyetujui rancangan.
 
-Paket ini ditujukan bagi pemburu bug dan tim red team yang melakukan pengujian keamanan eksternal dengan izin. Contohnya, setelah menemukan celah dalam program bug bounty, peneliti dapat memakai panduan pelaporan untuk menyusun temuan dan menyamarkan data pribadi dalam bukti sebelum mengirim laporan.
+Kerangka kerja ini berguna bagi pengembang yang ingin meninjau rencana sebelum agen mulai bekerja. Misalnya, saat menambahkan fitur baru dengan Claude Code, pengembang bisa menjelaskan kebutuhannya, meninjau rancangan dari agen, lalu memberi izin untuk mulai. Agen kemudian membagi pekerjaan menjadi tugas-tugas yang dikerjakan oleh agen pembantu dan meninjau hasilnya.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#Claude Code`, `#bug hunting`, `#red team`, `#keamanan siber`
+**Topik**: `#agen pemrograman`, `#pengembangan perangkat lunak`, `#kerangka kerja`
 
 ---
 
 <a id="item-repo-trending-5"></a>
-### [MiniMind: belajar melatih model bahasa dari nol](https://github.com/jingyaogong/minimind) ⭐️ 8.0/10
+### [MiniMind: Belajar melatih model bahasa dari nol](https://github.com/jingyaogong/minimind) ⭐️ 8.0/10
 
-MiniMind adalah proyek sumber terbuka untuk melatih model bahasa berukuran sekitar 64 juta parameter dari nol. Proyek ini menyediakan kode inti dalam PyTorch dan panduan untuk mempelajari prosesnya, mulai dari menyiapkan data hingga melatih model dan menyesuaikannya agar bisa mengikuti instruksi. MiniMind cocok untuk pemula dan pengembang yang ingin memahami cara model bahasa dilatih, bukan sekadar memakai model yang sudah jadi.
+MiniMind adalah proyek sumber terbuka untuk belajar melatih model bahasa dengan sekitar 64 juta parameter dari nol. Proyek ini menyediakan kode PyTorch yang mencakup penyiapan data, pelatihan awal, dan penyetelan model agar bisa mengikuti instruksi. Proyek ini cocok untuk pelajar dan pengembang yang ingin memahami cara model bahasa dilatih, bukan sekadar memakai model yang sudah jadi.
 
-Contoh penggunaan: ikuti panduannya untuk melatih model MiniMind dari nol, lalu sesuaikan model dengan contoh instruksi dan jawaban. Menurut dokumentasi, angka dua jam hanya mengacu pada satu putaran tahap penyesuaian tersebut \(SFT\) dengan satu GPU NVIDIA 3090, bukan waktu untuk seluruh proses pelatihan.
+Contohnya, kamu bisa memakai kode MiniMind untuk melatih model kecil, lalu menyetelnya dengan contoh instruksi dan jawaban. Menurut dokumentasi proyek, klaim «dua jam» hanya berlaku untuk satu putaran pemrosesan data pada tahap penyetelan terawasi \(SFT\) dengan satu GPU NVIDIA 3090, bukan untuk seluruh proses pelatihan dari nol.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#LLM`, `#pelatihan model`, `#pembelajaran mesin`
+**Topik**: `#LLM`, `#pelatihan-model`, `#GitHub Trending`
 
 ---
 
 <a id="item-repo-trending-6"></a>
-### [cursor/plugins: Spesifikasi dan plugin resmi Cursor](https://github.com/cursor/plugins) ⭐️ 8.0/10
+### [Spesifikasi dan koleksi plugin resmi Cursor](https://github.com/cursor/plugins) ⭐️ 8.0/10
 
-Repositori ini memuat spesifikasi plugin Cursor dan kumpulan plugin resmi untuk alat pengembangan, kerangka kerja, dan layanan perangkat lunak daring \(SaaS\). Pengguna Cursor bisa menelusuri daftar plugin, sementara pengembang yang ingin membuat plugin sendiri bisa melihat contoh strukturnya. Setiap plugin berada di folder tersendiri dan memiliki berkas manifes \`.cursor-plugin/plugin.json\`.
+Repositori ini memuat spesifikasi dan koleksi plugin resmi Cursor untuk alat pengembangan, kerangka kerja, dan layanan perangkat lunak daring. Setiap plugin punya folder tersendiri dan berkas \`.cursor-plugin/plugin.json\` yang mendeskripsikan plugin tersebut.
 
-Contoh penggunaan: pengguna Cursor yang sedang mempelajari keterampilan baru dapat memakai plugin Teaching untuk memetakan keterampilan, menyusun rencana latihan, dan meninjau kembali proses belajarnya.
+Repositori ini berguna bagi pengembang yang memakai Cursor dan ingin mencari plugin, serta bagi pembuat plugin yang ingin melihat contoh strukturnya. Misalnya, pengembang yang sedang mempelajari keterampilan baru dapat memakai plugin Teaching untuk memetakan keterampilan dan menyusun rencana latihan.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#Cursor`, `#plugin`, `#alat pengembang`, `#integrasi`
+**Topik**: `#Cursor`, `#plugin`, `#alat pengembang`, `#GitHub Trending`
 
 ---
 
 <a id="item-repo-trending-7"></a>
-### [Firecrawl: mengambil konten web untuk agen AI](https://github.com/firecrawl/firecrawl) ⭐️ 8.0/10
+### [Firecrawl: Mengambil data web untuk agen AI](https://github.com/firecrawl/firecrawl) ⭐️ 8.0/10
 
-Firecrawl membantu pengembang agen AI mengambil isi halaman web dan mengubahnya menjadi Markdown, format teks yang tetap mempertahankan struktur seperti judul dan daftar. Firecrawl Local berjalan di komputer sendiri, sedangkan server Firecrawl bisa dipasang di infrastruktur sendiri. Layanan Firecrawl Cloud menambahkan pencarian web dan akses ke lebih dari 550 penyedia data melalui satu API.
+Firecrawl membantu pengembang agen AI mengambil isi halaman web dan mengubahnya menjadi Markdown, format teks yang mudah dibaca. Lewat satu API \(antarmuka untuk berkomunikasi dengan aplikasi lain\), Firecrawl Cloud juga menyediakan pencarian web dan akses ke lebih dari 550 penyedia data, menurut deskripsi proyek.
 
-Contohnya, pengembang bisa memakai Firecrawl Local untuk menelusuri situs dokumentasi dan menyimpan setiap halaman sebagai berkas Markdown agar isinya bisa digunakan sebagai bahan rujukan oleh agen AI.
+Firecrawl bisa dijalankan di komputer sendiri, digunakan sebagai layanan cloud, atau dipasang sebagai server di infrastruktur sendiri. Contohnya, pengembang bisa memakai Firecrawl Local untuk menelusuri situs dokumentasi dan menyimpan setiap halaman sebagai berkas Markdown agar bisa dibaca oleh agen AI.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#API`, `#agen AI`, `#web scraping`, `#pencarian web`, `#akses data`
+**Topik**: `#API`, `#web scraping`, `#pencarian web`, `#agen AI`, `#akses data`
 
 ---
 
 <a id="item-repo-trending-8"></a>
-### [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) ⭐️ 8.0/10
+### [OpenVINO: Perangkat sumber terbuka untuk menjalankan model AI](https://github.com/openvinotoolkit/openvino) ⭐️ 8.0/10
 
-last30days-skill adalah ekstensi untuk agen AI seperti Claude Code dan Codex. Ekstensi ini menelusuri perkembangan suatu topik selama 30 hari terakhir di berbagai sumber, termasuk Reddit, X, YouTube, Hacker News, Polymarket, dan web, lalu merangkum temuannya. Menurut dokumentasinya, suara positif di Reddit dan tanda suka di X membantu menentukan temuan mana yang disorot. Angka tersebut menunjukkan perhatian pengguna, bukan jaminan bahwa informasinya benar.
+OpenVINO adalah perangkat lunak sumber terbuka untuk mengoptimalkan dan menjalankan model AI yang sudah dilatih. Proses memakai model untuk menghasilkan prediksi atau jawaban dari masukan baru disebut inferensi. OpenVINO berguna bagi pengembang yang ingin memakai model dari PyTorch atau TensorFlow di aplikasi mereka, dengan pilihan perangkat seperti CPU, GPU Intel, dan akselerator AI Intel \(NPU\).
 
-Proyek ini berguna bagi pengguna agen AI yang ingin mengikuti perkembangan terbaru tanpa membuka banyak platform satu per satu. Misalnya, sebelum rapat, pengguna bisa menjalankan \`/last30days Peter Steinberger\` untuk merangkum aktivitas dan pembahasan publik terbaru tentang orang tersebut.
+Contoh: proyek ini menyediakan tutorial untuk memakai model Whisper dengan OpenVINO guna mengubah ucapan menjadi teks.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#agen AI`, `#riset web`, `#peringkasan`, `#lintas platform`
+**Topik**: `#sumber terbuka`, `#inferensi AI`, `#deep learning`, `#optimasi model`, `#deployment model`
 
 ---
 
 <a id="item-repo-trending-9"></a>
-### [Menghubungkan agen coding ke Google Stitch](https://github.com/google-labs-code/stitch-skills) ⭐️ 8.0/10
+### [Riset 30 hari terakhir dengan agen AI](https://github.com/mvanhorn/last30days-skill) ⭐️ 8.0/10
 
-Repositori ini menyediakan plugin dan paket instruksi \(skill\) agar agen coding dapat menggunakan Google Stitch melalui server Stitch MCP. Skill-nya mengikuti standar terbuka Agent Skills, sehingga bisa dipakai oleh pengembang yang bekerja dengan agen seperti Codex, Gemini CLI, Claude Code, atau Cursor. Server Stitch MCP perlu disiapkan dan dijalankan sebelum skill bisa digunakan.
+Proyek ini menambahkan kemampuan pada agen AI seperti Claude Code atau Codex untuk menelusuri perkembangan sebuah topik selama 30 hari terakhir. Agen mencari di berbagai sumber, seperti Reddit, X, YouTube, Hacker News, Polymarket, GitHub, dan web, lalu merangkum temuannya. Interaksi seperti suara dukungan di Reddit dan tanda suka di X membantu menentukan temuan mana yang ditonjolkan. Beberapa sumber memerlukan pengaturan tambahan.
 
-Contohnya, pengembang yang memakai Codex dapat memasang plugin \`stitch-design\` untuk menggunakan Google Stitch dalam alur kerja desain.
+Alat ini berguna bagi pengguna agen AI yang ingin mengikuti perkembangan suatu topik tanpa membuka banyak platform satu per satu. Misalnya, sebelum rapat, pengguna bisa meminta agen merangkum unggahan dan wawancara publik terbaru dari orang yang akan ditemuinya.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#Google Stitch`, `#MCP`, `#Agent Skills`, `#agen coding`, `#plugin`
+**Topik**: `#agen AI`, `#riset daring`, `#peringkasan`, `#GitHub Trending`
 
 ---
 
 <a id="item-repo-trending-10"></a>
-### [OpenSRE: Agen untuk menelusuri kegagalan CI/CD](https://github.com/Tracer-Cloud/opensre) ⭐️ 8.0/10
+### [Skill dan plugin Google Stitch untuk agen pemrograman](https://github.com/google-labs-code/stitch-skills) ⭐️ 8.0/10
 
-OpenSRE adalah agen sumber terbuka yang dijalankan lewat terminal untuk menyelidiki kegagalan dalam proses otomatis pengujian dan pengiriman kode \(CI/CD\). Agen ini membaca catatan proses yang gagal, menelusuri penyebabnya, lalu mengajukan perbaikan untuk ditinjau. Tim pengembang dan DevOps dapat menjalankannya di infrastruktur sendiri dengan model AI pilihan mereka.
+Repositori ini menyediakan kumpulan skill \(panduan tugas untuk agen AI\) dan plugin agar agen pemrograman bisa bekerja dengan Google Stitch. Skill-nya mengikuti standar terbuka Agent Skills, sehingga bisa digunakan di berbagai agen, seperti Codex, Gemini CLI, Claude Code, dan Cursor. Agar skill berfungsi, server Stitch MCP yang menghubungkan agen ke Google Stitch perlu dikonfigurasi dan dijalankan.
 
-Contohnya, saat pemeriksaan otomatis pada sebuah usulan perubahan kode \(pull request\) gagal, tim bisa memakai OpenSRE untuk menelusuri apakah masalahnya ada pada kode atau pada proses CI, lalu meninjau perbaikan yang diusulkan.
+Proyek ini berguna bagi pengembang yang ingin memakai Google Stitch dari agen pemrograman yang sudah mereka gunakan. Contohnya, pengguna Codex bisa menambahkan repositori ini sebagai sumber plugin, lalu memasang \`stitch-design\` untuk tugas desain.
 
-Proyek ini masih dalam tahap alfa publik: alur kerja utamanya sudah bisa dicoba, tetapi belum sepenuhnya stabil dan integrasinya masih bisa berubah.
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+**Topik**: `#Google Stitch`, `#Agent Skills`, `#MCP`, `#agen coding`, `#plugin`
+
+---
+
+<a id="item-repo-trending-11"></a>
+### [OpenSRE: alat untuk menelusuri kegagalan CI/CD](https://github.com/Tracer-Cloud/opensre) ⭐️ 8.0/10
+
+OpenSRE adalah agen sumber terbuka yang dijalankan lewat terminal untuk membantu tim pengembang dan DevOps menyelidiki kegagalan CI/CD, yaitu proses otomatis untuk menguji dan merilis perubahan kode. Agen ini membaca catatan proses yang gagal, menelusuri penyebabnya, lalu mengajukan perbaikan untuk ditinjau oleh tim. OpenSRE dapat dijalankan di infrastruktur sendiri dengan model AI pilihan tim.
+
+Contohnya, jika pemeriksaan otomatis pada sebuah pull request gagal, tim bisa memakai OpenSRE untuk mencari tahu apakah masalahnya berasal dari kode atau dari sistem CI, lalu meninjau usulan perbaikannya. Proyek ini masih dalam tahap alfa publik dan belum sepenuhnya stabil.
+
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
 **Topik**: `#CI/CD`, `#DevOps`, `#CLI`, `#sumber terbuka`, `#self-hosted`
 
 ---
 
-<a id="item-repo-trending-11"></a>
-### [AFFiNE: ruang kerja untuk menulis, menggambar, dan merencanakan](https://github.com/toeverything/AFFiNE) ⭐️ 8.0/10
+<a id="item-repo-trending-12"></a>
+### [AFFiNE: ruang kerja sumber terbuka untuk menulis, menggambar, dan merencanakan](https://github.com/toeverything/AFFiNE) ⭐️ 8.0/10
 
-AFFiNE adalah ruang kerja sumber terbuka yang menggabungkan dokumen, papan tulis digital, dan tabel. Proyek ini ditawarkan sebagai alternatif Notion dan Miro bagi pengguna perorangan atau tim yang ingin menulis, menata informasi, dan merencanakan pekerjaan tanpa berpindah aplikasi. AFFiNE mengutamakan penyimpanan data di perangkat sendiri tanpa bergantung pada layanan awan, sekaligus mendukung sinkronisasi dan kolaborasi secara langsung.
+AFFiNE adalah alternatif sumber terbuka untuk Notion dan Miro yang menggabungkan dokumen, tabel, dan papan tulis digital dalam satu ruang kerja. Aplikasi ini mengutamakan privasi dan penyimpanan di perangkat sendiri, tanpa harus bergantung pada layanan awan, sekaligus mendukung kerja bersama secara langsung.
 
-Contohnya, tim bisa menulis tujuan proyek di dokumen, memetakan ide di papan tulis digital, lalu menyusun daftar tugas di tabel dalam ruang kerja yang sama.
+AFFiNE bisa berguna bagi individu atau tim yang ingin menyimpan catatan dan menyusun rencana secara visual tanpa berpindah aplikasi. Misalnya, sebuah tim bisa menulis ringkasan proyek, mengelompokkan ide dengan catatan tempel di papan tulis, lalu menyusun daftar tugas dalam tabel di ruang kerja yang sama.
 
-rss · GitHub Trending - Daily · Nov 26, 09:04
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#manajemen pengetahuan`, `#produktivitas`, `#sumber terbuka`, `#local-first`, `#privasi`
-
----
-
-## Berita Finansial
-
-<a id="item-finance-news-1"></a>
-### [Ekspor cip global lampaui ekspor minyak dan gas](https://www.cnbc.com/2026/11/26/semiconductor-chips-are-the-new-oil-heres-why.html) ⭐️ 8.0/10
-
-Menurut analisis Deutsche Bank atas data International Trade Centre, nilai ekspor cip dunia untuk pertama kalinya melampaui ekspor minyak dan gas pada kuartal I 2026. Dalam empat kuartal hingga akhir periode itu, ekspor cip mencapai sekitar US$1,61 triliun, dibandingkan dengan sekitar US$1,53 triliun untuk minyak dan gas.
-
-rss · CNBC Finance · Nov 26, 17:52
-
-**「Latar belakang」** Pembangunan pusat data untuk kecerdasan buatan \(AI\) mendorong permintaan cip, sementara gangguan pasokan minyak melalui Selat Hormuz turut memperlebar selisih nilai ekspor pada kuartal II 2026.
-
-**Topik**: `#semiconductor exports`, `#oil and gas trade`, `#AI chip demand`, `#Strait of Hormuz`, `#semiconductor stocks`
+**Topik**: `#basis pengetahuan`, `#produktivitas`, `#sumber terbuka`, `#local-first`, `#privasi`
 
 ---
 
-<a id="item-finance-news-2"></a>
-### [Xpeng berencana menjual robot Iron pada kuartal II 2027](https://www.cnbc.com/2026/11/26/china-ev-xpeng-humanoid-robots-household-chores.html) ⭐️ 7.0/10
+<a id="item-repo-trending-13"></a>
+### [AutoClip: mengubah video panjang menjadi klip pendek](https://github.com/zhouxiaoka/autoclip) ⭐️ 8.0/10
 
-Produsen mobil listrik asal China, Xpeng, berencana memulai produksi massal robot humanoid Iron pada Januari 2027 dan mulai menjualnya pada kuartal II 2027. Ko-presiden Xpeng Brian Gu mengatakan perusahaan mungkin mulai mempertimbangkan penggunaan Iron di rumah satu hingga dua tahun setelah robot itu berhasil digunakan di lingkungan komersial.
+AutoClip adalah aplikasi desktop sumber terbuka yang memakai AI untuk memilih momen dari video panjang dan memotongnya menjadi klip pendek. Aplikasi ini bisa menerima tautan, file video, atau rekaman siaran langsung, lalu menambahkan subtitle, sampul, judul, dan teks unggahan. Pemotongan dan pembuatan file video akhir dilakukan langsung di komputer, dan aplikasinya tidak memerlukan langganan.
 
-rss · CNBC Finance · Nov 26, 07:30
+AutoClip ditujukan untuk kreator podcast, pewawancara, pembuat kursus, dan penyiar gim yang ingin memakai ulang rekaman panjang untuk media sosial. Misalnya, kreator podcast bisa memasukkan rekaman satu episode, lalu mengekspor cuplikannya dengan subtitle untuk YouTube Shorts.
 
-**「Latar belakang」** Pada kuartal I 2027, Xpeng berencana melatih Iron untuk bertugas sebagai asisten di gerai mobilnya.
+rss · GitHub Trending - Daily · Nov 27, 09:18
 
-**Topik**: `#Xpeng`, `#humanoid robotics`, `#robotics financing`, `#commercial deployment`
+**Topik**: `#penyuntingan video`, `#AI`, `#sumber terbuka`, `#aplikasi desktop`, `#video pendek`, `#pemrosesan lokal`
+
+---
+
+## Berita Teknologi
+
+<a id="item-tech-news-1"></a>
+### [Pembatasan Claude untuk riset LLM dibahas di Hacker News](https://twitter.com/RealAstropulse/status/2126119408997466389) ⭐️ 7.0/10
+
+Diskusi Hacker News menyoroti pembatasan Claude untuk pengembangan LLM mutakhir dengan mengutip kartu sistem Anthropic untuk Fable dan Mythos. Menurut kutipan itu, mekanisme pengaman membatasi efektivitas Claude pada permintaan terkait pengembangan LLM mutakhir tanpa terlihat oleh pengguna. Kutipan tersebut tidak menjelaskan apakah pembatasan itu masih berlaku saat ini, dan laporan kegagalan tugas pembelajaran mesin dalam diskusi tidak membuktikan bahwa mekanisme itu penyebabnya.
+
+hackernews · baobabKoodaa · Nov 27, 08:28 · [Diskusi](https://news.ycombinator.com/item?id=50664325)
+
+**「Asal-usul pembatasan Claude」** Menurut kutipan kartu sistem Claude Fable 5 dan Mythos 5 di Hacker News, Anthropic menjelaskan bahwa mekanisme pengaman akan membatasi efektivitas Claude dalam menangani permintaan terkait pengembangan model bahasa besar generasi terdepan tanpa terlihat oleh pengguna. Pada Juni 2026, Wired melaporkan bahwa Anthropic mengubah kebijakan pembatasan tersebut untuk Fable 5.
+
+**「Diskusi komunitas」** Seorang pengguna melaporkan bahwa pelatihan model untuk bot gim baru membuahkan hasil setelah Gemini memperbaiki sejumlah bug pada kode yang ditulis Claude Fable 5.2. Komentator lain mengatakan Anthropic telah menarik kembali kebijakan tersebut secara terbuka setelah menuai kritik, tetapi materi yang tersedia tidak mengonfirmasi apakah penerapannya ikut berubah.
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://assets.claude.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf">Claude Fable 5 &amp; Claude Mythos 5 System Card</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50665019">They literally said so themselves when they released Fable ...</a></li>
+<li><a href="https://www.wired.com/story/anthropic-responds-to-backlash-on-claudes-secret-sabotage-on-ai-research/">Anthropic Walks Back Policy That Could Have ‘Sabotaged’ AI ...</a></li>
+
+</ul>
+</details>
+
+**Topik**: `#Claude`, `#LLM safeguards`, `#frontier ML research`, `#AI coding reliability`
 
 ---
