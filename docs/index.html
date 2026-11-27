@@ -1,0 +1,1926 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#090d10">
+  <title>Radar berita harian. · HORIZON GANZ</title>
+  <style>
+/* Warna dasar. Ubah --mint untuk mengganti aksen utama seluruh situs. */
+:root {
+  color-scheme: dark;
+  --bg: #090d10;
+  --panel: #10171b;
+  --line: #283237;
+  --ink: #f0f5f4;
+  --soft: #adbab9;
+  --mint: #90f2d3;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --width: 1192px;
+  font: 100%/1.55 Inter, "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; font: inherit; cursor: pointer; }
+button:disabled { cursor: default; opacity: .55; }
+:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; }
+#utama:focus { outline: none; }
+::selection { color: #051813; background: var(--mint); }
+.wrap { width: min(var(--width), calc(100% - clamp(32px, 9vw, 144px))); margin-inline: auto; }
+main { padding-bottom: 64px; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { font-weight: 670; line-height: 1.12; }
+h1 { font-size: clamp(2.15rem, 5vw, 4.3rem); letter-spacing: -.055em; }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.045em; }
+.skip { position: absolute; top: -100px; left: 12px; z-index: 12; padding: 10px; background: var(--panel); }
+.skip:focus { top: 12px; }
+
+/* Kepala halaman. Logo dan menu memakai tautan yang dapat dibuka dengan papan ketik. */
+.mast { border-bottom: 1px solid var(--line); }
+.mast-inner, .brand, .top-nav, .nav-archive, .actions, .primary, .replay-link, .trending-link {
+  display: flex; align-items: center;
+}
+.mast-inner { min-height: 74px; justify-content: space-between; }
+.brand { gap: 12px; font-weight: 770; letter-spacing: .055em; font-size: 1.04rem; }
+.brand b { color: var(--mint); }
+.brand-mark {
+  width: 31px; height: 31px; position: relative; display: grid; place-items: center;
+  background: #152923; border: 1px solid #427164; border-radius: 9px; overflow: hidden;
+}
+.brand-mark::before, .brand-mark::after, .brand-mark i {
+  content: ""; position: absolute; width: 21px; height: 9px; border: 1.5px solid var(--mint);
+  border-radius: 50%; transform: rotate(-34deg);
+}
+.brand-mark::after { transform: rotate(32deg); }
+.brand-mark i { width: 5px; height: 5px; border: 0; background: var(--mint); }
+.top-nav { gap: 24px; font-size: .9rem; font-weight: 550; }
+.top-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+.nav-archive { gap: 9px; }
+.top-nav a:hover, .back:hover, .trending-link:hover { color: var(--mint); }
+.archive-icon { width: 14px; height: 14px; border: 1px solid #bdd0ca; border-radius: 3px; position: relative; }
+.archive-icon::before, .archive-icon::after { content: ""; position: absolute; height: 1px; background: #bdd0ca; left: 3px; right: 3px; top: 4px; }
+.archive-icon::after { top: 7px; right: 5px; }
+
+.hero {
+  display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center; gap: clamp(24px, 4vw, 64px);
+  padding-block: clamp(32px, 5vw, 72px); border-bottom: 1px solid var(--line);
+}
+.eyebrow, .graph-top, .count, .role-label {
+  font: 550 .77rem/1.4 var(--mono); letter-spacing: .075em;
+}
+.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--mint); text-transform: uppercase; }
+.signal-bars { width: 22px; height: 13px; transform: skew(-18deg); background: repeating-linear-gradient(90deg, var(--mint) 0 3px, transparent 3px 7px); }
+.hero h1 { margin: 17px 0 19px; font-size: clamp(3.55rem, 6.9vw, 6.4rem); line-height: .94; letter-spacing: -.071em; }
+.hero h1 em { font-style: normal; color: var(--mint); }
+.edition-line { color: var(--soft); font-size: 1rem; }
+.actions { flex-wrap: wrap; gap: 8px 20px; margin-top: 23px; }
+.primary, .replay-link, .trending-link { min-height: 44px; gap: 9px; width: fit-content; }
+.primary, .replay-link { border-radius: 9px; font-size: .91rem; font-weight: 640; padding: 10px 16px; }
+.primary { background: var(--mint); color: #06271f; border: 1px solid #a0f7dc; box-shadow: inset 0 1px #e2fff845; }
+.primary:hover { background: #b2ffe5; }
+.trending-link { font-size: .88rem; font-weight: 570; color: #c4cfce; }
+
+/* Papan jaringan. Node memakai tautan HTML, kanvas hanya untuk kabel dan pulsa. */
+.graph {
+  isolation: isolate; position: relative; width: 100%; overflow: hidden;
+  border-radius: 20px; border: 1px solid #2d3f40; background-color: #0d1519;
+  background-image: radial-gradient(ellipse at 50% 56%, #1b47404d, transparent 65%),
+                    radial-gradient(#5b74734f .8px, transparent 1px);
+  background-size: auto, 17px 17px;
+  box-shadow: inset 0 1px 0 #ffffff07, 0 14px 40px -28px #000;
+}
+.graph::before, .graph::after {
+  content: ""; position: absolute; width: 13px; height: 13px; pointer-events: none; opacity: .65;
+}
+.graph::before { left: 12px; bottom: 12px; border-left: 1px solid #6e9189; border-bottom: 1px solid #6e9189; }
+.graph::after { right: 12px; bottom: 12px; border-right: 1px solid #6e9189; border-bottom: 1px solid #6e9189; }
+.graph-top { padding: 5px 9px 0 18px; display: flex; align-items: center; justify-content: space-between; color: #b1c5c1; letter-spacing: .025em; }
+.motion { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; }
+.motion i { width: 10px; height: 12px; border-inline: 3px solid #a7c2bb; }
+.motion[aria-pressed="true"] i { height: 0; width: 0; border: 0; border-left: 9px solid #a7c2bb; border-block: 6px solid transparent; }
+.arena { position: relative; height: clamp(235px, 20vw, 292px); margin: 0 3% 10px; }
+.arena canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hub, .satellite {
+  position: absolute; z-index: 1; display: grid; place-items: center;
+  transform: translate(-50%, -50%); touch-action: manipulation;
+}
+.hub { width: 100px; height: 78px; border-radius: 32px; }
+.hub::before {
+  content: ""; position: absolute; inset: -9px -4px; border-radius: 50%;
+  background: radial-gradient(ellipse, #7bffe129, transparent 71%);
+}
+.hub-body { position: relative; width: 78px; height: 56px; display: grid; place-items: center; }
+.helmet {
+  z-index: 1; position: relative; width: 100%; height: 100%; padding: 7px 6px 9px;
+  border-radius: 20px 20px 23px 23px; border: 1px solid #81aaa6;
+  background: linear-gradient(156deg,#92ada9 -15%,#516567 20%,#2d3d43 49%,#18262d 73%,#334645);
+  box-shadow: inset 0 2px 2px #e3fff35e, inset 0 -3px 4px #081315a6, 0 9px 13px #0007;
+}
+.visor {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 13px;
+  border-radius: 13px 13px 16px 16px; background: linear-gradient(155deg,#193941,#0b191d 60%,#10272a);
+  border: 1px solid #657f7d; box-shadow: inset 0 3px 7px #0008;
+}
+.visor i {
+  width: 12px; height: 11px; border-radius: 5px; background: #a1ffde;
+  box-shadow: 0 0 8px #68fddcaa, 0 0 17px #3de9c278;
+}
+.vents { position: absolute; bottom: 3px; left: 42%; width: 17%; height: 2px; background: repeating-linear-gradient(90deg,#91b6ac 0 1px,transparent 1px 3px); }
+.antenna { position: absolute; bottom: 96%; width: 3px; height: 9px; background: #71978d; transform: rotate(8deg); }
+.antenna::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #a2f9db; position: absolute; top: -3px; left: -2px; box-shadow: 0 0 9px #95ffe299; }
+.ear { position: absolute; background: linear-gradient(#748f90,#283a40); border: 1px solid #698882; width: 8px; height: 22px; border-radius: 5px; top: 18px; }
+.ear.left { left: -5px; }
+.ear.right { right: -5px; }
+.satellite { width: 80px; height: 48px; align-content: center; gap: 3px; color: var(--tint); border-radius: 12px; }
+.gem {
+  width: 16px; height: 16px; border-radius: 6px; transform: rotate(45deg);
+  border: 1px solid var(--tint);
+  background: radial-gradient(circle at 28% 23%,#fff 0%,var(--tint) 21%,#152c34 78%);
+  box-shadow: 0 0 0 4px color-mix(in srgb,var(--tint) 10%,transparent), 0 0 16px color-mix(in srgb,var(--tint) 25%,transparent);
+}
+.satellite-label { font: 550 .77rem/1.3 var(--mono); padding: 2px 5px; background: #0c161be8; border-radius: 4px; }
+.satellite:is(:hover,:focus-visible,.lit) .gem { outline: 1px solid var(--tint); outline-offset: 4px; }
+
+/* Enam simpul tetap tersusun dalam kisi, termasuk pada layar kecil. */
+.team-section, .archive-section { padding-block: clamp(24px, 3.2vw, 42px); }
+.team-section { border-bottom: 1px solid var(--line); }
+.section-head, .archive-row, .between { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.section-head { margin-bottom: 18px; }
+.team-note { color: var(--soft); margin-top: 6px; font-size: .94rem; }
+.replay-link, .control {
+  background: #11191d; color: #dfebe8; border: 1px solid #344346;
+}
+.replay-link:hover, .control:hover { background: #19262a; border-color: #647f79; }
+.replay-link { flex-shrink: 0; }
+.replay-link > span { font-size: 1.25rem; line-height: 1; color: var(--mint); }
+.role-strip { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; }
+.role-strip::before { content: ""; position: absolute; left: 5%; right: 5%; top: 50%; height: 1px; background: #465756; }
+.role-card {
+  position: relative; display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center;
+  padding: 15px 12px; border-radius: 12px; border: 1px solid #2a363a;
+  background: linear-gradient(130deg, color-mix(in srgb,var(--tint) 6%,#101619),#101619 80%);
+}
+.role-card:hover, .role-card:focus-visible { border-color: var(--tint); }
+.mini-bot {
+  display: inline-flex; flex-shrink: 0; position: relative; align-items: center; justify-content: center; gap: 3px;
+  width: 28px; height: 23px; border-radius: 8px; color: var(--tint);
+  border: 1.5px solid currentColor; background: color-mix(in srgb,var(--tint) 9%,#101619);
+}
+.mini-bot::before { content:""; position:absolute; bottom:100%; left:48%; width:2px; height:4px; background:currentColor; }
+.mini-bot i { width: 4px; height: 5px; background: currentColor; border-radius: 2px; }
+.role-card strong, .role-card small { display: block; }
+.role-card strong { font-size: .96rem; letter-spacing: -.025em; }
+.role-card small { color: #a6b5b2; font-size: .78rem; margin-top: 2px; }
+.count { color: var(--soft); text-transform: uppercase; }
+.archive-list { border: 1px solid var(--line); border-radius: 14px; background: #0e1418; overflow: hidden; }
+.archive-row { min-height: 59px; padding: 11px 20px; }
+.archive-row + .archive-row { border-top: 1px solid #253035; }
+.archive-row:hover { background: #172125; }
+.archive-row:focus-visible { outline-offset: -3px; }
+.row-date, .row-language { display: inline-flex; gap: 12px; align-items: center; }
+.row-date time { font-weight: 560; letter-spacing: -.015em; }
+.date-icon {
+  position: relative; width: 16px; height: 16px; border: 1px solid #7f9892; border-radius: 4px;
+  background: linear-gradient(transparent 4px,#7f9892 4px 5px,transparent 5px);
+}
+.date-icon::before { content: ""; position:absolute; left:3px; right:3px; height:4px; top:-3px; border-inline:1px solid #7f9892; }
+.row-language { color: #b0c4be; font-size: .86rem; }
+.row-arrow { color: var(--mint); font-size: 1.05rem; }
+.more-link, .back { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: var(--soft); }
+.more-link { margin-top: 8px; }
+.page-head { padding: 24px 0 20px; }
+.page-head .back { margin-bottom: 12px; }
+.page-head .eyebrow { margin-bottom: 9px; }
+.page-lead { max-width: 61ch; color: var(--soft); margin-top: 12px; }
+.detail-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); align-items: start; gap: 24px; margin-top: 18px; }
+.detail-panel { background: var(--panel); border: 1px solid var(--line); border-radius: 15px; padding: clamp(17px,2.6vw,32px); }
+.detail-panel h2 { font-size: 1.5rem; }
+.detail-panel p, .step-text { margin: 10px 0 16px; color: var(--soft); }
+.detail-panel a:not(.primary):not(.role-card), .reader a { color: var(--mint); text-decoration: underline; text-underline-offset: .2em; }
+.metric { border-top: 1px solid var(--line); padding-top: 14px; font-weight: 550; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.control { padding: 8px 13px; border-radius: 8px; min-height: 44px; }
+.step-list { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 16px 0 0; }
+.step-list li { font-size: .8rem; padding: 4px 8px; border-radius: 6px; border: 1px solid #344247; color: var(--soft); }
+.step-list li[aria-current="step"] { border-color: var(--tint); color: var(--tint); }
+.reader { max-width: 78ch; margin: 0 auto 32px; overflow-wrap: anywhere; }
+.story { color: #d5e0dd; font-size: 1.045rem; line-height: 1.72; }
+.story h2, .story h3 { margin: 1.6em 0 .65em; line-height: 1.27; color: var(--ink); }
+.story h2 { font-size: 1.65rem; }
+.story h3 { font-size: 1.25rem; }
+.story :is(p,ul,ol,details,pre) { margin-block: .95em; }
+.story hr { border: 0; border-top: 1px solid var(--line); margin: 1.75em 0; }
+.story blockquote { margin: 1em 0; padding: 8px 18px; background: #13211f; border-left: 3px solid #74d3b5; }
+.story blockquote p { margin: .35em 0; }
+.story code { background: #1a2528; padding: .05em .25em; border-radius: 4px; }
+.story pre { max-width: 100%; overflow: auto; }
+.story img { max-width: 100%; height: auto; }
+.story details summary { cursor: pointer; color: var(--mint); }
+.story [id] { scroll-margin-top: 20px; }
+.topic-nav { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin: 0 0 22px; }
+.topic-nav strong { width: 100%; font-size: .95rem; }
+.topic-nav a { padding: 9px 13px; border-radius: 10px; border: 1px solid var(--line); color: var(--mint); display:inline-flex; align-items:center; min-height:44px; text-decoration:none; }
+.fallback { padding-block: 32px; }
+.fallback-link { display: block; color: var(--mint); text-decoration: underline; padding: 6px; }
+
+@media (max-width: 1040px) {
+  .role-strip { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .role-strip::before { display: none; }
+}
+@media (max-width: 760px) {
+  .mast-inner { min-height: 62px; }
+  .hero { grid-template-columns: 1fr; gap: 24px; }
+  .hero h1 { font-size: clamp(3.65rem,12.5vw,5.6rem); }
+  .arena { height: clamp(216px,52vw,280px); }
+  .graph-top { padding-top: 0; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .team-section .section-head { flex-wrap: wrap; }
+}
+@media (max-width: 540px) {
+  .brand { font-size: .87rem; gap: 8px; }
+  .brand-mark { width: 27px; height: 27px; }
+  .top-nav { font-size: .84rem; gap: 12px; }
+  .role-strip { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+  .role-card { padding: 12px; }
+  .archive-row { padding: 11px 12px; gap: 8px; }
+  .row-date { gap: 8px; font-size: .91rem; }
+  .row-language { gap: 5px; font-size: .79rem; }
+  .actions { column-gap: 16px; }
+}
+@media (max-width: 360px) {
+  .top-nav { gap: 8px; }
+  .archive-icon, .date-icon { display: none; }
+  .row-date { font-size: .84rem; }
+  .hub-body { transform: scale(.83); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+</style>
+  
+</head>
+<body data-offline="yes" data-home="" data-dashboard="yes">
+  <a class="skip" href="#utama">Langsung ke isi</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="#/redaksi" aria-label="HORIZON GANZ — profil redaksi">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span>HORIZON <b>GANZ</b></span>
+      </a>
+      <nav class="top-nav" aria-label="Menu utama">
+        <a class="nav-home" href="#/">Beranda</a>
+        <a class="nav-archive" href="#/arsip">
+          <span class="archive-icon" aria-hidden="true"></span>Arsip berita
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="utama" class="wrap" tabindex="-1">
+    
+    <!-- Jekyll mengisi daftar ini dari arsip asli. JS membacanya sebelum menggambar beranda. -->
+    <section class="fallback"><h1>Arsip berita</h1>
+      <noscript>Aktifkan JavaScript untuk membuka jaringan bot. Edisi tetap bisa dibaca melalui tautan berikut.</noscript>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/20/summary-en.html"
+         data-edition-date="2026-11-20"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-20
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/21/summary-en.html"
+         data-edition-date="2026-11-21"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-21
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/22/summary-en.html"
+         data-edition-date="2026-11-22"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-22
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/23/summary-en.html"
+         data-edition-date="2026-11-23"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-23
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/24/summary-en.html"
+         data-edition-date="2026-11-24"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-24
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/25/summary-en.html"
+         data-edition-date="2026-11-25"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-25
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/26/summary-en.html"
+         data-edition-date="2026-11-26"
+         data-lang="id"
+         data-trending=""
+         data-collected="" data-unique=""
+         data-analyzed="" data-selected=""
+         data-approved="" data-revised="">
+        2026-11-26
+      </a>
+      
+      <a class="fallback-link" href="https://ganezha.github.io/Horizon-GANZ/2026/11/26/summary-id.html"
+         data-edition-date="2026-11-26"
+         data-lang="id"
+         data-trending="yes"
+         data-collected="33" data-unique="33"
+         data-analyzed="33" data-selected="15"
+         data-approved="14" data-revised="2">
+        2026-11-26
+      </a>
+      
+    </section>
+    
+  </main>
+
+  <!-- Template tidak tampak sebelum dipakai. Satu desain dipakai oleh beranda, arsip dan tiap peran. -->
+  <template id="home-view">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal-bars" aria-hidden="true"></span>REDAKSI DIGITAL</p>
+        <h1>Radar berita<br><em>harian.</em></h1>
+        <p class="edition-line"></p>
+        <div class="actions">
+          <a class="primary latest-link">Baca edisi terbaru <span aria-hidden="true">→</span></a>
+          <a class="trending-link" hidden>Repository Trending <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="graph-mount"></div>
+    </section>
+  </template>
+
+  <template id="graph-view">
+    <div class="graph">
+      <div class="graph-top">
+        <span>Jaringan redaksi</span>
+        <button class="motion" type="button" aria-label="Jeda gerakan node" title="Jeda gerakan node"><i aria-hidden="true"></i></button>
+      </div>
+      <div class="arena">
+        <canvas aria-hidden="true"></canvas>
+        <a class="hub" aria-label="Bot pusat — lihat tim dan tugas redaksi" title="Lihat tim dan pembagian tugas">
+          <span class="hub-body" aria-hidden="true">
+            <span class="antenna"></span><span class="ear left"></span><span class="ear right"></span>
+            <span class="helmet"><span class="visor"><i></i><i></i></span><span class="vents"></span></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </template>
+
+  <template id="team-view">
+    <section class="team-section">
+      <div class="section-head">
+        <div><h2>Tim redaksi AI</h2><p class="team-note"></p></div>
+        <a class="replay-link"><span aria-hidden="true">↻</span> Putar ulang proses</a>
+      </div>
+      <div class="role-strip"></div>
+    </section>
+  </template>
+
+  <template id="archive-view">
+    <section class="archive-section">
+      <div class="section-head"><h2>Arsip berita</h2><span class="count"></span></div>
+      <div class="archive-list"></div>
+    </section>
+  </template>
+<template id="edisi-2026-11-20"><blockquote>
+  <p>Dari 8 item, 4 konten penting dipilih</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">Reuters Laporkan Debut Anthropic di Nasdaq</a> ⭐️ 9.0/10</li>
+  <li><a href="#item-tech-news-2">PostgreSQL 19 Tambahkan WAIT FOR LSN untuk Pembacaan di Server Siaga</a> ⭐️ 9.0/10</li>
+  <li><a href="#item-tech-news-3">Anthropic laporkan Claude membantu memecahkan dua masalah terbuka dalam fisika lubang hitam</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-4">Diskusi java4shell di OpenJDK menyoroti laporan crash pada Juni</a> ⭐️ 7.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="reuters-laporkan-debut-anthropic-di-nasdaq-️-9010"><a href="https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/">Reuters Laporkan Debut Anthropic di Nasdaq</a> ⭐️ 9.0/10</h3>
+
+<p>Judul berita Reuters melaporkan bahwa pengembang AI Anthropic memulai debutnya di Nasdaq, sehingga investor di pasar publik dapat memperdagangkan sahamnya. Teks artikelnya tidak disertakan, sehingga harga penawaran, valuasi, dan kinerja awal perdagangan tidak dapat diverifikasi.</p>
+
+<p>hackernews · wslh · Nov 19, 17:02 · <a href="https://news.ycombinator.com/item?id=50562754">Diskusi</a></p>
+
+<p><strong>「Cara harga IPO ditetapkan」</strong> Sebelum perdagangan di Nasdaq dimulai, Anthropic menetapkan harga IPO sebesar $83 per saham, di atas kisaran awal $70 hingga $78, dan menambah jumlah saham yang ditawarkan dari 825 juta menjadi 980 juta. Harga IPO adalah harga yang dibayar investor yang mendapat jatah saham dalam penawaran tersebut, sedangkan harga pembukaan ditetapkan secara terpisah saat saham mulai diperdagangkan di bursa.</p>
+
+<p><strong>「Kekhawatiran soal valuasi dan karier」</strong> Sejumlah komentator di Hacker News menyebut aksi jual pada awal perdagangan yang belum terverifikasi sebagai alasan untuk mempertanyakan valuasi Anthropic dan, lebih jauh, valuasi OpenAI di pasar privat. Yang lain khawatir AI dapat mempersempit prospek karier di bidang rekayasa perangkat lunak. Seorang pemrogram berpengalaman mengatakan sulit memberi saran kepada pengembang junior tentang cara beradaptasi.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://www.euronews.com/2026/11/19/anthropic-shares-open-34-above-ipo-price-in-nasdaq-debut-after-record-listing">Saham Anthropic dibuka 34% di atas harga IPO saat debut di Nasdaq</a></li>
+<li><a href="https://www.huffpost.com/entry/anthropic-ipo-wall-street_n_6aff0d09e4b0f8ebfa4a7875">Valuasi Anthropic Lampaui $2 Triliun Saat Debut di Nasdaq</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Anthropic</code>, <code>#Nasdaq</code>, <code>#valuasi perusahaan AI</code>, <code>#karier rekayasa perangkat lunak</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-2"></a></p>
+<h3 id="postgresql-19-tambahkan-wait-for-lsn-untuk-pembacaan-di-server-siaga-️-9010"><a href="https://simonwillison.net/2026/Nov/19/postgresql-19/">PostgreSQL 19 Tambahkan WAIT FOR LSN untuk Pembacaan di Server Siaga</a> ⭐️ 9.0/10</h3>
+
+<p>PostgreSQL 19 telah dirilis dengan perintah baru untuk aplikasi yang menulis ke basis data utama dan membaca dari server siaga. Sebelum menjalankan kueri, sesi di server siaga dapat menggunakan WAIT FOR LSN untuk menunggu hingga server tersebut menerapkan ulang log tulis di muka sampai ke nomor urut log yang ditentukan. Dengan begitu, kueri dapat melihat hasil penulisan yang sebelumnya dilakukan aplikasi. Jika batas waktu opsional terlampaui sebelum server siaga menyusul, perintah tersebut mengembalikan pesan kesalahan.</p>
+
+<p>rss · Simon Willison · Nov 19, 20:43</p>
+
+<p><strong>「Mengapa pembacaan dari replika bisa tertinggal」</strong> Server siaga PostgreSQL menerapkan ulang log tulis di muka (WAL) dari server utama. Karena itu, pembacaan dari server siaga bisa belum melihat hasil penulisan yang transaksinya sudah dikomit di server utama. Nomor urut log (LSN) menandai posisi dalam log tersebut dan memberi server siaga titik yang harus dicapai sebelum melayani permintaan baca. MediaWiki menggunakan pola serupa dengan MySQL: posisi replikasi server utama disimpan dalam sesi pengguna, lalu MediaWiki menunggu replika mencapai posisi itu sebelum membaca darinya.</p>
+
+<p><strong>「Dampak」</strong> Untuk menjaga konsistensi baca-setelah-tulis antarpermintaan, aplikasi perlu menyimpan posisi log server utama setelah menulis, lalu meneruskannya ke sesi di server siaga sebelum membaca. Aplikasi yang menetapkan batas waktu juga perlu menangani kesalahan ketika server siaga tertinggal terlalu jauh.</p>
+
+<p><strong>Tag</strong>: <code>#PostgreSQL</code>, <code>#replikasi basis data</code>, <code>#konsistensi baca-setelah-tulis</code>, <code>#pencatatan log tulis di muka</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-3"></a></p>
+<h3 id="anthropic-laporkan-claude-membantu-memecahkan-dua-masalah-terbuka-dalam-fisika-lubang-hitam-️-8010"><a href="https://www.anthropic.com/research/claude-black-hole-physics">Anthropic laporkan Claude membantu memecahkan dua masalah terbuka dalam fisika lubang hitam</a> ⭐️ 8.0/10</h3>
+
+<p>Anthropic melaporkan bahwa Claude membantu para peneliti memecahkan dua masalah terbuka dalam fisika teoretis lubang hitam, termasuk menurunkan batas atas massa lubang hitam untuk nilai muatan sentral tertentu. Menurut Anthropic, kedua hasil tersebut tidak secara langsung menggambarkan alam semesta kita dan tidak memiliki penerapan praktis.</p>
+
+<p>hackernews · cybermango · 19 Nov, 17:30 · <a href="https://news.ycombinator.com/item?id=50563148">Diskusi</a></p>
+
+<p><strong>「Arti muatan sentral」</strong> Dalam konteks ini, muatan sentral adalah parameter yang mencirikan simetri suatu model teoretis, bukan muatan listrik lubang hitam. Batas massa pada nilai muatan sentral yang tetap membatasi apa yang dapat dijelaskan oleh model-model tersebut, bukan seberapa besar massa lubang hitam yang teramati.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Para komentator mempertanyakan seberapa banyak arahan manusia yang diterima Claude dan berpendapat bahwa memublikasikan riwayat prompt akan membantu pembaca menilai kontribusi model tersebut.</p>
+
+<p><strong>Tag</strong>: <code>#riset berbantuan AI</code>, <code>#Claude</code>, <code>#fisika lubang hitam</code>, <code>#gravitasi kuantum</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-4"></a></p>
+<h3 id="diskusi-java4shell-di-openjdk-menyoroti-laporan-crash-bulan-juni-️-7010"><a href="https://github.com/openjdk/jdk/pull/32781">Diskusi java4shell di OpenJDK menyoroti laporan crash bulan Juni</a> ⭐️ 7.0/10</h3>
+
+<p>Para komentator Hacker News yang menelusuri celah OpenJDK berjuluk java4shell menyoroti laporan kesalahan segmentasi dari Juni 2026 dan tindak lanjut pada September, saat pelapor awal mengaitkan crash tersebut dengan Base64. Diskusi itu menyebut tiket dukungan Adoptium #1480 dan pull request OpenJDK #32781. Rujukan tersebut menunjukkan bahwa crash itu telah didokumentasikan beberapa bulan sebelum diskusi pada November, tetapi tidak memastikan kapan implikasi keamanannya disadari atau versi Java mana yang terdampak.</p>
+
+<p>hackernews · notmine1337 · 19 Nov, 11:47 · <a href="https://news.ycombinator.com/item?id=50558906">Diskusi</a></p>
+
+<p><strong>「Dari laporan crash hingga pengungkapan celah keamanan」</strong> Laporan crash dapat mendokumentasikan bug tanpa membuktikan bahwa bug tersebut bisa dieksploitasi. Para komentator Hacker News menelusuri celah OpenJDK berjuluk java4shell hingga ke laporan crash bulan Juni di pelacak tiket dukungan Adoptium dan tindak lanjut pada September yang mengaitkan crash itu dengan Base64. Menurut diskusi tersebut, pembuat pull request mengatakan pada Oktober bahwa Oracle awalnya meminta agar pengajuan patch ditunda, lalu mengambil alih pengerjaannya.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Seorang komentator mengutip pembuat pull request yang mengatakan bahwa pada 1 Oktober Oracle memintanya menunda pengajuan PR dan bahwa pada 28 Oktober Oracle sudah mengambil alih pengerjaannya. Para komentator juga mempertanyakan apakah temuan berikutnya yang diperoleh dengan bantuan AI benar-benar independen, tetapi tidak memberikan bukti bahwa laporan sebelumnya memengaruhi temuan tersebut.</p>
+
+<details><summary>Rujukan</summary>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=50558906">Seseorang melaporkan bug java 4 shell pada September 2026 | Hacker News</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#OpenJDK</code>, <code>#keamanan Java</code>, <code>#pengungkapan kerentanan</code>, <code>#penemuan bug berbantuan AI</code></p>
+
+<hr>
+</template>
+<template id="edisi-2026-11-21"><blockquote>
+  <p>Dari 17 butir, 7 konten penting dipilih</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">Inkling 2 Mini adalah model berbobot terbuka dengan Transformer berulang</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-2">Singularitas Navier–Stokes dan Hipotesis Riemann Umum memicu perdebatan tentang Lean</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-3">Alessandro Masullo mengklaim telah membuktikan Hipotesis Riemann Umum</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-4">Kenaikan Nasdaq sepanjang 2026 terhapus seiring aksi jual saham AI yang menekan Anthropic</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-5">Makalah ArXiv melaporkan bahwa model bahasa dapat menyunting bobotnya sendiri tanpa gradien</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-6">Levent Alpöge mengklaim telah membuktikan Hipotesis Riemann Umum</a> ⭐️ 7.0/10</li>
+</ol>
+
+<p><strong>Berita Keuangan</strong></p>
+<ol>
+  <li><a href="#item-finance-news-1">Perusahaan AS menerbitkan lebih banyak saham daripada yang mereka beli kembali</a> ⭐️ 8.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="inkling-2-mini-adalah-model-berbobot-terbuka-dengan-transformer-berulang-️-8010"><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Inkling 2 Mini adalah model berbobot terbuka dengan Transformer berulang</a> ⭐️ 8.0/10</h3>
+
+<p>Inkling 2 Mini dari Thinking Machines digambarkan sebagai model bahasa berbobot terbuka yang menggunakan Transformer berulang, dengan memakai kembali sebagian jaringan dalam beberapa lintasan pemrosesan. Pengguna awal melaporkan bahwa mereka menjalankannya secara lokal pada AMD Ryzen dan Apple Silicon, tetapi pengujian tersebut belum menunjukkan bagaimana kinerjanya dibandingkan dengan model lain pada beragam beban kerja.</p>
+
+<p>hackernews · jasondavies · 20 Nov, 20:12 · <a href="https://news.ycombinator.com/item?id=50581260">Diskusi</a></p>
+
+<p><strong>「Cara kerja Transformer berulang」</strong> Transformer standar menjalankan setiap lapisan sekali per token, sedangkan Transformer berulang menggunakan kembali beberapa lapisan sebelum menghasilkan token berikutnya. Inkling 2 Mini menjalankan lapisan-lapisan tengahnya tiga kali per token, sehingga melakukan lebih banyak komputasi tanpa menambahkan seperangkat bobot tersendiri untuk setiap lintasan.</p>
+
+<p><strong>「Uji coba lokal awal」</strong> Seorang komentator melaporkan kecepatan dekode 27 token per detik pada Ryzen 395 dengan llama.cpp dan Vulkan; komentator lain melaporkan sekitar 10 token per detik dengan versi Q4 XL pada MacBook M1 Pro berkapasitas memori 32 GB. Penguji yang menggunakan Mac mengatakan bahwa model itu mampu menangani tugas CSV sederhana dengan Python, tetapi gagal mengenali sekeping koin. Ini menunjukkan betapa beragamnya hasil antar tugas dalam pengujian terbatas tersebut.</p>
+
+<details><summary>Rujukan</summary>
+<ul>
+<li><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Memperkenalkan Inkling 2 Mini - Thinking Machines Lab</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#model berbobot terbuka</code>, <code>#transformer berulang</code>, <code>#inferensi lokal</code>, <code>#llama.cpp</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-2"></a></p>
+<h3 id="singularitas-navierstokes-dan-hipotesis-riemann-umum-memicu-perdebatan-tentang-lean-️-8010"><a href="https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/">Singularitas Navier–Stokes dan Hipotesis Riemann Umum memicu perdebatan tentang Lean</a> ⭐️ 8.0/10</h3>
+
+<p>Sebuah unggahan tentang singularitas pada persamaan Euler dan Navier–Stokes tanpa gaya eksternal serta Hipotesis Riemann Umum memicu diskusi di Hacker News mengenai pembuktian berbantuan AI yang diperiksa dengan Lean. Unggahan itu sendiri tidak disertakan dalam materi yang diberikan, sehingga tidak jelas apakah ada hasil yang dibuktikan dan, jika ada, hasil apa, atau pernyataan apa yang diperiksa oleh Lean.</p>
+
+<p>hackernews · archon1410 · 20 Nov, 17:21 · <a href="https://news.ycombinator.com/item?id=50578358">Diskusi</a></p>
+
+<p><strong>「Apa yang diverifikasi Lean」</strong> Kernel Lean memeriksa apakah suatu bukti benar-benar membuktikan pernyataan formal yang diberikan, dengan menggunakan aksioma yang dipakai dalam bukti tersebut. Kesesuaian hasil dari kernel-kernel independen mengurangi kekhawatiran akan adanya galat pada pemeriksa bukti, tetapi tidak memastikan bahwa pernyataan formal itu mewakili konjektur yang dimaksud. Untuk memastikannya, definisi dan asumsi perlu ditinjau secara terpisah.</p>
+
+<p><strong>「Apa yang dipastikan oleh verifikasi Lean」</strong> Sebelum menganggap pemeriksaan Lean yang berhasil sebagai bukti bahwa suatu konjektur telah dibuktikan, penelaah perlu membandingkan pernyataan formal beserta asumsi-asumsinya dengan konjektur asli. Sekalipun kernel-kernel independen memberikan hasil yang sama, yang diperiksa adalah bukti atas pernyataan sebagaimana ditulis, bukan apakah pernyataan itu mewakili klaim matematis yang dimaksud.</p>
+
+<p><strong>「Apa yang dapat diverifikasi Lean」</strong> Seorang komentator melaporkan bahwa dua kernel Lean yang independen tampaknya menerima suatu bukti. Menurutnya, hal ini memperkecil kemungkinan adanya bug pada kernel. Komentator lain mengajukan pertanyaan berbeda: sekalipun kedua kernel menerima bukti tersebut, apakah pernyataan formalnya benar-benar sesuai dengan konjektur yang dimaksud?</p>
+
+<p><strong>Tag</strong>: <code>#pembuktian teorema berbantuan AI</code>, <code>#Lean</code>, <code>#singularitas Navier–Stokes</code>, <code>#Hipotesis Riemann Tergeneralisasi</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-3"></a></p>
+<h3 id="alessandro-masullo-mengklaim-telah-membuktikan-hipotesis-riemann-tergeneralisasi-️-7010"><a href="https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/">Alessandro Masullo Mengklaim Telah Membuktikan Hipotesis Riemann Tergeneralisasi</a> ⭐️ 7.0/10</h3>
+
+<p>Alessandro Masullo mengumumkan bahwa ia mengklaim telah membuktikan Hipotesis Riemann Tergeneralisasi, salah satu masalah terbuka utama dalam teori bilangan. Berita itu juga menautkan klaim pembuktian lain oleh Levent Alpöge, tetapi tidak menyertakan bukti Masullo maupun verifikasi dari pakar.</p>
+
+<p>hackernews · jasondavies · 20 Nov, 18:33 · <a href="https://news.ycombinator.com/item?id=50579568">Diskusi</a></p>
+
+<p><strong>「Isi hipotesis」</strong> Hipotesis Riemann Tergeneralisasi memperluas Hipotesis Riemann dari fungsi zeta ke fungsi L Dirichlet dan menyatakan bahwa semua nol nontrivial fungsi-fungsi tersebut memiliki bagian real 1/2. Pembuktiannya akan menghasilkan batas yang lebih tajam untuk sebaran bilangan prima dalam barisan aritmetika, misalnya dalam barisan bilangan yang bersisa 1 jika dibagi 4.</p>
+
+<p><strong>「Apa yang akan berubah jika bukti terverifikasi」</strong> Jika salah satu bukti yang diklaim itu terverifikasi, hasil-hasil yang bergantung pada Hipotesis Riemann Tergeneralisasi, seperti batas eksplisit tertentu untuk jumlah bilangan prima dalam barisan aritmetika, tidak lagi bergantung pada asumsi tersebut. Pengumuman itu sendiri tidak mengubah status hasil-hasil tersebut sebagai hasil bersyarat.</p>
+
+<p><strong>「Diskusi Komunitas」</strong> Seorang komentator menyebut bahwa draf Masullo setebal 940 halaman dan mencatat bahwa subbagian bernomor pertamanya tampak kosong. Komentator lain berspekulasi tentang kaitannya dengan pengumuman Anthropic, tetapi diskusi itu tidak menunjukkan bahwa AI berperan dalam pekerjaan Masullo.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200301925E/abstract">Batas eksplisit untuk jumlah bilangan prima dalam barisan aritmetika ...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Hipotesis Riemann Tergeneralisasi</code>, <code>#Teori Bilangan Analitik</code>, <code>#Verifikasi Bukti</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-4"></a></p>
+<h3 id="kenaikan-nasdaq-sepanjang-2026-terhapus-aksi-jual-saham-ai-menekan-anthropic-️-7010"><a href="https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off">Kenaikan Nasdaq sepanjang 2026 terhapus, aksi jual saham AI menekan Anthropic</a> ⭐️ 7.0/10</h3>
+
+<p>Aksi jual saham AI menghapus kenaikan Nasdaq sepanjang 2026 dan menekan saham Anthropic pada hari kedua perdagangannya setelah IPO, menurut laporan The Guardian. Laporan yang tersedia tidak memastikan apa yang memicu aksi jual tersebut.</p>
+
+<p>hackernews · cdrnsf · 20 Nov, 13:29 · <a href="https://news.ycombinator.com/item?id=50574383">Diskusi</a></p>
+
+<p><strong>「Latar belakang」</strong> Anthropic baru saja melantai di bursa, dan Yahoo Finance melaporkan bahwa investor memandang IPO itu sebagai ujian atas minat pasar terhadap saham AI. Harga IPO adalah harga yang ditetapkan untuk penawaran saham; setelah saham mulai diperdagangkan di bursa, harganya dapat bergerak terlepas dari harga penawaran tersebut.</p>
+
+<p><strong>「Diskusi pembaca」</strong> Seorang komentator di Hacker News bertanya apakah otomatisasi berbasis AI yang lebih murah pada awalnya dapat mengurangi kontribusi suatu industri terhadap PDB meskipun menekan biaya. Komentator lain mempertanyakan apakah aksi jual itu bisa mengurangi minat investor terhadap kemungkinan IPO OpenAI.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-november-19-dow-sp-500-nasdaq-anthropic-nvidia-141644188.html">Pasar saham hari ini: Dow dan S&amp;P 500 memasuki fase koreksi, Nasdaq merosot...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#IPO Anthropic</code>, <code>#Nasdaq</code>, <code>#valuasi saham AI</code>, <code>#ekonomi otomatisasi</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-5"></a></p>
+<h3 id="makalah-arxiv-melaporkan-model-bahasa-mengubah-bobotnya-sendiri-tanpa-gradien-️-7010"><a href="https://arxiv.org/abs/2611.21885">Makalah ArXiv Melaporkan Model Bahasa Mengubah Bobotnya Sendiri Tanpa Gradien</a> ⭐️ 7.0/10</h3>
+
+<p>Sebuah makalah di arXiv melaporkan bahwa sebuah model bahasa mengubah bobotnya sendiri tanpa menggunakan gradien dan mempertahankan perubahan yang meningkatkan akurasinya dalam mengerjakan soal latihan. Diskusi itu menyebut bahwa akurasi meningkat karena jejak penalaran yang lebih pendek tidak melampaui batas token. Informasi yang tersedia tidak menunjukkan bahwa perubahan itu meningkatkan kemampuan penalaran model secara lebih luas.</p>
+
+<p>hackernews · lwhsiao · 20 Nov, 16:29 · <a href="https://news.ycombinator.com/item?id=50577265">Diskusi</a></p>
+
+<p><strong>「Perubahan bobot dibandingkan pemberian prompt」</strong> Bobot model adalah parameter numerik yang memengaruhi keluarannya. Prompt mengubah masukan tanpa mengubah parameter tersebut, sedangkan perubahan bobot tetap berlaku untuk permintaan berikutnya. Makalah itu menjelaskan bahwa metodenya tidak menggunakan gradien: model menguji usulan perubahan pada soal latihan dan mempertahankan perubahan yang berhasil, alih-alih menggunakan gradien untuk menentukan cara memperbarui bobotnya.</p>
+
+<p><strong>「Implikasi bagi evaluasi」</strong> Kenaikan akurasi yang dilaporkan tidak membuktikan bahwa model bernalar lebih baik. Seorang komentator menunjuk lampiran makalah sebagai bukti bahwa perubahan bobot mengatasi kegagalan akibat terlampauinya batas token. Untuk membedakan peningkatan kemampuan penalaran dari sekadar berkurangnya keluaran yang terpotong, evaluator sebaiknya melaporkan persentase keluaran yang terpotong bersama angka akurasi, lalu memeriksa apakah peningkatan akurasi itu bertahan ketika jatah token diperbesar.</p>
+
+<p><strong>「Diskusi Komunitas」</strong> Seorang komentator berpendapat bahwa penyuntingan itu meningkatkan skor hanya karena mencegah jawaban terpotong. Komentator lain mempertanyakan klaim “tanpa pelatihan” dalam makalah tersebut. Menurutnya, menguji berbagai usulan perubahan pada soal latihan dan mempertahankan perubahan yang berhasil dapat dianggap sebagai pelatihan meskipun tidak menggunakan penurunan gradien.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=50577265">Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri | Hacker News</a></li>
+<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri</a></li>
+<li><a href="https://news.ycombinator.com/item?id=50577265">Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri | Hacker News</a></li>
+<li><a href="https://arxiv.org/abs/2611.21885">[2611.21885] Model Bahasa Dapat Menulis Ulang Bobotnya Sendiri</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#model bahasa</code>, <code>#penyuntingan bobot</code>, <code>#optimisasi tanpa gradien</code>, <code>#anggaran token penalaran</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-6"></a></p>
+<h3 id="levent-alpöge-mengklaim-telah-membuktikan-hipotesis-riemann-yang-digeneralisasi-️-7010"><a href="https://alpo.ge/remark.pdf">Levent Alpöge mengklaim telah membuktikan Hipotesis Riemann yang Digeneralisasi</a> ⭐️ 7.0/10</h3>
+
+<p>Dalam pengumuman singkat, Levent Alpöge mengatakan bahwa ia dan Claude menemukan bukti Hipotesis Riemann dan memperluas metode tersebut untuk membuktikan Hipotesis Riemann yang Digeneralisasi. Ia mengatakan bahwa mereka memformalkan argumen itu tanpa asumsi, tetapi materi yang disertakan tidak menunjukkan bahwa bukti tersebut telah diverifikasi secara independen. Ia memperkirakan metode itu juga dapat membuktikan Hipotesis Riemann yang Diperluas, tetapi tidak mengklaim telah membuktikannya.</p>
+
+<p>hackernews · iamronaldo · 20 Nov, 14:16 · <a href="https://news.ycombinator.com/item?id=50574968">Diskusi</a></p>
+
+<p><strong>「Dugaan dan verifikasinya」</strong> Hipotesis Riemann menyatakan bahwa semua titik nol nontrivial fungsi zeta Riemann terletak pada garis dengan bagian real 1/2; Hipotesis Riemann yang Digeneralisasi memperluas klaim tersebut ke fungsi L Dirichlet. Formalisasi dalam Lean memungkinkan pemeriksa bukti memverifikasi pernyataan persis sebagaimana dituliskan dalam kode, tetapi penelaah tetap perlu memastikan bahwa pernyataan itu sesuai dengan dugaan yang dimaksud dan bahwa buktinya tidak menggunakan asumsi yang belum dibuktikan.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Seorang komentator di Hacker News melaporkan bahwa formalisasi yang diklaim dibuat dalam Lean itu berukuran 1.3 GB dan berisi sekitar 15 juta baris kode. Komentar tersebut hanya menyebut ukuran arsip, bukan apakah Lean berhasil memeriksa bukti yang diklaim itu.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://github.com/CocoSgt/riemann-hypothesis-lean">CocoSgt/ riemann - hypothesis - lean : Salinan repositori Lean milik Levent Alpöge ...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Hipotesis Riemann yang Digeneralisasi</code>, <code>#teori bilangan</code>, <code>#pembukti teorema Lean</code>, <code>#matematika berbantuan AI</code></p>
+
+<hr>
+
+<h2 id="berita-keuangan">Berita Keuangan</h2>
+
+<p><a id="item-finance-news-1"></a></p>
+<h3 id="perusahaan-as-menerbitkan-lebih-banyak-saham-daripada-yang-mereka-beli-kembali-️-8010"><a href="https://www.cnbc.com/2026/11/20/equity-issuance-bull-market-problem.html">Perusahaan AS menerbitkan lebih banyak saham daripada yang mereka beli kembali</a> ⭐️ 8.0/10</h3>
+
+<p>Menurut Acadian Asset Management, pada 2024 perusahaan AS membeli kembali lebih banyak saham daripada yang mereka terbitkan, tetapi pada 2026 mereka justru menerbitkan lebih banyak saham daripada yang mereka beli kembali. Hingga pertengahan November 2026, Acadian mencatat penerbitan bersih saham sebesar 3.1% dari nilai total pasar saham AS, di bawah tingkat tertinggi pada masa gelembung teknologi dan gelembung era pandemi.</p>
+
+<p>rss · CNBC Finance · 20 Nov, 14:15</p>
+
+<p><strong>「Latar Belakang」</strong> Pembelian kembali mengurangi jumlah saham yang dapat diperdagangkan investor, sedangkan penerbitan bersih menambahnya.</p>
+
+<p><strong>Tag</strong>: <code>#penerbitan saham AS</code>, <code>#pembelian kembali saham</code>, <code>#pendanaan AI</code>, <code>#penawaran umum perdana</code></p>
+
+<hr>
+</template>
+<template id="edisi-2026-11-22"><blockquote>
+  <p>Dari 7 item, 3 konten penting dipilih</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">Lean dan Hipotesis Riemann: Apa yang Diverifikasi?</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-2">Mengganti adaptor Ethernet USB mengatasi penurunan kecepatan unduh sebesar 75%</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-3">Muru menyasar ASGI dan WSGI dengan server berbasis Rust</a> ⭐️ 7.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="lean-dan-hipotesis-riemann-apa-yang-diverifikasi-️-8010"><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Lean dan Hipotesis Riemann: Apa yang Diverifikasi?</a> ⭐️ 8.0/10</h3>
+
+<p>Sebuah tulisan di blog komunitas Lean berjudul “Verifikasi Hipotesis Riemann dengan Lean” memicu diskusi tentang apa yang telah diformalkan dan bagaimana hasilnya diperiksa. Teks tulisan itu tidak tersedia dalam materi yang diberikan. Judul dan komentar saja tidak cukup untuk memastikan teorema mana yang diperiksa atau apakah Lean memverifikasi sebuah bukti.</p>
+
+<p>hackernews · g-b-r · 21 Nov, 14:36 · <a href="https://news.ycombinator.com/item?id=50589618">Diskusi</a></p>
+
+<p><strong>「Apa yang diperiksa Lean」</strong> Pemeriksa bukti Lean memverifikasi apakah suatu bukti sesuai dengan pernyataan formal yang dirumuskan secara presisi. Jadi, memeriksa bukti dan memastikan bahwa pernyataan itu benar-benar menyatakan konjektur yang dimaksud adalah dua tugas yang berbeda. Blog komunitas Lean mencatat bahwa para pakar Lean dan teori bilangan telah menelaah pernyataan formal Mathlib, `RiemannHypothesis`.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Seorang komentator berpendapat bahwa jika beberapa pemeriksa bukti Lean yang diimplementasikan secara terpisah memberikan hasil yang sama, kemungkinan adanya bug pada pemeriksa akan lebih kecil. Komentator lain mempertanyakan seberapa independen implementasi tersebut sebenarnya, dengan mengutip laporan tentang salah satunya yang menerima sanggahan palsu terhadap konjektur Collatz. Para komentator juga memperdebatkan seberapa besar andil Claude dibandingkan dengan andil pakar manusia yang mengarahkan pekerjaan itu.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Verifikasi Hipotesis Riemann dengan Lean | Blog komunitas Lean</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Lean</code>, <code>#verifikasi formal</code>, <code>#Hipotesis Riemann</code>, <code>#kernel pemeriksa bukti</code>, <code>#matematika berbantuan AI</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-2"></a></p>
+<h3 id="mengganti-adaptor-ethernet-usb-mengatasi-penurunan-kecepatan-unduh-sebesar-75-️-7010"><a href="https://blog.tymscar.com/posts/studiodisplayethernet/">Mengganti adaptor Ethernet USB mengatasi penurunan kecepatan unduh sebesar 75%</a> ⭐️ 7.0/10</h3>
+
+<p>Sebuah tulisan blog melaporkan bahwa kecepatan unduh turun 75% ketika adaptor Ethernet USB milik penulis dihubungkan melalui hub USB monitor. Menurut laporan itu, mengganti adaptor mengatasi perlambatan tersebut, tetapi pengalaman itu tidak membuktikan bahwa cacat tersebut umum terjadi pada monitor itu.</p>
+
+<p>hackernews · soheilpro · 21 Nov, 10:36 · <a href="https://news.ycombinator.com/item?id=50587875">Diskusi</a></p>
+
+<p><strong>「Bagaimana hub USB dapat memengaruhi Ethernet」</strong> Ketika adaptor Ethernet dicolokkan ke hub USB Studio Display XDR, paket yang masuk melewati hub sebelum sampai ke komputer. Adaptor menyimpan sementara paket-paket itu di buffer sambil menunggu komputer membacanya. Jika buffer penuh, paket yang baru masuk bisa terbuang sehingga laju transfer data unduhan menurun.</p>
+
+<p><strong>「Apa yang perlu diuji」</strong> Jika unduhan melambat saat menggunakan hub USB monitor, coba colokkan adaptor yang sama langsung ke komputer. Lalu, coba adaptor lain melalui hub tersebut untuk membantu menentukan penyebabnya.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Seorang komentator menjelaskan perlambatan itu sebagai reaksi berantai: latensi tambahan saat data melewati hub menunda konfirmasi penerimaan, buffer adaptor terisi penuh, lalu paket terbuang. Komentator lain melaporkan masalah serupa pada MacBook yang terhubung ke dok Thunderbolt dan mengatakan bahwa mengaktifkan kontrol aliran membantu.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://blog.tymscar.com/posts/studiodisplayethernet/">Monitor Saya Memangkas Kecepatan Unduh hingga 75%</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#hub USB</code>, <code>#adaptor Ethernet</code>, <code>#laju transfer data jaringan</code>, <code>#diagnosis masalah perangkat keras</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-3"></a></p>
+<h3 id="muru-menyasar-asgi-dan-wsgi-dengan-server-berbasis-rust-️-7010"><a href="https://simonwillison.net/2026/Nov/21/muru/">Muru menyasar ASGI dan WSGI dengan server berbasis Rust</a> ⭐️ 7.0/10</h3>
+
+<p>Graham Dumpleton sedang mengembangkan Muru, server berbasis Rust yang dikembangkan dengan bantuan AI dan dirancang untuk menjalankan aplikasi web Python berbasis ASGI maupun WSGI di lingkungan pengembangan dan produksi. Seri tulisan publiknya tentang pengembangan Muru membahas berbagai topik, termasuk arsitektur worker, HTTPS lokal, penerapan canary, dan integrasi Kubernetes. Tulisan Simon Willison menjelaskan tujuan proyek tersebut, tetapi tidak memastikan kesiapan Muru untuk penggunaan di lingkungan produksi maupun menyajikan hasil uji kinerja yang membandingkannya dengan server lain.</p>
+
+<p>rss · Simon Willison · 21 Nov, 23:56</p>
+
+<p><strong>「Latar Belakang」</strong> WSGI adalah antarmuka sinkron yang secara tradisional digunakan untuk menghubungkan aplikasi web Python dengan server, sedangkan ASGI juga mendukung aplikasi asinkron. Sekitar 20 tahun sebelumnya, Dumpleton memulai proyek mod_wsgi agar aplikasi WSGI dapat dijalankan melalui Apache.</p>
+
+<p><strong>Tag</strong>: <code>#Server web Python</code>, <code>#Rust</code>, <code>#ASGI</code>, <code>#WSGI</code></p>
+
+<hr>
+</template>
+<template id="edisi-2026-11-23"><blockquote>
+  <p>Dari 10 item, 2 konten penting dipilih</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">“Perpleksitas dan Kecerdasan” dari OpenAI Memicu Perdebatan tentang Evaluasi Model</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-2">Esai O’Reilly Mempertanyakan Apa yang Seharusnya Dihargai oleh Pasar di Silicon Valley</a> ⭐️ 7.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="perpleksitas-dan-kecerdasan-dari-openai-memicu-perdebatan-tentang-evaluasi-model-️-7010"><a href="https://openai.com/index/perplexity-and-intelligence/">“Perpleksitas dan Kecerdasan” dari OpenAI Memicu Perdebatan tentang Evaluasi Model</a> ⭐️ 7.0/10</h3>
+
+<p>Sebuah diskusi di Hacker News tentang “Perpleksitas dan Kecerdasan” dari OpenAI membahas apakah prediksi token berikutnya yang lebih akurat mencerminkan kemampuan model bahasa yang lebih luas. Perpleksitas yang lebih rendah berarti model memberikan probabilitas lebih tinggi pada token yang benar-benar muncul dalam teks evaluasi. Materi yang tersedia tidak memuat metode atau hasil OpenAI, sehingga belum jelas seberapa kuat hubungan yang dilaporkan atau apakah hubungan itu berlaku di berbagai model dan tugas.</p>
+
+<p>hackernews · acossta · 22 Nov, 17:06 · <a href="https://news.ycombinator.com/item?id=50601525">Diskusi</a></p>
+
+<p><strong>「Apa yang diukur oleh perpleksitas」</strong> Perpleksitas mengukur seberapa besar probabilitas yang diberikan model bahasa pada token yang benar-benar muncul berikutnya dalam set uji: makin rendah nilainya, makin baik, tetapi skor itu tidak secara langsung mengukur kemampuan yang lebih luas. OpenAI mengatakan bahwa sejak GPT-3.5, set data utama yang disisihkan untuk evaluasi diambil dari basis kode internalnya, dan artikel itu melaporkan skor berdasarkan satu versi tetap dari data tersebut.</p>
+
+<p><strong>「Diskusi Komunitas」</strong> Seorang komentator terkejut karena prediksi token berikutnya tampaknya masih berguna sebagai tolok ukur meskipun pembelajaran penguatan makin banyak digunakan. Komentator lain mengutip Mustafa Suleyman dari Microsoft, yang melaporkan bahwa MAI-2 Base memperoleh skor log-perpleksitas 0.819 pada set data yang disisihkan OpenAI untuk evaluasi. Menurut Suleyman, skor itu sebanding dengan skor model dasar GPT-5.6 Sol pada metrik yang sama.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://openai.com/index/perplexity-and-intelligence/">Perpleksitas dan Kecerdasan | OpenAI</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#perpleksitas</code>, <code>#prediksi token berikutnya</code>, <code>#evaluasi LLM</code>, <code>#pembelajaran penguatan</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-2"></a></p>
+<h3 id="esai-oreilly-mempertanyakan-apa-yang-seharusnya-dihargai-oleh-pasar-di-silicon-valley-️-7010"><a href="https://www.oreilly.com/radar/what-happened-to-silicon-valley/">Esai O’Reilly Mempertanyakan Apa yang Seharusnya Dihargai oleh Pasar di Silicon Valley</a> ⭐️ 7.0/10</h3>
+
+<p>Sebuah esai di O’Reilly Radar berpendapat bahwa insentif pasar di Silicon Valley perlu dirancang ulang agar kesejahteraan manusia lebih diutamakan daripada laba perusahaan. Esai itu menggambarkan desain mekanisme sebagai “teori permainan terbalik”: alih-alih menanyakan bagaimana perusahaan bertindak di bawah aturan yang berlaku, pendekatan ini berangkat dari hasil yang diinginkan masyarakat, lalu menanyakan aturan apa yang akan mendorong tercapainya hasil tersebut.</p>
+
+<p>hackernews · greenyouse · 22 Nov, 19:20 · <a href="https://news.ycombinator.com/item?id=50602947">Diskusi</a></p>
+
+<p><strong>「Desain mekanisme」</strong> Desain mekanisme sering disebut teori permainan terbalik: alih-alih menerima aturan yang ada begitu saja dan menanyakan bagaimana orang akan bertindak, pendekatan ini berangkat dari hasil yang diinginkan, lalu menanyakan aturan apa yang akan memberi orang insentif untuk mewujudkannya.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Beberapa komentator di Hacker News mendukung gagasan untuk meninjau ulang apa yang dihargai oleh pasar. Komentator lain menawarkan penjelasan yang lebih langsung tentang arah perkembangan Silicon Valley: menurutnya, era suku bunga mendekati nol membantu perusahaan teknologi raksasa tumbuh dan mendorong perusahaan rintisan untuk menggarap pasar baru yang belum tersentuh alih-alih bersaing di pasar yang sudah mapan.</p>
+
+<p><strong>Tag</strong>: <code>#Silicon Valley</code>, <code>#desain mekanisme</code>, <code>#tata kelola teknologi</code>, <code>#insentif pasar</code></p>
+
+<hr>
+</template>
+<template id="edisi-2026-11-24"><blockquote>
+  <p>Dari 15 item, 6 konten penting dipilih</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">Nvidia dikabarkan mengangkat kembali Jensen Huang sebagai CEO</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-2">Ladybird merilis versi alfa pertamanya untuk macOS dan Linux</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-3">Stalwart memosisikan diri sebagai pengganti Microsoft Exchange yang bisa langsung digunakan</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-4">New York membatasi sejumlah layanan berlangganan kendaraan dan biaya pascapembelian</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-5">Z.ai merilis GLM-5.4, model transformer berulang pertamanya</a> ⭐️ 7.0/10</li>
+</ol>
+
+<p><strong>Berita Keuangan</strong></p>
+<ol>
+  <li><a href="#item-finance-news-1">Nvidia mengangkat kembali Jensen Huang sebagai CEO</a> ⭐️ 8.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="nvidia-dikabarkan-mengangkat-kembali-jensen-huang-sebagai-ceo-️-8010"><a href="https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html">Nvidia dikabarkan mengangkat kembali Jensen Huang sebagai CEO</a> ⭐️ 8.0/10</h3>
+
+<p>Dewan direksi Nvidia dikabarkan mengangkat kembali Jensen Huang sebagai CEO. Dalam pernyataan yang dikutip di Hacker News, dewan mengatakan bahwa mereka menerima masukan dari pejabat senior AS sebelum mengambil keputusan dan menyimpulkan bahwa kembalinya Huang tidak menimbulkan risiko terhadap keamanan nasional. Kutipan sumber yang tersedia tidak menjelaskan mengapa Huang diberhentikan atau saran apa yang diberikan para pejabat tersebut.</p>
+
+<p>hackernews · jaz · 23 Nov, 14:00 · <a href="https://news.ycombinator.com/item?id=50611576">Diskusi</a></p>
+
+<p><strong>「Sebelum pengangkatan kembali」</strong> Dewan direksi Nvidia mengatakan bahwa mereka menerima masukan dari pejabat senior AS sebelum mengambil keputusan. NBC News melaporkan bahwa Presiden Donald Trump menelepon dewan dan menyampaikan bahwa perekonomian AS membutuhkan Huang.</p>
+
+<p><strong>「Independensi dewan direksi」</strong> Seorang komentator menilai bahwa pengakuan dewan atas masukan dari pemerintah AS merupakan bagian yang paling mengungkapkan dari pernyataan tersebut. Komentator lain membandingkannya dengan pembalikan keputusan kepemimpinan OpenAI pada 2023 dan berpendapat bahwa kewenangan formal suatu dewan tidak selalu menunjukkan siapa yang memengaruhi keputusannya.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html">Jensen Huang diangkat kembali sebagai CEO Nvidia. Saham melonjak 31%</a></li>
+<li><a href="https://www.nbcnews.com/tech/tech-news/nvidia-reinstates-jensen-huang-rcna610864">Jensen Huang diangkat kembali sebagai CEO Nvidia setelah Trump menelepon dewan direksi</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Nvidia</code>, <code>#perangkat keras AI</code>, <code>#tata kelola perusahaan</code>, <code>#keamanan nasional AS</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-2"></a></p>
+<h3 id="ladybird-merilis-versi-alfa-pertamanya-untuk-macos-dan-linux-️-8010"><a href="https://ladybird.org/posts/alpha/">Ladybird merilis versi alfa pertamanya untuk macOS dan Linux</a> ⭐️ 8.0/10</h3>
+
+<p>Ladybird merilis versi alfa pertamanya untuk macOS dan Linux, sehingga pengguna dapat memasang peramban independen ini tanpa harus mengompilasinya dari kode sumber. Saat mengujinya langsung, Simon Willison menjalankan sejumlah aplikasi WebAssembly, termasuk aplikasi kompresi video FFmpeg dan REPL Python berbasis Pyodide. Namun, Datasette Lite gagal berjalan karena peramban tersebut belum mengimplementasikan `navigator.serviceWorker.startMessages()`. Tim proyek memperingatkan bahwa beberapa situs tidak akan berfungsi dan peramban bisa tiba-tiba berhenti bekerja.</p>
+
+<p>hackernews · janvdberg · 23 Nov, 16:13 · <a href="https://news.ycombinator.com/item?id=50614249">Diskusi</a></p>
+
+<p><strong>「Mesin peramban independen」</strong> Ladybird berawal dari SerenityOS dan mengimplementasikan sendiri penguraian HTML, CSS, tata letak, JavaScript, dan WebAssembly, alih-alih menggunakan mesin peramban yang sudah ada. Ladybird masih mengandalkan pustaka eksternal seperti HarfBuzz untuk pembentukan glif teks dan Skia untuk grafis 2D.</p>
+
+<p><strong>「Yang bisa dilakukan penguji」</strong> Penguji dapat melaporkan situs yang tidak berfungsi langsung dari peramban dan meninjau laporan kegagalan sebelum memutuskan apakah akan mengirimkannya.</p>
+
+<p><strong>「Laporan awal kompatibilitas」</strong> Seorang komentator di Hacker News melaporkan bahwa antarmuka noVNC Proxmox berfungsi dan terasa lebih responsif daripada di Firefox. Komentator lain mengatakan bahwa semua situs yang dicobanya tampil dengan benar, tetapi pengguliran halaman agak tersendat. Ini adalah pengalaman masing-masing pengguna, bukan hasil pengukuran kompatibilitas atau kinerja secara luas.</p>
+
+<p><strong>Tag</strong>: <code>#Ladybird</code>, <code>#mesin peramban</code>, <code>#kompatibilitas web</code>, <code>#rilis alfa</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-3"></a></p>
+<h3 id="stalwart-memosisikan-diri-sebagai-pengganti-microsoft-exchange-tanpa-perlu-mengubah-konfigurasi-️-7010"><a href="https://stalw.art/blog/microsoft-exchange-replacement/">Stalwart memosisikan diri sebagai pengganti Microsoft Exchange tanpa perlu mengubah konfigurasi</a> ⭐️ 7.0/10</h3>
+
+<p>Stalwart mengatakan bahwa server email yang dihosting sendiri kini dapat menggantikan Microsoft Exchange tanpa mengharuskan administrator mengubah konfigurasi yang sudah ada. Judul pengumumannya menyebut Stalwart sebagai “pengganti yang bisa langsung digunakan”, tetapi materi yang tersedia tidak menyebutkan versi Stalwart yang diperlukan, klien Outlook mana yang didukung, atau fitur Exchange mana yang tetap tersedia.</p>
+
+<p>hackernews · shaunpud · 23 Nov, 22:32 · <a href="https://news.ycombinator.com/item?id=50620349">Diskusi</a></p>
+
+<p><strong>「Kompatibilitas klien Exchange」</strong> Agar server Exchange bisa diganti tanpa mengganti klien email, server pengganti harus mendukung protokol yang digunakan klien tersebut, bukan sekadar menyediakan akses ke kotak surat. Pengumuman Stalwart menyebut MAPI melalui HTTP, Exchange Web Services (EWS), dan Exchange ActiveSync sebagai beberapa protokol yang ditambahkan pada versi 1.2.0.</p>
+
+<p><strong>「Hal yang perlu diperiksa sebelum migrasi」</strong> Stalwart mencantumkan dukungan untuk Microsoft Exchange, tetapi itu tidak membuktikan kompatibilitas penuh dengan Outlook. Sebelum bermigrasi, administrator email sebaiknya menguji versi Outlook dan alur kerja yang mereka gunakan. Jika retensi arsip yang tahan terhadap manipulasi diperlukan, mereka juga perlu memastikan apakah fitur itu tersedia dalam paket Stalwart mereka atau apakah diperlukan arsip terpisah.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Para komentator mempertanyakan apakah pengguna Outlook bisa mempertahankan alur kerja Exchange yang sama. Menurut mereka, akses IMAP saja tidak sama dengan integrasi Exchange. Komentator lain mengatakan bahwa paket reguler dan edisi sumber terbuka Stalwart tidak menyediakan pengarsipan tahan manipulasi yang menurutnya diperlukan untuk mematuhi aturan penyimpanan catatan di Jerman.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://stalw.art/blog/microsoft-exchange-replacement/">Stalwart kini bisa langsung menggantikan Microsoft Exchange</a></li>
+<li><a href="https://stalw.art/">Server Email &amp; Kolaborasi Stalwart</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Stalwart</code>, <code>#Microsoft Exchange</code>, <code>#kompatibilitas Outlook</code>, <code>#email yang dihosting sendiri</code>, <code>#pengarsipan email</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-4"></a></p>
+<h3 id="new-york-membatasi-beberapa-jenis-langganan-kendaraan-dan-biaya-pascapembelian-️-7010"><a href="https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription">New York membatasi beberapa jenis langganan kendaraan dan biaya pascapembelian</a> ⭐️ 7.0/10</h3>
+
+<p>Gubernur New York Kathy Hochul menandatangani undang-undang yang membatasi jenis langganan kendaraan tertentu dan biaya yang dikenakan setelah pembelian. Undang-undang ini tidak melarang semuanya: pengecualian yang dilaporkan mencakup radio satelit, layanan terhubung yang memerlukan jaringan data agar tetap berfungsi, serta fitur bantuan pengemudi yang bergantung pada perangkat lunak.</p>
+
+<p>hackernews · DeepLogin · 24 Nov, 02:27 · <a href="https://news.ycombinator.com/item?id=50622774">Diskusi</a></p>
+
+<p><strong>「Cara kerja langganan kendaraan」</strong> Membeli mobil tidak selalu berarti pembeli bisa terus menggunakan semua fiturnya. Produsen atau dealer dapat mengenakan biaya berkala setelah mobil terjual. Biaya itu bisa dikenakan untuk mengakses fitur yang sudah tertanam di mobil atau untuk membayar layanan berkelanjutan seperti radio satelit dan konektivitas di dalam mobil.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Seorang komentator mengutip pengecualian dalam rancangan undang-undang Senat untuk mendukung pendapatnya bahwa SiriusXM dan fitur kendali jelajah canggih Tesla tampaknya tidak terdampak. Komentator lain mempertanyakan apakah produsen mobil bisa memanfaatkan pengecualian untuk layanan terhubung agar tetap dapat mengenakan biaya atas fitur seperti pemanas jok dengan membuatnya bergantung pada koneksi seluler.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription">Uang di Kantong Anda: Gubernur Hochul Menandatangani Rancangan Undang-Undang yang Membatasi ...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#perangkat-lunak-otomotif</code>, <code>#harga-langganan</code>, <code>#kendaraan-terhubung</code>, <code>#perlindungan-konsumen</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-5"></a></p>
+<h3 id="zai-merilis-glm-54-transformer-berulang-pertamanya-️-7010"><a href="https://simonwillison.net/2026/Nov/23/glm-54/">Z.ai merilis GLM-5.4, transformer berulang pertamanya</a> ⭐️ 7.0/10</h3>
+
+<p>Z.ai merilis GLM-5.4, transformer berulang pertamanya, untuk pelanggan Coding Plan. Untuk saat ini, model itu tidak tersedia melalui akses API reguler maupun sebagai model dengan bobot terbuka. Simon Willison mengonfirmasi bahwa kunci Coding Plan berfungsi dengan Responses API Z.ai yang sudah tersedia dan kompatibel dengan OpenAI. Model ini menjalankan kelompok lapisan transformer yang sama berulang kali untuk menyempurnakan representasi internalnya, sehingga kedalaman efektifnya bertambah tanpa menambah parameter. Laporan Willison tidak menyertakan tolok ukur pemrograman yang menunjukkan apakah perubahan ini meningkatkan kinerja.</p>
+
+<p>rss · Simon Willison · 23 Nov, 23:40</p>
+
+<p><strong>「Cara kerja pengulangan pada transformer」</strong> Transformer standar menjalankan setiap lapisan satu kali pada setiap lintasan maju. Transformer berulang memasukkan kembali keluaran sekelompok lapisan ke kelompok lapisan yang sama. Cara ini menambah komputasi saat inferensi tanpa menambah parameter model.</p>
+
+<p><strong>「Akses API」</strong> Pengembang yang menggunakan API reguler Z.ai dapat tetap memakai endpoint Responses API yang kompatibel dengan OpenAI untuk mencoba GLM-5.4, tetapi saat ini mereka memerlukan langganan Coding Plan beserta kunci API-nya.</p>
+
+<p><strong>Tag</strong>: <code>#GLM-5.4</code>, <code>#transformer berulang</code>, <code>#berbagi bobot</code>, <code>#model pemrograman</code></p>
+
+<hr>
+
+<h2 id="berita-keuangan">Berita Keuangan</h2>
+
+<p><a id="item-finance-news-1"></a></p>
+<h3 id="nvidia-kembali-mengangkat-jensen-huang-sebagai-ceo-️-8010"><a href="https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo-market-rally.html">Nvidia kembali mengangkat Jensen Huang sebagai CEO</a> ⭐️ 8.0/10</h3>
+
+<p>Saham AS menguat pada Senin setelah Nvidia kembali mengangkat Jensen Huang sebagai CEO, lapor CNBC. S&amp;P 500 telah turun lebih dari 9% sejak pengumuman pengunduran dirinya pada 12 November hingga penutupan perdagangan Jumat.</p>
+
+<p>rss · CNBC Finance · 23 Nov, 18:00</p>
+
+<p><strong>「Latar belakang」</strong> S&amp;P 500 turun lebih dari 9% sejak Nvidia mengumumkan pada 12 November bahwa Jensen Huang telah mengundurkan diri sebagai CEO hingga penutupan perdagangan Jumat. Penurunan itu memperpanjang aksi jual yang bermula di tengah kekhawatiran atas belanja untuk pusat data AI.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/">NVIDIA Corporation - NVIDIA Mengumumkan Pergantian CEO</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#pengangkatan kembali CEO Nvidia</code>, <code>#koreksi pasar saham AS</code>, <code>#belanja infrastruktur AI</code>, <code>#valuasi sektor teknologi</code></p>
+
+<hr>
+</template>
+<template id="edisi-2026-11-25"><blockquote>
+  <p>Dari 10 item, 7 berita penting dipilih</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">Pracetak OpenAI mengklaim bahwa eksponen perkalian matriks tepat 9/4</a> ⭐️ 9.0/10</li>
+  <li><a href="#item-tech-news-2">GreyNoise melaporkan kampanye intrusi aktif yang menyasar server manajemen Check Point</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-3">Ternary Bonsai 2.5 27B menjalani uji awal di Mac Mini</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-tech-news-4">OpenAI melaporkan bahwa GPT-6.2 mengusulkan struktur minibinder untuk lima target</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-tech-news-5">GPT-6.2 Astra menelusuri asal-usul buku sketsa anonim dari tahun 1808 hingga mengaitkannya dengan Vicomte de Chabot</a> ⭐️ 7.0/10</li>
+</ol>
+
+<p><strong>Berita Keuangan</strong></p>
+<ol>
+  <li><a href="#item-finance-news-1">Jensen Huang kembali menjabat sebagai CEO Nvidia</a> ⭐️ 7.0/10</li>
+  <li><a href="#item-finance-news-2">Utah mencabut dakwaan pidana terhadap Kalshi dan para pendirinya</a> ⭐️ 7.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="pracetak-openai-mengklaim-bahwa-eksponen-perkalian-matriks-tepat-94-️-9010"><a href="https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf">Pracetak OpenAI mengklaim bahwa eksponen perkalian matriks tepat 9/4</a> ⭐️ 9.0/10</h3>
+
+<p>Sebuah pracetak yang dipublikasikan di repositori GitHub OpenAI mengklaim bahwa eksponen yang menentukan biaya aritmetika untuk mengalikan dua matriks persegi tepat 9/4 (2.25). Jika benar, hasil ini akan membantah dugaan bahwa eksponennya adalah 2. Materi yang tersedia tidak memastikan apakah pembuktiannya telah diverifikasi secara independen.</p>
+
+<p>hackernews · E-Reverance · 25 Nov, 01:19 · <a href="https://news.ycombinator.com/item?id=50637220">Diskusi</a></p>
+
+<p><strong>「Eksponen perkalian matriks」</strong> Eksponen perkalian matriks adalah infimum dari semua nilai pangkat α yang memungkinkan dua matriks n × n dikalikan dalam O(n^α) operasi aritmetika. Dugaan bahwa eksponennya adalah 2 memungkinkan waktu eksekusi O(n^(2+ε)) untuk setiap ε tetap dengan ε &gt; 0; dugaan ini tidak mensyaratkan algoritma dengan waktu eksekusi yang tepat kuadratik.</p>
+
+<p><strong>「Batas bagi algoritma yang lebih cepat」</strong> Jika batas bawah dalam pracetak itu terbukti benar, tidak mungkin ada algoritma dalam model aritmetika yang memiliki eksponen perkalian matriks di bawah 2.25. Hal itu akan membantah dugaan bahwa eksponennya adalah 2, tetapi tidak menunjukkan algoritma mana yang paling cepat dalam praktik.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Para komentator di Hacker News menunjukkan bahwa batas atas 2.25 saja masih menyisakan kemungkinan bahwa eksponennya adalah 2. Menurut mereka, klaim utamanya adalah adanya batas bawah dengan nilai yang sama, yang akan menutup kemungkinan eksponen yang lebih kecil.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://raw.githubusercontent.com/openai/math/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf">Eksponen perkalian matriks adalah sembilan per empat</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#perkalian matriks</code>, <code>#kompleksitas aljabar</code>, <code>#batas bawah komputasi</code>, <code>#ilmu komputer teoretis</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-2"></a></p>
+<h3 id="greynoise-melaporkan-kampanye-intrusi-aktif-yang-menyasar-server-manajemen-check-point-️-8010"><a href="https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign">GreyNoise melaporkan kampanye intrusi aktif yang menyasar server manajemen Check Point</a> ⭐️ 8.0/10</h3>
+
+<p>GreyNoise melaporkan kampanye intrusi yang sedang berlangsung dan menyasar Check Point Security Management Servers. Kutipan dalam diskusi Hacker News menjelaskan kelemahan pada sesi HFS: HFS menggunakan Math.random(), fungsi JavaScript yang tidak dirancang untuk kriptografi, untuk membuat ID sesi, dan pelaku dilaporkan memalsukan kuki administrator yang bertanda tangan. Materi yang tersedia tidak memastikan bagaimana pelaku pertama kali memperoleh akses atau seberapa luas kampanye tersebut.</p>
+
+<p>hackernews · louiereederson · 24 Nov, 16:32 · <a href="https://news.ycombinator.com/item?id=50630594">Diskusi</a></p>
+
+<p><strong>「Tambalan Check Point sebelumnya」</strong> Menurut Cybersecurity Dive, Check Point mengungkap dan menambal CVE-2026-16232 pada Juli 2026. Celah tersebut dapat memberikan akses administratif penuh melalui SmartConsole, tetapi bukti yang tersedia tidak memastikan apakah celah itu merupakan jalur masuk awal dalam kampanye ini.</p>
+
+<p><strong>「Pertanyaan yang Belum Terjawab」</strong> Seorang komentator bertanya apakah akses awal melibatkan CVE-2026-16232 dan apakah server Check Point yang menjadi sasaran dapat diakses dari internet; kedua hal itu belum terkonfirmasi dalam materi yang diberikan. Komentator lain mempertanyakan apakah JavaScript seharusnya membuat Math.random() lebih aman secara bawaan, alih-alih menyerahkan pilihan alternatif yang aman secara kriptografis kepada tiap aplikasi.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://www.cybersecuritydive.com/news/ai-enabled-campaign-targets-check-point-security-management-servers/875622/">Kampanye berbantuan AI menyasar Check Point Security Management ...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Check Point</code>, <code>#kampanye intrusi</code>, <code>#HFS</code>, <code>#keamanan sesi</code>, <code>#generator bilangan acak semu</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-3"></a></p>
+<h3 id="ternary-bonsai-25-27b-menjalani-uji-awal-di-mac-mini-️-8010"><a href="https://prismml.com/news/bonsai-2-5-27b">Ternary Bonsai 2.5 27B Menjalani Uji Awal di Mac Mini</a> ⭐️ 8.0/10</h3>
+
+<p>Seorang komentator Hacker News yang menguji Ternary Bonsai 2.5 27B dalam format Q2 GGUF melaporkan laju generasi 22–25 token per detik di Mac Mini M5 Pro dengan RAM 24 GB, termasuk 22.3 token per detik saat diminta menghasilkan kode Python. Komentator itu mengatakan bahwa konteks sepanjang 128K token muat di memori, tetapi tidak melaporkan pengujian tugas pemrograman dengan konteks sepanjang itu. Hasil ini dilaporkan oleh pengguna dan belum diverifikasi secara independen.</p>
+
+<p>hackernews · b0m · 24 Nov, 20:08 · <a href="https://news.ycombinator.com/item?id=50633922">Diskusi</a></p>
+
+<p><strong>「Latar Belakang」</strong> Kuantisasi terner merepresentasikan bobot model dengan hanya tiga kemungkinan nilai, sehingga mengurangi kebutuhan memori untuk menyimpan bobot saat menjalankan inferensi lokal. Ternary Bonsai 2 adalah versi pendahulunya; PrismML mengatakan bahwa versi 2.5 menyelesaikan tugas dalam lebih sedikit giliran interaksi dan menggunakan lebih sedikit token daripada versi 2.</p>
+
+<p><strong>「Apa yang ditunjukkan oleh tolok ukur pemrograman」</strong> Seorang komentator mempertanyakan apakah hasil SWE-bench Verified yang tampak setara dengan Claude Opus 4.6 juga berarti kinerja yang sebanding pada tugas pemrograman nyata. Dalam pengujian terpisah yang mencakup delapan tugas dan dirancang oleh komentator lain, Bonsai 2.5 dan Bonsai 2 masing-masing lulus lima tugas, tetapi versi 2.5 membutuhkan 76 menit, sedangkan pendahulunya membutuhkan 107 menit.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://prismml.com/news/bonsai-2-5-27b">PrismML — Memperkenalkan Ternary Bonsai 2 . 5 27 B : Mendukung sistem berbasis agen...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#kuantisasi terner</code>, <code>#inferensi LLM lokal</code>, <code>#Apple Silicon</code>, <code>#tolok ukur pemrograman</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-4"></a></p>
+<h3 id="openai-melaporkan-gpt-62-mengusulkan-struktur-minibinder-untuk-lima-sasaran-️-7010"><a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/">OpenAI Melaporkan GPT-6.2 Mengusulkan Struktur Minibinder untuk Lima Sasaran</a> ⭐️ 7.0/10</h3>
+
+<p>OpenAI mengatakan GPT-6.2 menulis kode yang mengusulkan struktur tiga dimensi minibinder untuk lima protein sasaran tanpa menggunakan model khusus protein pada tahap itu. Model khusus tetap digunakan untuk menghasilkan urutan asam amino dan memilih kandidat yang diprediksi akan melipat dan berikatan sesuai rancangan. Kutipan yang diberikan tidak membuktikan bahwa kandidat tersebut bekerja di laboratorium atau bahwa GPT-6.2 mengungguli metode khusus.</p>
+
+<p>hackernews · acossta · 24 Nov, 21:02 · <a href="https://news.ycombinator.com/item?id=50634658">Diskusi</a></p>
+
+<p><strong>「Bentuk dan urutan protein」</strong> Minibinder adalah protein kecil yang dirancang untuk berikatan dengan bagian tertentu pada molekul lain. Mengusulkan bentuk tiga dimensinya berbeda dengan menentukan urutan asam amino yang akan melipat menjadi bentuk tersebut. Prediksi komputasional juga tidak membuktikan bahwa pengikatan benar-benar terjadi di laboratorium.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Para komentator memperdebatkan apa yang layak disebut sebagai perancangan protein. Seorang komentator mempertanyakan seberapa besar kontribusi yang patut diakui dari GPT-6.2 ketika urutannya dihasilkan oleh model lain. Komentator lain menilai bahwa penggunaan model serbaguna untuk menghubungkan berbagai alat khusus tetap bermanfaat, tanpa menyimpulkan bahwa model itu telah mengungguli alat-alat tersebut.</p>
+
+<p><strong>Tag</strong>: <code>#perancangan protein</code>, <code>#GPT-6.2</code>, <code>#pembuatan kode dengan AI</code>, <code>#biologi komputasional</code></p>
+
+<hr>
+
+<p><a id="item-tech-news-5"></a></p>
+<h3 id="gpt-62-astra-menelusuri-buku-sketsa-anonim-dari-1808-hingga-ke-vicomte-de-chabot-️-7010"><a href="https://simonwillison.net/2026/Nov/24/astra-historical-mystery/">GPT-6.2 Astra Menelusuri Buku Sketsa Anonim dari 1808 hingga ke Vicomte de Chabot</a> ⭐️ 7.0/10</h3>
+
+<p>Sejarawan Mark Humphries melaporkan bahwa dalam 22 menit dengan arahan minimal, GPT-6.2 Astra mengidentifikasi vicomte de Chabot sebagai sosok yang kemungkinan besar membuat buku sketsa anonim dari tahun 1808 yang disimpan di Perpustakaan Beinecke, Yale. Model itu menemukan entri buku harian yang menunjukkan bahwa Chabot berada di sekitar lokasi tersebut lima hari sebelum tanggal yang tercatat di buku sketsa. Model itu kemudian memperkirakan bahwa jurnal perjalanan Chabot, yang dapat diperoleh dengan mengajukan permintaan kepada Cleveland State University, akan menguatkan atribusi tersebut. Humphries mengatakan penelaahan jurnal itu kemudian mendukung atribusi tersebut. Laporan ini hanya menggambarkan satu kasus, bukan ukuran seberapa andal model dapat mengulangi hasil itu.</p>
+
+<p>rss · Simon Willison · 24 Nov, 16:53</p>
+
+<p><strong>「Jejak arsip」</strong> Perpustakaan Beinecke, Yale, telah mendigitalkan buku sketsa anonim dari tahun 1808 itu, tetapi jurnal perjalanan vicomte de Chabot hanya dapat diakses dengan mengajukan permintaan kepada Cleveland State University. Sebuah buku harian lain menunjukkan bahwa Chabot berada di dekat sungai yang disebutkan dalam buku sketsa, lima hari sebelum tanggal pada entri buku sketsa tersebut. Ini memberi peneliti petunjuk yang dapat diperiksa silang dengan jurnal perjalanannya.</p>
+
+<p><strong>Tag</strong>: <code>#GPT-6.2 Astra</code>, <code>#agen riset AI</code>, <code>#penelitian arsip</code>, <code>#atribusi historis</code></p>
+
+<hr>
+
+<h2 id="berita-keuangan">Berita Keuangan</h2>
+
+<p><a id="item-finance-news-1"></a></p>
+<h3 id="jensen-huang-kembali-menjabat-sebagai-ceo-nvidia-️-7010"><a href="https://www.cnbc.com/2026/11/25/jensen-huang-nvidia-ai-talent-race.html">Jensen Huang kembali menjabat sebagai CEO Nvidia</a> ⭐️ 7.0/10</h3>
+
+<p>CNBC melaporkan bahwa Jensen Huang kembali menjabat sebagai CEO Nvidia pada 23 November setelah mengundurkan diri pada 12 November. Kembalinya Huang menyoroti persaingan untuk merekrut insinyur dan peneliti AI: menurut riset Carnegie Endowment, porsi China dalam kelompok talenta AI global telah melampaui porsi Amerika Serikat.</p>
+
+<p>rss · CNBC Finance · 25 Nov, 01:13</p>
+
+<p><strong>「Latar Belakang」</strong> Huang mengundurkan diri pada 12 November, dan Nvidia menunjuk kepala keuangan Colette Kress sebagai CEO sementara.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/">NVIDIA Corporation - NVIDIA Mengumumkan Pergantian CEO</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Nvidia</code>, <code>#Pergantian CEO</code>, <code>#Persaingan AI AS–China</code>, <code>#Pasar talenta AI</code></p>
+
+<hr>
+
+<p><a id="item-finance-news-2"></a></p>
+<h3 id="utah-mencabut-dakwaan-pidana-terhadap-kalshi-dan-para-pendirinya-️-7010"><a href="https://www.cnbc.com/2026/11/24/utah-drops-charges-against-kalshi-after-it-halted-operations-in-state.html">Utah mencabut dakwaan pidana terhadap Kalshi dan para pendirinya</a> ⭐️ 7.0/10</h3>
+
+<p>Utah mencabut seluruh 14 dakwaan pidana terhadap Kalshi dan dua pendirinya setelah perusahaan itu menghentikan sementara operasinya di negara bagian tersebut. Kantor jaksa agung Utah mengatakan bahwa jaksa dapat mengajukan kembali dakwaan itu jika Kalshi kembali beroperasi di sana.</p>
+
+<p>rss · CNBC Finance · 24 Nov, 20:45</p>
+
+<p><strong>「Latar Belakang」</strong> Sehari sebelum Utah mengajukan dakwaan bahwa Kalshi menjalankan usaha perjudian ilegal, Komisi Perdagangan Berjangka Komoditas (CFTC), sebuah lembaga federal, menggugat Utah dengan alasan bahwa hanya pemerintah federal yang berwenang mengatur pasar tempat pengguna bertransaksi berdasarkan hasil suatu peristiwa.</p>
+
+<p><strong>「Dampak」</strong> Pengguna di Utah tidak dapat lagi bertransaksi di Kalshi selama penghentian sementara operasi itu masih berlaku.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://www.cftc.gov/PressRoom/PressReleases/9315-26">CFTC Menggugat untuk Menghentikan Penegakan Hukum oleh Negara Bagian Utah di Tengah ... yang Masih Berlangsung</a></li>
+<li><a href="https://finance.yahoo.com/markets/options/articles/utah-went-kalshi-now-federal-133717455.html?fr=sycsrp_catchall">Utah Menindak Kalshi — Kini Regulator Federal Mengambil ...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Tag</strong>: <code>#Kalshi</code>, <code>#Pasar prediksi</code>, <code>#Penegakan hukum perjudian di Utah</code>, <code>#Yurisdiksi CFTC</code></p>
+
+<hr>
+</template>
+<template id="edisi-2026-11-26"><blockquote>
+  <p>Dari 33 berita yang terkumpul, 14 masuk edisi ini.</p>
+</blockquote>
+
+<hr>
+
+<p><strong>Repository Trending</strong></p>
+<ol>
+  <li><a href="#item-repo-trending-1">mjmirza/app-store-compliance: Panduan sebelum mengirim aplikasi ke App Store dan Google Play</a> ⭐️ 9.0/10</li>
+  <li><a href="#item-repo-trending-2">AutoClip: Mengubah video panjang menjadi klip pendek</a> ⭐️ 8.5/10</li>
+  <li><a href="#item-repo-trending-3">Claude-BugHunter: paket untuk riset keamanan</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-4">obra/superpowers: Alur kerja terstruktur untuk agen pengodean</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-5">MiniMind: belajar melatih model bahasa dari nol</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-6">Spesifikasi dan plugin resmi Cursor</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-7">Firecrawl: akses data web untuk agen AI</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-8">OpenVINO: perangkat sumber terbuka untuk menjalankan model AI</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-9">Membuat diagram dengan agen coding</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-10">Merangkum temuan dari berbagai platform dengan agen AI</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-11">Tracer-Cloud/opensre</a> ⭐️ 8.0/10</li>
+  <li><a href="#item-repo-trending-12">AFFiNE: ruang kerja untuk menulis, menggambar, dan merencanakan</a> ⭐️ 8.0/10</li>
+</ol>
+
+<p><strong>Berita Teknologi</strong></p>
+<ol>
+  <li><a href="#item-tech-news-1">Google dilaporkan akan mewajibkan penggunaan server MCP miliknya untuk agen Workspace; server MCP Gmail tidak bisa mengirim email</a> ⭐️ 7.0/10</li>
+</ol>
+
+<p><strong>Berita Finansial</strong></p>
+<ol>
+  <li><a href="#item-finance-news-1">Ekspor cip dunia melampaui ekspor minyak dan gas</a> ⭐️ 8.0/10</li>
+</ol>
+
+<hr>
+
+<h2 id="repository-trending">Repository Trending</h2>
+
+<p><a id="item-repo-trending-1"></a></p>
+<h3 id="mjmirzaapp-store-compliance-panduan-sebelum-mengirim-aplikasi-ke-app-store-dan-google-play-️-9010"><a href="https://github.com/mjmirza/app-store-compliance">mjmirza/app-store-compliance: Panduan sebelum mengirim aplikasi ke App Store dan Google Play</a> ⭐️ 9.0/10</h3>
+
+<p>Proyek ini menyediakan panduan terbuka dan alat pemeriksaan untuk membantu pengembang iOS dan Android menemukan penyebab umum penolakan sebelum mengirim aplikasi ke App Store atau Google Play. Panduannya mendokumentasikan 125 pola penolakan beserta cara memperbaikinya. Alatnya mencakup pemeriksaan deklarasi privasi Apple (Privacy Manifest) dan informasi keamanan data Google Play (Data safety). Proyek ini juga melacak 117 tenggat terkait regulasi.</p>
+
+<p>Contohnya, sebelum mengirim aplikasi iOS, pengembang bisa memindai folder proyek Xcode untuk mencari risiko penolakan, lalu meninjau temuan dan saran perbaikannya. Pemindaian tidak mengubah berkas aplikasi. Jika tidak ada risiko kritis yang terdeteksi, aplikasi belum tentu disetujui: beberapa hal, seperti kelengkapan akun dan halaman aplikasi di toko, tetap perlu diperiksa secara manual.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#pengembangan aplikasi seluler</code>, <code>#App Store</code>, <code>#Google Play</code>, <code>#kepatuhan</code>, <code>#privasi</code>, <code>#pemeriksaan prapengajuan</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-2"></a></p>
+<h3 id="autoclip-mengubah-video-panjang-menjadi-klip-pendek-️-8510"><a href="https://github.com/zhouxiaoka/autoclip">AutoClip: Mengubah video panjang menjadi klip pendek</a> ⭐️ 8.5/10</h3>
+
+<p>AutoClip adalah aplikasi desktop sumber terbuka yang memakai AI untuk memilih momen menarik dari video panjang dan mengubahnya menjadi klip pendek. Aplikasi ini menerima tautan, berkas video, atau rekaman siaran langsung. AutoClip dapat menyesuaikan bingkai agar pembicara tetap terlihat, menambahkan takarir langsung pada video, serta membuat sampul dan judul. Pemotongan dan pembuatan video akhir berjalan di komputer pengguna.</p>
+
+<p>Aplikasi ini berguna bagi kreator podcast, pewawancara, dan penyiar gim yang ingin memakai ulang rekaman mereka untuk media sosial. Misalnya, kreator podcast bisa memasukkan rekaman satu episode, lalu mengekspor bagian yang menarik sebagai klip bertakarir untuk YouTube Shorts.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#sumber-terbuka</code>, <code>#AI</code>, <code>#penyuntingan-video</code>, <code>#aplikasi-desktop</code>, <code>#kreator-konten</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-3"></a></p>
+<h3 id="claude-bughunter-paket-untuk-riset-keamanan-️-8010"><a href="https://github.com/elementalsouls/Claude-BugHunter">Claude-BugHunter: paket untuk riset keamanan</a> ⭐️ 8.0/10</h3>
+
+<p>Claude-BugHunter adalah paket tambahan untuk Claude Code yang ditujukan bagi peneliti kerentanan dan tim red team, yaitu tim yang menguji pertahanan sistem dengan izin. Menurut deskripsi repositori, paket ini berisi 85 modul panduan (skill), 16 perintah yang diawali garis miring, dan 681 pola dari laporan kerentanan yang telah dipublikasikan, mencakup 24 kategori kerentanan.</p>
+
+<p>Contoh penggunaan: setelah pengujian yang berizin, peneliti dapat memakai panduan pelaporannya untuk menyusun temuan dan menyamarkan informasi pribadi dalam bukti. Cuplikan sumber menjelaskan isi paket, tetapi belum cukup untuk menilai efektivitasnya dalam praktik.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#Claude Code</code>, <code>#keamanan siber</code>, <code>#bug hunting</code>, <code>#red team</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-4"></a></p>
+<h3 id="obrasuperpowers-alur-kerja-terstruktur-untuk-agen-pengodean-️-8010"><a href="https://github.com/obra/superpowers">obra/superpowers: Alur kerja terstruktur untuk agen pengodean</a> ⭐️ 8.0/10</h3>
+
+<p>Superpowers adalah kerangka kerja yang membantu agen pengodean AI mengikuti proses pengembangan perangkat lunak, bukan langsung menulis kode. Proyek ini menggabungkan panduan untuk berbagai tugas dengan instruksi awal agar agen memakai panduan yang sesuai. Agen menanyakan tujuan pengguna, menyusun rancangan untuk disetujui, lalu membuat rencana pengerjaan yang mencakup pengujian dan peninjauan hasil.</p>
+
+<p>Alat ini cocok untuk pengembang yang ingin memakai agen pengodean tanpa melewatkan tahap perencanaan. Misalnya, saat menambahkan fitur dengan Claude Code, pengembang bisa menjelaskan kebutuhannya terlebih dahulu, meninjau rancangan yang diusulkan agen, lalu memberi lampu hijau sebelum agen mulai mengerjakannya.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#agen pengodean</code>, <code>#alat pengembang</code>, <code>#metodologi pengembangan</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-5"></a></p>
+<h3 id="minimind-belajar-melatih-model-bahasa-dari-nol-️-8010"><a href="https://github.com/jingyaogong/minimind">MiniMind: belajar melatih model bahasa dari nol</a> ⭐️ 8.0/10</h3>
+
+<p>MiniMind adalah proyek sumber terbuka untuk belajar melatih model bahasa berukuran kecil, sekitar 64 juta parameter, dari nol. Proyek ini menyediakan kode PyTorch untuk memahami cara model dibangun dan dilatih, mulai dari menyiapkan data hingga menyetel model agar bisa mengikuti instruksi. MiniMind cocok untuk mahasiswa, pengembang, dan pemula yang ingin memahami proses pelatihan, bukan sekadar memakai model yang sudah jadi.</p>
+
+<p>Contoh penggunaan: gunakan kode penyetelan terawasi (SFT) untuk melatih model mengikuti instruksi dari pasangan contoh instruksi dan jawaban. Menurut dokumentasi proyek, angka «dua jam» adalah waktu yang diukur untuk satu putaran penuh atas data pada tahap SFT dengan satu GPU NVIDIA 3090, bukan waktu untuk seluruh proses pelatihan dari nol.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#LLM</code>, <code>#pelatihan dari nol</code>, <code>#GitHub Trending</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-6"></a></p>
+<h3 id="spesifikasi-dan-plugin-resmi-cursor-️-8010"><a href="https://github.com/cursor/plugins">Spesifikasi dan plugin resmi Cursor</a> ⭐️ 8.0/10</h3>
+
+<p>Repositori ini berisi spesifikasi plugin Cursor dan katalog plugin resmi untuk berbagai alat pengembangan, kerangka kerja, serta layanan perangkat lunak daring (SaaS). Pengembang yang memakai Cursor bisa melihat pilihan plugin di katalog ini. Pembuat plugin juga bisa merujuk pada spesifikasi dan struktur berkasnya: setiap plugin punya folder sendiri dengan berkas konfigurasi `.cursor-plugin/plugin.json`.</p>
+
+<p>Contoh: Jika ingin membuat plugin baru untuk agen Cursor, pengembang bisa memakai Create Plugin untuk menyiapkan struktur awal dan memvalidasi plugin tersebut.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#Cursor</code>, <code>#plugin resmi</code>, <code>#alat pengembang</code>, <code>#spesifikasi plugin</code>, <code>#GitHub Trending</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-7"></a></p>
+<h3 id="firecrawl-akses-data-web-untuk-agen-ai-️-8010"><a href="https://github.com/firecrawl/firecrawl">Firecrawl: akses data web untuk agen AI</a> ⭐️ 8.0/10</h3>
+
+<p>Firecrawl membantu pengembang agen AI mengambil isi halaman web dan mengubahnya menjadi Markdown. Firecrawl Local berjalan di komputer sendiri, tetapi pencarian web dan akses ke lebih dari 550 penyedia data, menurut deskripsi proyek, tetap menggunakan Firecrawl Cloud. Pengembang juga bisa menjalankan server Firecrawl di infrastruktur sendiri.</p>
+
+<p>Dalam contoh di README, Firecrawl Local merayapi paling banyak 50 halaman situs dokumentasi dan menyimpan satu berkas Markdown untuk tiap halaman yang berhasil dirayapi.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#agen AI</code>, <code>#API</code>, <code>#pencarian</code>, <code>#web scraping</code>, <code>#akses data</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-8"></a></p>
+<h3 id="openvino-perangkat-sumber-terbuka-untuk-menjalankan-model-ai-️-8010"><a href="https://github.com/openvinotoolkit/openvino">OpenVINO: perangkat sumber terbuka untuk menjalankan model AI</a> ⭐️ 8.0/10</h3>
+
+<p>OpenVINO membantu pengembang mengoptimalkan dan menjalankan model AI yang sudah dilatih. Tahap ketika model menerima masukan baru dan menghasilkan keluaran disebut inferensi. OpenVINO mendukung model dari PyTorch dan TensorFlow, antara lain, serta dapat menjalankannya di CPU, GPU Intel, dan akselerator AI Intel (NPU) yang didukung.</p>
+
+<p>Perangkat ini berguna bagi pengembang yang ingin memasukkan model AI ke dalam aplikasi, misalnya untuk pengenalan suara atau pengolahan gambar. Sebagai contoh, dokumentasinya menunjukkan cara mengonversi model MobileNetV2 dari TensorFlow dan menjalankannya di CPU dengan data masukan acak.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#OpenVINO</code>, <code>#sumber terbuka</code>, <code>#inferensi AI</code>, <code>#deep learning</code>, <code>#optimasi model</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-9"></a></p>
+<h3 id="membuat-diagram-dengan-agen-coding-️-8010"><a href="https://github.com/cathrynlavery/diagram-design">Membuat diagram dengan agen coding</a> ⭐️ 8.0/10</h3>
+
+<p>Proyek ini menambahkan kemampuan membuat diagram bergaya editorial ke agen coding seperti Claude Code, Codex, dan GitHub Copilot. Agen bisa memilih dari 52 jenis diagram dan menyesuaikan tampilannya dengan warna dan font merek. Hasilnya berupa satu file HTML dengan gambar vektor (SVG) tertanam yang bisa langsung dibuka di browser.</p>
+
+<p>Alat ini berguna bagi pengembang yang ingin menjelaskan cara kerja aplikasi tanpa menggambar diagram secara manual. Misalnya, Anda bisa meminta agen membuat diagram arsitektur yang menunjukkan hubungan antara frontend, backend, basis data, dan cache Redis.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#diagram</code>, <code>#agen coding</code>, <code>#desain editorial</code>, <code>#HTML</code>, <code>#SVG</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-10"></a></p>
+<h3 id="merangkum-temuan-dari-berbagai-platform-dengan-agen-ai-️-8010"><a href="https://github.com/mvanhorn/last30days-skill">Merangkum temuan dari berbagai platform dengan agen AI</a> ⭐️ 8.0/10</h3>
+
+<p>Proyek ini menambahkan kemampuan riset ke agen AI. Dengan perintah `/last30days`, agen menelusuri perkembangan suatu topik selama 30 hari terakhir di berbagai sumber, seperti Reddit, X, YouTube, Hacker News, Polymarket, dan web, lalu merangkum temuannya. Menurut dokumentasi proyek, beberapa sumber bisa langsung digunakan, sementara sumber lain memerlukan pengaturan akses.</p>
+
+<p>Alat ini berguna bagi pengguna agen AI yang ingin mengikuti perkembangan topik tanpa membuka setiap platform satu per satu. Misalnya, sebelum menelepon calon pelanggan, pengguna bisa meminta ringkasan tentang perkembangan terbaru perusahaan tersebut.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#agen AI</code>, <code>#riset daring</code>, <code>#peringkasan</code>, <code>#GitHub Trending</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-11"></a></p>
+<h3 id="tracer-cloudopensre-️-8010"><a href="https://github.com/Tracer-Cloud/opensre">Tracer-Cloud/opensre</a> ⭐️ 8.0/10</h3>
+
+<p>OpenSRE adalah agen sumber terbuka yang dijalankan lewat terminal untuk membantu pengembang dan tim DevOps mencari penyebab kegagalan CI/CD, yaitu proses otomatis untuk membangun, menguji, dan menerapkan perangkat lunak. Agen ini membaca log proses yang gagal, menelusuri penyebabnya, lalu mengirim usulan perbaikan untuk ditinjau. Tim dapat menjalankannya di infrastruktur sendiri dengan model AI pilihan mereka.</p>
+
+<p>Contohnya, jika pemeriksaan otomatis pada usulan perubahan kode (pull request) gagal, OpenSRE dapat menyelidiki apakah masalahnya berasal dari kode atau dari proses CI itu sendiri, lalu mengusulkan perbaikan untuk ditinjau tim. Proyek ini masih dalam tahap alfa publik: alur kerja utama sudah bisa dicoba, tetapi belum sepenuhnya stabil dan integrasinya masih bisa berubah.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#CI/CD</code>, <code>#DevOps</code>, <code>#CLI</code>, <code>#sumber terbuka</code>, <code>#self-hosted</code></p>
+
+<hr>
+
+<p><a id="item-repo-trending-12"></a></p>
+<h3 id="affine-ruang-kerja-untuk-menulis-menggambar-dan-merencanakan-️-8010"><a href="https://github.com/toeverything/AFFiNE">AFFiNE: ruang kerja untuk menulis, menggambar, dan merencanakan</a> ⭐️ 8.0/10</h3>
+
+<p>AFFiNE adalah ruang kerja sumber terbuka yang menyatukan dokumen, papan tulis digital, dan tabel. Proyek ini mengutamakan privasi dengan menyimpan data di perangkat tanpa bergantung pada layanan awan, tetapi tetap mendukung sinkronisasi dan kolaborasi secara langsung. AFFiNE bisa berguna bagi individu atau tim yang mencari alternatif Notion dan Miro untuk mengatur catatan dan merencanakan pekerjaan di satu tempat.</p>
+
+<p>Contoh: saat merencanakan proyek, tim bisa menulis tujuan, menggambar alur kerja, dan menyusun daftar tugas dalam tabel di papan yang sama.</p>
+
+<p>rss · GitHub Trending - Daily · Nov 26, 09:04</p>
+
+<p><strong>Topik</strong>: <code>#basis pengetahuan</code>, <code>#produktivitas</code>, <code>#sumber terbuka</code>, <code>#local-first</code>, <code>#GitHub Trending</code></p>
+
+<hr>
+
+<h2 id="berita-teknologi">Berita Teknologi</h2>
+
+<p><a id="item-tech-news-1"></a></p>
+<h3 id="google-dilaporkan-akan-mewajibkan-penggunaan-server-mcp-miliknya-untuk-agen-workspace-server-mcp-gmail-tidak-bisa-mengirim-email-️-7010"><a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/">Google dilaporkan akan mewajibkan penggunaan server MCP miliknya untuk agen Workspace; server MCP Gmail tidak bisa mengirim email</a> ⭐️ 7.0/10</h3>
+
+<p>TechStackUps melaporkan bahwa Google akan mewajibkan agen AI yang mengakses Workspace untuk menggunakan server Model Context Protocol (MCP) miliknya dan bahwa server MCP Gmail tidak mendukung pengiriman email. Keterbatasan itu berlaku untuk pengiriman lewat server MCP Gmail, bukan untuk semua cara agen mengirim email. Teks lengkap artikel tidak disertakan, sehingga belum jelas agen mana saja yang akan terkena kewajiban itu atau mengapa fitur kirim tidak tersedia.</p>
+
+<p>hackernews · ritzaco · Nov 26, 09:44 · <a href="https://news.ycombinator.com/item?id=50653477">Diskusi</a></p>
+
+<p><strong>「Latar belakang」</strong> Cuplikan pengumuman resmi Google mengonfirmasi bahwa server MCP Workspace sudah tersedia secara umum, tetapi tidak mengonfirmasi adanya kewajiban untuk menggunakannya atau cakupan kewajiban tersebut. Dokumentasi Gmail menjelaskan bahwa server MCP Workspace dapat meminta persetujuan lewat formulir konfirmasi pengguna (form elicitation) sebelum agen menjalankan tindakan sensitif. Mekanisme persetujuan itu tidak dengan sendirinya membuat fitur kirim tersedia.</p>
+
+<p><strong>「Dampak bagi pengembang」</strong> Pengembang yang membuat alur kerja pengiriman email tidak bisa mengandalkan server MCP Gmail selama fitur kirim belum tersedia. Jika kewajiban yang dilaporkan itu diberlakukan, pengembang perlu memeriksa apakah integrasi mereka termasuk dalam cakupannya.</p>
+
+<p><strong>「Diskusi komunitas」</strong> Perdy mengusulkan agar fitur kirim menggunakan mekanisme elicitation di MCP: server dapat menjeda proses pengiriman dan meminta konfirmasi pengguna sebelum melanjutkan. Schnitz memperkirakan agen akan tetap mengirim email lewat peramban, tetapi dengan alur yang lebih rumit.</p>
+
+<details><summary>Referensi</summary>
+<ul>
+<li><a href="https://developers.google.com/workspace/gmail/api/guides/configure-mcp-server">Configure the Gmail MCP server | Google for Developers</a></li>
+<li><a href="https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html?hl=en_EN">Google Workspace Updates: Simplifying agent access while ...</a></li>
+
+</ul>
+</details>
+
+<p><strong>Topik</strong>: <code>#Model Context Protocol</code>, <code>#Google Workspace</code>, <code>#Gmail</code>, <code>#AI agents</code></p>
+
+<hr>
+
+<h2 id="berita-finansial">Berita Finansial</h2>
+
+<p><a id="item-finance-news-1"></a></p>
+<h3 id="ekspor-cip-dunia-melampaui-ekspor-minyak-dan-gas-️-8010"><a href="https://www.cnbc.com/2026/11/26/semiconductor-chips-are-the-new-oil-heres-why.html">Ekspor cip dunia melampaui ekspor minyak dan gas</a> ⭐️ 8.0/10</h3>
+
+<p>Menurut analisis Deutsche Bank atas data International Trade Centre, nilai ekspor cip dunia untuk pertama kalinya melampaui ekspor minyak dan gas pada kuartal I 2026: sekitar US$1,61 triliun berbanding US$1,53 triliun, masing-masing untuk total empat kuartal hingga Maret 2026.</p>
+
+<p>rss · CNBC Finance · Nov 26, 17:52</p>
+
+<p><strong>「Latar belakang」</strong> Pembangunan pusat data untuk kecerdasan buatan mendorong permintaan cip. Pada kuartal II 2026, gangguan pasokan minyak melalui Selat Hormuz turut memperlebar selisih nilai ekspor tersebut.</p>
+
+<p><strong>Topik</strong>: <code>#semiconductor exports</code>, <code>#AI infrastructure spending</code>, <code>#oil and gas trade</code>, <code>#Strait of Hormuz</code>, <code>#semiconductor stock volatility</code></p>
+
+<hr>
+</template>
+<script>
+/* Horizon GANZ — navigasi, data edisi, dan jaringan bot. Bisa berjalan tanpa pustaka. */
+(() => {
+  'use strict';
+
+  // Nama, posisi (0–1) dan warna node. Titik asal tiap bot selalu tetap, sehingga jalur tetap rapi.
+  const roles = [
+    { id: 'pemantau', name: 'Pemantau', color: '#77aaff', x: .18, y: .26, short: 'Cari sumber',
+      task: 'Mengumpulkan judul, tautan, dan waktu terbit dari sumber berita yang dipantau.',
+      next: ['penyaring'] },
+    { id: 'penyaring', name: 'Penyaring', color: '#69e3ed', x: .50, y: .14, short: 'Pilah berita',
+      task: 'Menggabungkan berita ganda sebelum analisis, lalu memilih berita untuk ditulis berdasarkan hasil penilaian.',
+      next: ['analis', 'penulis'] },
+    { id: 'analis', name: 'Analis', color: '#b499ff', x: .82, y: .26, short: 'Nilai isi',
+      task: 'Membaca bahan sumber, menilai relevansi berita, dan menjelaskan mengapa topik itu penting.',
+      next: ['penyaring'] },
+    { id: 'penulis', name: 'Penulis', color: '#f48cbd', x: .82, y: .73, short: 'Susun draf',
+      task: 'Menyusun draf Bahasa Indonesia dari berita terpilih dan memperbaikinya jika Editor meminta revisi.',
+      next: ['editor'] },
+    { id: 'editor', name: 'Editor', color: '#87e899', x: .50, y: .85, short: 'Periksa fakta',
+      task: 'Mencocokkan nama, angka, tanggal, dan klaim dengan bahan sumber. Draf bisa dikembalikan ke Penulis.',
+      next: ['penulis', 'penerbit'] },
+    { id: 'penerbit', name: 'Penerbit', color: '#f3ce75', x: .18, y: .73, short: 'Terbitkan edisi',
+      task: 'Menyusun berita yang lolos pemeriksaan menjadi edisi harian dan menayangkannya di arsip.',
+      next: [] }
+  ];
+  const byId = new Map(roles.map(role => [role.id, role]));
+  const app = document.getElementById('utama');
+  const dashboard = document.body.dataset.dashboard === 'yes';
+  const offline = document.body.dataset.offline === 'yes';
+  const home = dashboard ? '' : document.body.dataset.home;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const dateFormat = new Intl.DateTimeFormat('id-ID', {
+    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+  });
+
+  function dateLabel(date) {
+    return dateFormat.format(new Date(date + 'T12:00:00Z'));
+  }
+
+  function template(id) {
+    return document.getElementById(id).content.firstElementChild.cloneNode(true);
+  }
+
+  function element(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  function link(text, href, className) {
+    const anchor = element('a', className, text);
+    anchor.href = href;
+    return anchor;
+  }
+
+  function route(path = '', date = '') {
+    return home + '#/' + path + (date ? '/' + date : '');
+  }
+
+  function metricValue(value) {
+    if (value === undefined || value.trim() === '') return null;
+    const number = Number(value);
+    return Number.isSafeInteger(number) && number >= 0 ? number : null;
+  }
+
+  // Satu kartu per tanggal. Utamakan edisi asli "-id" jika tanggal yang sama juga punya arsip terjemahan.
+  function readEditions() {
+    const perDay = new Map();
+    for (const anchor of app.querySelectorAll('[data-edition-date]')) {
+      const d = anchor.dataset;
+      const date = d.editionDate;
+      const priority = (d.lang === 'id' ? 2 : 0) + (anchor.pathname.endsWith('summary-id.html') ? 1 : 0);
+      if (perDay.has(date) && perDay.get(date).priority >= priority) continue;
+      const stats = {};
+      for (const key of ['collected', 'unique', 'analyzed', 'selected', 'approved', 'revised']) {
+        stats[key] = metricValue(d[key]);
+      }
+      perDay.set(date, { date, lang: d.lang, href: anchor.href, priority, stats, trending: d.trending === 'yes' });
+    }
+    return Array.from(perDay.values()).sort((a, b) => b.date.localeCompare(a.date));
+  }
+
+  const editions = readEditions();
+  const latest = editions[0];
+  function articleURL(edition, anchor = '') {
+    if (offline) return route('edisi', edition.date) + (anchor ? '/' + encodeURIComponent(anchor) : '');
+    return edition.href + (anchor ? '#' + encodeURIComponent(anchor) : '');
+  }
+
+  function numberNote(edition, key, sentence) {
+    const value = edition?.stats[key];
+    return value === null || value === undefined ? '' : sentence.replace('{n}', String(value));
+  }
+
+  function roleResult(role, edition) {
+    switch (role.id) {
+      case 'pemantau': return numberNote(edition, 'collected', '{n} berita terkumpul.');
+      case 'penyaring': return [
+        numberNote(edition, 'unique', '{n} berita unik.'),
+        numberNote(edition, 'selected', '{n} berita dipilih untuk ditulis.')
+      ].filter(Boolean).join(' ');
+      case 'analis': return numberNote(edition, 'analyzed', '{n} berita melalui tahap analisis.');
+      case 'penulis': return numberNote(edition, 'selected', '{n} berita terpilih masuk tahap penulisan.');
+      case 'editor': return [
+        numberNote(edition, 'approved', '{n} berita lolos pemeriksaan.'),
+        numberNote(edition, 'revised', '{n} di antaranya lolos setelah revisi.')
+      ].filter(Boolean).join(' ');
+      case 'penerbit': return numberNote(edition, 'approved', '{n} berita masuk edisi ini.');
+    }
+  }
+
+  function miniBot() {
+    const bot = element('span', 'mini-bot');
+    bot.setAttribute('aria-hidden', 'true');
+    bot.append(element('i'), element('i'));
+    return bot;
+  }
+
+  function roleCard(role, date) {
+    const card = link('', route('bot/' + role.id, date), 'role-card');
+    card.style.setProperty('--tint', role.color);
+    card.title = role.task;
+    const label = element('span');
+    label.append(element('strong', '', role.name), element('small', '', role.short));
+    card.append(miniBot(), label);
+    return card;
+  }
+
+  function team(date) {
+    const section = template('team-view');
+    section.querySelector('.team-note').textContent = (date ? 'Edisi ' + dateLabel(date) + '. ' : '')
+      + 'Sentuh bot untuk melihat tugasnya.';
+    section.querySelector('.replay-link').href = route('proses', date);
+    section.querySelector('.role-strip').append(...roles.map(role => roleCard(role, date)));
+    return section;
+  }
+
+  function archive(items) {
+    const section = template('archive-view');
+    section.querySelector('.count').textContent = items.length + ' edisi';
+    const list = section.querySelector('.archive-list');
+    for (const edition of items) {
+      const row = link('', articleURL(edition), 'archive-row');
+      const left = element('span', 'row-date');
+      const icon = element('span', 'date-icon');
+      icon.setAttribute('aria-hidden', 'true');
+      const time = element('time', '', dateLabel(edition.date));
+      time.dateTime = edition.date;
+      left.append(icon, time);
+      const language = { id: 'Bahasa Indonesia', en: 'Bahasa Inggris', zh: 'Bahasa Mandarin' };
+      const right = element('span', 'row-language', language[edition.lang] || edition.lang || 'Baca edisi');
+      right.append(element('span', 'row-arrow', '→'));
+      row.append(left, right);
+      list.append(row);
+    }
+    if (!items.length) list.append(element('p', 'archive-row', 'Belum ada edisi terbit.'));
+    return section;
+  }
+
+  function pageHead(title, eyebrow, lead = '') {
+    const head = element('div', 'page-head');
+    head.append(link('← Beranda', route(), 'back'));
+    if (eyebrow) head.append(element('p', 'eyebrow', eyebrow));
+    head.append(element('h1', '', title));
+    if (lead) head.append(element('p', 'page-lead', lead));
+    return head;
+  }
+
+  // Satu loop animasi untuk semua node. Saat ganti halaman, loop, timer, dan pengamat dilepas.
+  let leavePage = [];
+  function resetPage() {
+    for (const clean of leavePage) clean();
+    leavePage = [];
+    app.replaceChildren();
+  }
+
+  const random = (low, high) => low + Math.random() * (high - low);
+  let userPaused = reduced.matches;
+
+  function network(mount, date, centerPath = 'redaksi', selectedRole = '') {
+    const graph = template('graph-view');
+    mount.append(graph);
+    const arena = graph.querySelector('.arena');
+    const canvas = graph.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const hub = graph.querySelector('.hub');
+    const motion = graph.querySelector('.motion');
+    hub.href = route(centerPath, date);
+    if (centerPath === 'proses') {
+      hub.title = 'Lihat urutan tugas redaksi';
+      hub.setAttribute('aria-label', hub.title);
+    }
+
+    function point(node, x, y, color, id) {
+      return { node, x, y, color, id, dx: 0, dy: 0, vx: 0, vy: 0, tx: 0, ty: 0,
+        spring: 22, drag: 8, wake: 0, phase: Math.random(), speed: random(.12, .25),
+        light: .6, targetLight: .8, px: 0, py: 0 };
+    }
+    const center = point(hub, .5, .49, '#9aefd3', 'pusat');
+    const outer = roles.map(role => {
+      const node = link('', route('bot/' + role.id, date), 'satellite');
+      node.setAttribute('aria-label', role.name + ' — ' + role.short);
+      node.title = role.task;
+      node.style.setProperty('--tint', role.color);
+      node.append(element('span', 'gem'), element('span', 'satellite-label', role.name));
+      arena.append(node);
+      return point(node, role.x, role.y, role.color, role.id);
+    });
+    const points = [center, ...outer];
+    let width = 1, height = 1, ratio = 1, frame = 0, previous = 0;
+    let visible = true, active = selectedRole;
+    const abort = new AbortController();
+
+    function position(p) {
+      p.px = width * p.x + p.dx;
+      p.py = height * p.y + p.dy;
+      p.node.style.left = p.px + 'px';
+      p.node.style.top = p.py + 'px';
+    }
+
+    function springStep(p, now, dt) {
+      // Target acak tetap dekat titik asal agar label antarnode tidak bertabrakan.
+      if (now >= p.wake) {
+        const radius = p === center ? 2.8 : Math.min(9, width * .021);
+        p.tx = random(-radius, radius);
+        p.ty = random(-radius, radius);
+        p.spring = random(16, 37);
+        p.drag = random(5, 9);
+        p.targetLight = random(.38, 1);
+        p.wake = now + random(950, 3300);
+      }
+      // Jangan geser target yang sedang disentuh, diarahkan kursor, atau difokuskan.
+      if (!p.node.matches(':hover, :focus-visible, :active')) {
+        p.vx += ((p.tx - p.dx) * p.spring - p.drag * p.vx) * dt;
+        p.vy += ((p.ty - p.dy) * p.spring - p.drag * p.vy) * dt;
+        p.dx += p.vx * dt;
+        p.dy += p.vy * dt;
+      }
+      p.light += (p.targetLight - p.light) * Math.min(1, dt * 2);
+      p.phase = (p.phase + dt * p.speed) % 1;
+    }
+
+    function draw() {
+      for (const p of points) position(p);
+      if (!ctx) return;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      const cx = center.px, cy = center.py;
+      ctx.lineWidth = 1;
+      for (const scale of [.29, .41]) {
+        ctx.beginPath();
+        ctx.ellipse(width / 2, height / 2, width * scale, height * scale, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = '#29403e';
+        ctx.globalAlpha = .65;
+        ctx.stroke();
+      }
+      for (const p of outer) {
+        const x = p.px, y = p.py - 7;
+        const bx = (cx + x) / 2 + (y - cy) * .13;
+        const by = (cy + y) / 2 - (x - cx) * .075;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.quadraticCurveTo(bx, by, x, y);
+        ctx.strokeStyle = p.color;
+        ctx.globalAlpha = active === p.id ? .96 : .26 + .25 * p.light;
+        ctx.lineWidth = active === p.id ? 2 : 1.15;
+        ctx.stroke();
+        // Piksel cahaya mengikuti kurva yang sama dengan kabel.
+        const t = p.phase, u = 1 - t;
+        ctx.beginPath();
+        ctx.arc(u*u*cx + 2*u*t*bx + t*t*x, u*u*cy + 2*u*t*by + t*t*y,
+          active === p.id ? 2.7 : 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = .35 + .65 * p.light;
+        ctx.fill();
+        p.node.firstElementChild.style.opacity = String(.69 + p.light * .31);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function tick(now) {
+      frame = 0;
+      if (userPaused || !visible || document.hidden) return;
+      if (!previous || now - previous >= 32) {
+        const dt = previous ? Math.min((now - previous) / 1000, .045) : 0;
+        previous = now;
+        for (const p of points) springStep(p, now, dt);
+        draw();
+      }
+      frame = requestAnimationFrame(tick);
+    }
+
+    function sync() {
+      cancelAnimationFrame(frame);
+      previous = 0;
+      motion.setAttribute('aria-pressed', String(userPaused));
+      motion.title = userPaused ? 'Aktifkan gerakan node' : 'Jeda gerakan node';
+      motion.setAttribute('aria-label', motion.title);
+      if (!userPaused && visible && !document.hidden) frame = requestAnimationFrame(tick);
+    }
+
+    function setActive(id) {
+      active = id;
+      for (const p of outer) p.node.classList.toggle('lit', p.id === id);
+      draw();
+    }
+
+    function resize() {
+      width = Math.max(1, arena.clientWidth);
+      height = Math.max(1, arena.clientHeight);
+      ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      draw();
+    }
+
+    const size = new ResizeObserver(resize);
+    size.observe(arena);
+    const view = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); });
+    view.observe(graph);
+    motion.addEventListener('click', () => { userPaused = !userPaused; sync(); }, { signal: abort.signal });
+    reduced.addEventListener('change', () => { userPaused = reduced.matches; sync(); }, { signal: abort.signal });
+    document.addEventListener('visibilitychange', sync, { signal: abort.signal });
+    resize();
+    setActive(active);
+    sync();
+    leavePage.push(() => { abort.abort(); size.disconnect(); view.disconnect(); cancelAnimationFrame(frame); });
+    return setActive;
+  }
+
+  function homePage() {
+    const hero = template('home-view');
+    if (latest) {
+      hero.querySelector('.edition-line').textContent = 'Edisi terbaru · ' + dateLabel(latest.date);
+      hero.querySelector('.latest-link').href = articleURL(latest);
+    } else {
+      hero.querySelector('.edition-line').textContent = 'Menunggu edisi pertama.';
+      hero.querySelector('.latest-link').hidden = true;
+    }
+    const trending = editions.find(edition => edition.trending);
+    if (trending) {
+      const anchor = hero.querySelector('.trending-link');
+      anchor.href = articleURL(trending, 'repository-trending');
+      anchor.hidden = false;
+    }
+    const dates = archive(editions.slice(0, 7));
+    if (editions.length > 7) dates.append(link('Lihat seluruh arsip →', route('arsip'), 'more-link'));
+    app.append(hero, team(latest?.date), dates);
+    network(hero.querySelector('.graph-mount'), latest?.date);
+    return 'Radar berita harian.';
+  }
+
+  function archivePage() {
+    const section = archive(editions);
+    section.querySelector('.section-head').remove();
+    app.append(pageHead('Arsip berita', '', editions.length + ' edisi, diurutkan dari yang terbaru.'), section);
+    return 'Arsip berita';
+  }
+
+  function aboutPage(edition) {
+    app.append(pageHead('Redaksi Horizon GANZ', 'REDAKSI DIGITAL',
+      'Enam bot bekerja bersama untuk mengumpulkan sumber, memeriksa berita, dan menerbitkan edisi harian dalam Bahasa Indonesia.'));
+    app.append(team(edition?.date));
+    if (edition) app.append(link('Baca edisi ' + dateLabel(edition.date) + ' →', articleURL(edition), 'more-link'));
+    return 'Redaksi Horizon GANZ';
+  }
+
+  function rolePage(role, edition) {
+    app.append(pageHead(role.name, 'Tim redaksi AI', role.task));
+    const grid = element('div', 'detail-grid');
+    const panel = element('section', 'detail-panel');
+    panel.append(element('h2', '', edition ? 'Edisi ' + dateLabel(edition.date) : 'Tugas redaksi'));
+    panel.append(element('p', 'metric', roleResult(role, edition) || 'Rincian jumlah per bot belum tercatat untuk edisi ini.'));
+    if (role.next.length) {
+      panel.append(element('p', '', 'Hasil pekerjaan diteruskan ke'));
+      const links = element('div', 'controls');
+      for (const id of role.next) links.append(roleCard(byId.get(id), edition?.date));
+      panel.append(links);
+    } else if (edition) {
+      panel.append(link('Buka hasil penerbitan →', articleURL(edition), 'primary'));
+    }
+    const chart = element('div');
+    grid.append(panel, chart);
+    app.append(grid, link('Lihat seluruh tim →', route('redaksi', edition?.date), 'more-link'));
+    network(chart, edition?.date, 'redaksi', role.id);
+    return role.name;
+  }
+
+  // Urutan mengikuti pipeline Horizon: Penyaring bekerja sebelum dan sesudah Analis.
+  function processPage(edition) {
+    const steps = [
+      ['pemantau', 'Mengumpulkan berita dari sumber.'],
+      ['penyaring', 'Menggabungkan entri yang mengarah ke berita sama.'],
+      ['analis', 'Menilai relevansi dan isi berita.'],
+      ['penyaring', 'Memilih berita untuk edisi ini.'],
+      ['penulis', 'Menyiapkan draf Bahasa Indonesia.'],
+      ['editor', 'Mencocokkan klaim draf dengan sumber.']
+    ];
+    if (edition?.stats.revised > 0) {
+      steps.push(['penulis', 'Merevisi draf sesuai catatan Editor.'], ['editor', 'Memeriksa kembali hasil revisi.']);
+    }
+    steps.push(['penerbit', 'Menerbitkan edisi dan memperbarui arsip.']);
+    app.append(pageHead('Putar ulang proses', 'Tim redaksi AI', edition ? 'Edisi ' + dateLabel(edition.date) : 'Alur kerja redaksi'));
+    const grid = element('div', 'detail-grid');
+    const panel = element('section', 'detail-panel');
+    const stepNo = element('p', 'role-label');
+    const current = element('h2');
+    const desc = element('p', 'step-text');
+    const result = element('p', 'metric');
+    const controls = element('div', 'controls');
+    const play = element('button', 'control');
+    const next = element('button', 'control', 'Tahap berikutnya');
+    const details = link('', '#', 'more-link');
+    controls.append(play, next);
+    panel.append(stepNo, current, desc, result, controls, details);
+    const chart = element('div');
+    grid.append(panel, chart);
+    const strip = element('ol', 'step-list');
+    const badges = steps.map(([id]) => {
+      const badge = element('li', '', byId.get(id).name);
+      badge.style.setProperty('--tint', byId.get(id).color);
+      return badge;
+    });
+    strip.append(...badges);
+    app.append(grid, strip);
+    const light = network(chart, edition?.date);
+    let index = 0, timer = null, playing = !reduced.matches && !document.hidden;
+    function renderStep() {
+      clearTimeout(timer);
+      const [id, note] = steps[index];
+      const role = byId.get(id);
+      const last = index === steps.length - 1;
+      if (last) playing = false;
+      stepNo.textContent = 'Tahap ' + (index + 1) + ' dari ' + steps.length;
+      current.textContent = role.name;
+      desc.textContent = note;
+      result.textContent = roleResult(role, edition);
+      result.hidden = !result.textContent;
+      details.textContent = 'Tugas ' + role.name + ' →';
+      details.href = route('bot/' + id, edition?.date);
+      play.textContent = last ? 'Ulang dari awal' : playing ? 'Jeda' : 'Putar';
+      next.disabled = last;
+      badges.forEach((badge, i) => {
+        if (i === index) badge.setAttribute('aria-current', 'step');
+        else badge.removeAttribute('aria-current');
+      });
+      light(id);
+      if (playing) timer = setTimeout(() => { index++; renderStep(); }, 2600);
+    }
+    play.addEventListener('click', () => {
+      if (index === steps.length - 1) index = 0;
+      playing = !playing;
+      renderStep();
+    });
+    next.addEventListener('click', () => { playing = false; index++; renderStep(); });
+    function pauseHidden() {
+      if (document.hidden || reduced.matches) { playing = false; renderStep(); }
+    }
+    document.addEventListener('visibilitychange', pauseHidden);
+    reduced.addEventListener('change', pauseHidden);
+    leavePage.push(() => {
+      clearTimeout(timer);
+      document.removeEventListener('visibilitychange', pauseHidden);
+      reduced.removeEventListener('change', pauseHidden);
+    });
+    renderStep();
+    return 'Putar ulang proses';
+  }
+
+  function addTopics(reader, hrefFor) {
+    const headings = [...reader.querySelectorAll('.story h2[id]')];
+    if (!headings.length) return;
+    const nav = element('nav', 'topic-nav');
+    nav.setAttribute('aria-label', 'Pilih topik');
+    nav.append(element('strong', '', 'Pilih topik'));
+    headings.forEach(heading => nav.append(link(heading.textContent, hrefFor(heading.id))));
+    reader.prepend(nav);
+  }
+
+  // Pratinjau HP menyimpan artikel dalam template lokal. Di GitHub Pages artikel memakai URL Jekyll asli.
+  function snapshotPage(edition) {
+    const source = document.getElementById('edisi-' + edition.date);
+    if (!source) return missingPage();
+    const title = 'Edisi ' + dateLabel(edition.date);
+    const reader = element('article', 'reader');
+    const story = element('div', 'story');
+    story.append(source.content.cloneNode(true));
+    const anchorFor = id => articleURL(edition, id);
+    for (const anchor of story.querySelectorAll('a[href^="#"]')) {
+      anchor.href = anchorFor(anchor.getAttribute('href').slice(1));
+    }
+    reader.append(story);
+    addTopics(reader, anchorFor);
+    app.append(pageHead(title, 'Edisi harian'), reader, team(edition.date));
+    return title;
+  }
+
+  function missingPage() {
+    app.append(pageHead('Halaman tidak ditemukan', '', 'Pilih tanggal yang tersedia di arsip berita.'),
+      link('Buka arsip berita →', route('arsip'), 'primary'));
+    return 'Halaman tidak ditemukan';
+  }
+
+  function navState(homeView, about, inArchive) {
+    document.querySelector('.nav-home').hidden = homeView;
+    const brand = document.querySelector('.brand');
+    brand.href = about ? route() : route('redaksi');
+    brand.setAttribute('aria-label', 'HORIZON GANZ — ' + (about ? 'beranda' : 'profil redaksi'));
+    const archiveLink = document.querySelector('.nav-archive');
+    if (inArchive) archiveLink.setAttribute('aria-current', 'page');
+    else archiveLink.removeAttribute('aria-current');
+  }
+
+  function render(focus = false) {
+    if (location.hash === '#utama') { app.focus(); return; }
+    const parts = location.hash.replace(/^#\/?/, '').split('/');
+    const [view, key, third, extra] = parts;
+    const date = view === 'bot' ? third : key;
+    const edition = date ? editions.find(item => item.date === date) : latest;
+    resetPage();
+    navState(!view, view === 'redaksi', view === 'arsip');
+    let title;
+    if (!view) title = homePage();
+    else if (view === 'arsip') title = archivePage();
+    else if (view === 'redaksi' && (!date || edition)) title = aboutPage(edition);
+    else if (view === 'bot' && byId.has(key) && (!date || edition)) title = rolePage(byId.get(key), edition);
+    else if (view === 'proses' && (!date || edition)) title = processPage(edition);
+    else if (offline && view === 'edisi' && edition && !extra) title = snapshotPage(edition);
+    else title = missingPage();
+    document.title = title + ' · HORIZON GANZ';
+    if (focus) app.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+    if (offline && view === 'edisi' && third) {
+      let id;
+      try { id = decodeURIComponent(third); } catch { return; }
+      document.getElementById(id)?.scrollIntoView();
+    }
+  }
+
+  if (dashboard) {
+    // Route hash bekerja saat file HTML dibuka langsung, termasuk tombol Kembali pada HP.
+    window.addEventListener('hashchange', () => render(true));
+    render();
+  } else {
+    navState(false, false, false);
+    const reader = document.querySelector('.reader[data-reader-date]');
+    if (reader) addTopics(reader, id => '#' + encodeURIComponent(id));
+    const slot = document.querySelector('[data-edition-team]');
+    if (slot) slot.replaceChildren(team(slot.dataset.date));
+  }
+})();
+
+</script>
+</body>
+</html>
