@@ -1,3 +1,102 @@
 <!doctype html>
-<html lang="{{ page.lang | default: 'id' }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ page.title | escape }} · Horizon GANZ</title><link rel="stylesheet" href="{{ '/assets/radar.css' | relative_url }}"><script defer src="{{ '/assets/radar.js' | relative_url }}"></script></head>
-<body><main><nav><a class="brand" href="{{ '/' | relative_url }}">◉ HORIZON <b>GANZ</b></a><a href="{{ '/#arsip' | relative_url }}">Arsip berita ↗</a></nav>{{ content }}</main></body></html>
+<html lang="{{ page.lang | default: 'id' | escape }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#090d10">
+  <title>{{ page.title | escape }} · HORIZON GANZ</title>
+  <link rel="stylesheet" href="{{ '/assets/radar.css' | relative_url }}">
+  <script defer src="{{ '/assets/radar.js' | relative_url }}"></script>
+</head>
+<body data-home="{{ '/' | relative_url }}" data-dashboard="{% if page.dashboard %}yes{% endif %}">
+  <a class="skip" href="#utama">Langsung ke isi</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="{{ '/' | relative_url }}#/redaksi" aria-label="HORIZON GANZ — profil redaksi">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span>HORIZON <b>GANZ</b></span>
+      </a>
+      <nav class="top-nav" aria-label="Menu utama">
+        <a class="nav-home" href="{{ '/' | relative_url }}#/">Beranda</a>
+        <a class="nav-archive" href="{{ '/' | relative_url }}#/arsip">
+          <span class="archive-icon" aria-hidden="true"></span>Arsip berita
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="utama" class="wrap" tabindex="-1">
+    {% if page.dashboard %}
+    <!-- Jekyll mengisi daftar ini dari arsip asli. JS membacanya sebelum menggambar beranda. -->
+    <section class="fallback"><h1>Arsip berita</h1>
+      <noscript>Aktifkan JavaScript untuk membuka jaringan bot. Edisi tetap bisa dibaca melalui tautan berikut.</noscript>
+      {% for post in site.posts %}
+      <a class="fallback-link" href="{{ post.url | relative_url | escape }}"
+         data-edition-date="{{ post.date | date: '%Y-%m-%d' }}"
+         data-lang="{{ post.lang | escape }}"
+         data-trending="{% if post.content contains '## Repository Trending' or post.content contains 'id="repository-trending"' %}yes{% endif %}"
+         data-collected="{{ post.collected }}" data-unique="{{ post.unique_items }}"
+         data-analyzed="{{ post.analyzed }}" data-selected="{{ post.selected }}"
+         data-approved="{{ post.approved }}" data-revised="{{ post.revised }}">
+        {% include date-id.html date=post.date %}
+      </a>
+      {% endfor %}
+    </section>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </main>
+
+  <!-- Template tidak tampak sebelum dipakai. Satu desain dipakai oleh beranda, arsip dan tiap peran. -->
+  <template id="home-view">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal-bars" aria-hidden="true"></span>REDAKSI DIGITAL</p>
+        <h1>Radar berita<br><em>harian.</em></h1>
+        <p class="edition-line"></p>
+        <div class="actions">
+          <a class="primary latest-link">Baca edisi terbaru <span aria-hidden="true">→</span></a>
+          <a class="trending-link" hidden>Repository Trending <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="graph-mount"></div>
+    </section>
+  </template>
+
+  <template id="graph-view">
+    <div class="graph">
+      <div class="graph-top">
+        <span>Jaringan redaksi</span>
+        <button class="motion" type="button" aria-label="Jeda gerakan node" title="Jeda gerakan node"><i aria-hidden="true"></i></button>
+      </div>
+      <div class="arena">
+        <canvas aria-hidden="true"></canvas>
+        <a class="hub" aria-label="Bot pusat — lihat tim dan tugas redaksi" title="Lihat tim dan pembagian tugas">
+          <span class="hub-body" aria-hidden="true">
+            <span class="antenna"></span><span class="ear left"></span><span class="ear right"></span>
+            <span class="helmet"><span class="visor"><i></i><i></i></span><span class="vents"></span></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </template>
+
+  <template id="team-view">
+    <section class="team-section">
+      <div class="section-head">
+        <div><h2>Tim redaksi AI</h2><p class="team-note"></p></div>
+        <a class="replay-link"><span aria-hidden="true">↻</span> Putar ulang proses</a>
+      </div>
+      <div class="role-strip"></div>
+    </section>
+  </template>
+
+  <template id="archive-view">
+    <section class="archive-section">
+      <div class="section-head"><h2>Arsip berita</h2><span class="count"></span></div>
+      <div class="archive-list"></div>
+    </section>
+  </template>
+</body>
+</html>
