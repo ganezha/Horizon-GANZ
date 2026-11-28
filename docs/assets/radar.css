@@ -268,3 +268,34 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.045em; }
 @media (prefers-reduced-motion: reduce) {
   .arena .mascot, .arena .mascot::before, .arena .mascot::after { animation: none; }
 }
+
+/* Panel jaringan redaksi — tema HUD gelap */
+.graph {
+  background-color: #080f18;
+  background-image:
+    linear-gradient(rgba(74, 221, 195, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 221, 195, .07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid #315456;
+  border-radius: 16px;
+}
+
+/* Judul panel seperti terminal */
+.graph-top {
+  font-family: var(--mono);
+  color: #8af5cd;
+  letter-spacing: .06em;
+}
+
+.graph-top > span::before {
+  content: "> ";
+  color: #8af5cd;
+}
+
+/* Nama karakter tetap terbaca di atas kisi */
+.satellite-label {
+  background: #0c1822;
+  color: #e9fff8;
+  border: 1px solid #315456;
+  border-radius: 5px;
+}
