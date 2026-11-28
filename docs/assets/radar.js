@@ -261,17 +261,29 @@
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.quadraticCurveTo(bx, by, x, y);
+                // Kabel berwarna yang menghubungkan GANZ ke karakter.
         ctx.strokeStyle = p.color;
-        ctx.globalAlpha = active === p.id ? .96 : .26 + .25 * p.light;
-        ctx.lineWidth = active === p.id ? 2 : 1.15;
+        ctx.globalAlpha = active === p.id ? 1 : 0.65;
+        ctx.lineWidth = active === p.id ? 3 : 2;
         ctx.stroke();
-        // Piksel cahaya mengikuti kurva yang sama dengan kabel.
-        const t = p.phase, u = 1 - t;
+
+        // Posisi titik mengikuti lengkungan kabel.
+        const t = p.phase;
+        const u = 1 - t;
+        const dotX = u * u * cx + 2 * u * t * bx + t * t * x;
+        const dotY = u * u * cy + 2 * u * t * by + t * t * y;
+
+        // Lingkaran warna lembut dengan titik putih di tengah.
         ctx.beginPath();
-        ctx.arc(u*u*cx + 2*u*t*bx + t*t*x, u*u*cy + 2*u*t*by + t*t*y,
-          active === p.id ? 2.7 : 1.8, 0, Math.PI * 2);
+        ctx.arc(dotX, dotY, 5, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
-        ctx.globalAlpha = .35 + .65 * p.light;
+        ctx.globalAlpha = 0.45;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.globalAlpha = 1;
         ctx.fill();
         
       }
