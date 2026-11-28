@@ -221,7 +221,7 @@
     function springStep(p, now, dt) {
       // Target acak tetap dekat titik asal agar label antarnode tidak bertabrakan.
       if (now >= p.wake) {
-        const radius = p === center ? 2.8 : Math.min(9, width * .021);
+        const radius = p === center ? 2.8 : Math.min(15, width * .035);
         p.tx = random(-radius, radius);
         p.ty = random(-radius, radius);
         p.spring = random(16, 37);
