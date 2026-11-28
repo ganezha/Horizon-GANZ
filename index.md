@@ -1,6 +1,7 @@
 ---
 layout: radar
 title: Radar berita harian
+permalink: /arsip.html
 ---
 {% assign latest = site.posts.first %}
 <header><div class="orbit" aria-hidden="true"><span class="core"><i></i><i></i></span></div><small>REDAKSI DIGITAL</small><h1>Radar berita<br><em>harian.</em></h1>
