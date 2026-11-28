@@ -110,11 +110,10 @@
     }
   }
 
-  function miniBot() {
-    const bot = element('span', 'mini-bot');
-    bot.setAttribute('aria-hidden', 'true');
-    bot.append(element('i'), element('i'));
-    return bot;
+  function mascot(role) {
+    const face = element('span', 'mascot mascot-' + role.id);
+    face.setAttribute('aria-hidden', 'true');
+    return face;
   }
 
   function roleCard(role, date) {
@@ -123,7 +122,7 @@
     card.title = role.task;
     const label = element('span');
     label.append(element('strong', '', role.name), element('small', '', role.short));
-    card.append(miniBot(), label);
+    card.append(mascot(role), label);
     return card;
   }
 
@@ -203,7 +202,7 @@
       node.setAttribute('aria-label', role.name + ' — ' + role.short);
       node.title = role.task;
       node.style.setProperty('--tint', role.color);
-      node.append(element('span', 'gem'), element('span', 'satellite-label', role.name));
+      node.append(mascot(role), element('span', 'satellite-label', role.name));
       arena.append(node);
       return point(node, role.x, role.y, role.color, role.id);
     });
@@ -274,7 +273,7 @@
         ctx.fillStyle = p.color;
         ctx.globalAlpha = .35 + .65 * p.light;
         ctx.fill();
-        p.node.firstElementChild.style.opacity = String(.69 + p.light * .31);
+        
       }
       ctx.globalAlpha = 1;
     }
@@ -294,6 +293,7 @@
     function sync() {
       cancelAnimationFrame(frame);
       previous = 0;
+      graph.classList.toggle('still', userPaused || !visible || document.hidden);
       motion.setAttribute('aria-pressed', String(userPaused));
       motion.title = userPaused ? 'Aktifkan gerakan node' : 'Jeda gerakan node';
       motion.setAttribute('aria-label', motion.title);

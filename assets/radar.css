@@ -102,41 +102,8 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.045em; }
   transform: translate(-50%, -50%); touch-action: manipulation;
 }
 .hub { width: 100px; height: 78px; border-radius: 32px; }
-.hub::before {
-  content: ""; position: absolute; inset: -9px -4px; border-radius: 50%;
-  background: radial-gradient(ellipse, #7bffe129, transparent 71%);
-}
-.hub-body { position: relative; width: 78px; height: 56px; display: grid; place-items: center; }
-.helmet {
-  z-index: 1; position: relative; width: 100%; height: 100%; padding: 7px 6px 9px;
-  border-radius: 20px 20px 23px 23px; border: 1px solid #81aaa6;
-  background: linear-gradient(156deg,#92ada9 -15%,#516567 20%,#2d3d43 49%,#18262d 73%,#334645);
-  box-shadow: inset 0 2px 2px #e3fff35e, inset 0 -3px 4px #081315a6, 0 9px 13px #0007;
-}
-.visor {
-  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 13px;
-  border-radius: 13px 13px 16px 16px; background: linear-gradient(155deg,#193941,#0b191d 60%,#10272a);
-  border: 1px solid #657f7d; box-shadow: inset 0 3px 7px #0008;
-}
-.visor i {
-  width: 12px; height: 11px; border-radius: 5px; background: #a1ffde;
-  box-shadow: 0 0 8px #68fddcaa, 0 0 17px #3de9c278;
-}
-.vents { position: absolute; bottom: 3px; left: 42%; width: 17%; height: 2px; background: repeating-linear-gradient(90deg,#91b6ac 0 1px,transparent 1px 3px); }
-.antenna { position: absolute; bottom: 96%; width: 3px; height: 9px; background: #71978d; transform: rotate(8deg); }
-.antenna::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #a2f9db; position: absolute; top: -3px; left: -2px; box-shadow: 0 0 9px #95ffe299; }
-.ear { position: absolute; background: linear-gradient(#748f90,#283a40); border: 1px solid #698882; width: 8px; height: 22px; border-radius: 5px; top: 18px; }
-.ear.left { left: -5px; }
-.ear.right { right: -5px; }
 .satellite { width: 80px; height: 48px; align-content: center; gap: 3px; color: var(--tint); border-radius: 12px; }
-.gem {
-  width: 16px; height: 16px; border-radius: 6px; transform: rotate(45deg);
-  border: 1px solid var(--tint);
-  background: radial-gradient(circle at 28% 23%,#fff 0%,var(--tint) 21%,#152c34 78%);
-  box-shadow: 0 0 0 4px color-mix(in srgb,var(--tint) 10%,transparent), 0 0 16px color-mix(in srgb,var(--tint) 25%,transparent);
-}
 .satellite-label { font: 550 .77rem/1.3 var(--mono); padding: 2px 5px; background: #0c161be8; border-radius: 4px; }
-.satellite:is(:hover,:focus-visible,.lit) .gem { outline: 1px solid var(--tint); outline-offset: 4px; }
 
 /* Enam simpul tetap tersusun dalam kisi, termasuk pada layar kecil. */
 .team-section, .archive-section { padding-block: clamp(24px, 3.2vw, 42px); }
@@ -158,13 +125,6 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.045em; }
   background: linear-gradient(130deg, color-mix(in srgb,var(--tint) 6%,#101619),#101619 80%);
 }
 .role-card:hover, .role-card:focus-visible { border-color: var(--tint); }
-.mini-bot {
-  display: inline-flex; flex-shrink: 0; position: relative; align-items: center; justify-content: center; gap: 3px;
-  width: 28px; height: 23px; border-radius: 8px; color: var(--tint);
-  border: 1.5px solid currentColor; background: color-mix(in srgb,var(--tint) 9%,#101619);
-}
-.mini-bot::before { content:""; position:absolute; bottom:100%; left:48%; width:2px; height:4px; background:currentColor; }
-.mini-bot i { width: 4px; height: 5px; background: currentColor; border-radius: 2px; }
 .role-card strong, .role-card small { display: block; }
 .role-card strong { font-size: .96rem; letter-spacing: -.025em; }
 .role-card small { color: #a6b5b2; font-size: .78rem; margin-top: 2px; }
@@ -248,8 +208,63 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.045em; }
   .top-nav { gap: 8px; }
   .archive-icon, .date-icon { display: none; }
   .row-date { font-size: .84rem; }
-  .hub-body { transform: scale(.83); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+/* Satu wajah yang sama pada jaringan dan kartu peran. */
+.mascot {
+  --body: #222;
+  --angle: -6deg;
+  --delay: 0s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12%;
+  width: 44px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border-radius: 32%;
+  background: var(--body);
+  transform: rotate(var(--angle));
+}
+.mascot::before, .mascot::after {
+  content: "";
+  width: 14%;
+  height: 34%;
+  background: white;
+  border-radius: 99px;
+}
+.mascot-pemantau { --body: #167df2; }
+.mascot-penyaring { --body: #00ad9b; --angle: 12deg; --delay: -.8s; border-radius: 40% 32% 39% 28%; }
+.mascot-analis { --body: #9252ff; --angle: 32deg; --delay: -1.6s; border-radius: 25%; }
+.mascot-penulis { --body: #fa3199; --angle: 6deg; --delay: -2.4s; clip-path: polygon(50% 0,100% 86%,94% 100%,6% 100%,0 86%); padding-top: 12%; }
+.mascot-editor { --body: #ff7900; --delay: -3.2s; border-radius: 50%; }
+.mascot-penerbit { --body: #ffad00; --angle: 7deg; --delay: -4s; border-radius: 48% 62% 35% 44%; }
+.mascot-ganz { --body: #121214; width: 60px; border-radius: 50%; outline: 2px solid #a7afbb; }
+.role-card .mascot { width: 28px; }
+.role-card .mascot-penulis { padding-top: 4px; }
+.satellite .mascot-penulis { padding-top: 6px; }
+.satellite { height: 62px; }
+.satellite-label { color: #f4f6fc; }
+.arena .mascot { animation: mascot-bob 3.2s ease-in-out var(--delay) infinite; }
+.arena .mascot::before, .arena .mascot::after { animation: mascot-blink 4.9s var(--delay) infinite; }
+.satellite:is(:hover,:focus-visible,.lit) .mascot { scale: 1.12; }
+.satellite:active .mascot { scale: 1.14 .86; }
+.graph.still .mascot, .graph.still .mascot::before, .graph.still .mascot::after { animation-play-state: paused; }
+@keyframes mascot-bob {
+  50% { transform: translateY(-4px) rotate(calc(var(--angle) + 6deg)); }
+}
+@keyframes mascot-blink {
+  0%, 42%, 47%, 100% { transform: scaleY(1); }
+  44% { transform: scaleY(.12); }
+}
+@media (max-width: 440px) {
+  .arena { height: 268px; }
+  .satellite .mascot { width: 36px; }
+  .hub .mascot { width: 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arena .mascot, .arena .mascot::before, .arena .mascot::after { animation: none; }
 }
