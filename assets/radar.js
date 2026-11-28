@@ -130,7 +130,9 @@
     const section = template('team-view');
     section.querySelector('.team-note').textContent = (date ? 'Edisi ' + dateLabel(date) + '. ' : '')
       + 'Sentuh bot untuk melihat tugasnya.';
-    section.querySelector('.replay-link').href = route('proses', date);
+    const tombolBerita = section.querySelector('.replay-link');
+    tombolBerita.textContent = '↻ Perbarui berita';
+    tombolBerita.href = 'https://github.com/ganezha/Horizon-GANZ/actions/workflows/daily-summary.yml';
     section.querySelector('.role-strip').append(...roles.map(role => roleCard(role, date)));
     return section;
   }
