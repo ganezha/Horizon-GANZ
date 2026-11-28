@@ -299,3 +299,37 @@ h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.045em; }
   border: 1px solid #315456;
   border-radius: 5px;
 }
+
+/* Badan lentur, dengan tumpuan sedikit di bawah tengah */
+.arena .mascot {
+  transform-origin: 50% 75%;
+  animation-name: mascot-jelly;
+  animation-timing-function: ease-in-out;
+  transition: scale 180ms ease-out;
+}
+
+.arena .mascot-pemantau  { animation-duration: 2.4s; }
+.arena .mascot-penyaring { animation-duration: 2.9s; }
+.arena .mascot-analis    { animation-duration: 3.6s; }
+.arena .mascot-penulis   { animation-duration: 2.6s; }
+.arena .mascot-editor    { animation-duration: 4.2s; }
+.arena .mascot-penerbit  { animation-duration: 3.2s; }
+.arena .mascot-ganz      { animation-duration: 4.8s; }
+
+@keyframes mascot-jelly {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--angle)) scale(1);
+  }
+  18% {
+    transform: translateY(2px) rotate(var(--angle)) scale(1.07, .94);
+  }
+  42% {
+    transform: translateY(-5px) rotate(calc(var(--angle) + 3deg)) scale(.95, 1.07);
+  }
+  68% {
+    transform: translateY(1px) rotate(calc(var(--angle) - 2deg)) scale(1.05, .96);
+  }
+  82% {
+    transform: translateY(-1px) rotate(var(--angle)) scale(.99, 1.02);
+  }
+}
